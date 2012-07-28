@@ -1,0 +1,7 @@
+; $Id$
+name = Mukurtu Platform
+description = Database updates for Mukurtu
+package = Mukurtu
+core = 7.x
+files[] = mukurtu_platform.module
+files[] = mukurtu_platform.install

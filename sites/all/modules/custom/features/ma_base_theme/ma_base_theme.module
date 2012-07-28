@@ -1,0 +1,119 @@
+<?php
+/**
+ * @file
+ * Code for the Mukurtu Base Theme feature.
+ */
+
+include_once('ma_base_theme.features.inc');
+
+/**
+ * Implements hook_form_alter().
+ */
+function ma_base_theme_form_alter(&$form, &$form_state, $form_id) {
+  switch ($form_id) {
+    case 'user_login_block':
+      $form['name']['#attributes']['placeholder'] = t('Username');
+      $form['pass']['#attributes']['placeholder'] = t('Password');
+      break;
+    case 'comment_node_digital_heritage_form':
+      $form['subject']['#size'] = '10';
+      break;
+
+    // Browse Archive Views Bulk Operations.
+    case 'views_form_ma_browse_page':
+
+      // Make fieldset not collapsible.
+      $form['select']['#collapsible'] = FALSE;
+
+      // Change Operations from a fieldset legend to an h2 for omega placement.
+      unset($form['select']['#title']);
+      $form['operations'] = array(
+        '#type' => 'markup',
+        '#markup' => 'Operations',
+        '#prefix' => '<h3 id="vbo-operations" class="grid-2">',
+        '#suffix' => '</h3>',
+      );
+
+      // Re-order the form so that the h2 appears before the other VBO elements.
+      $select = $form['select'];
+      unset($form['select']);
+      $form['select'] = $select;
+            
+      if(!empty($form['select_all_markup'])){
+        $select_all_markup = $form['select_all_markup'];
+        unset($form['select_all_markup']);
+        $form['select_all_markup'] = $select_all_markup;
+      }
+
+      // Give operations dropdown some omega placement.
+      $form['select']['#attributes']['class'][] = 'grid-4';      
+      break;
+
+    // Browse Archive Views Exposed Filters.
+    case 'views_exposed_form':
+      if (substr($form['#id'], 0, 33) == 'views-exposed-form-ma-browse-page') {
+        $form['keys']['#attributes']['placeholder'] = t('Or search by keyword');
+      }
+      
+      // http://drupal.org/node/1661030
+      $form['label'] = array();
+      $form['label']['#type'] = 'checkboxes';
+      $form['label']['#default_value'] = array();
+      $form['label']['#multiple'] = true;
+      $form['label']['#options'] = ma_base_theme_browse_get_view_options();
+      $form['label']['#size'] = 2; 
+
+      break;
+  }
+}
+
+
+function ma_base_theme_views_query_alter(&$view, &$query) {
+  $count = 0;
+
+  if(isset($view->exposed_raw_input['label']) && $view->name == 'ma_browse') {
+    foreach($view->exposed_raw_input['label'] as $key) {
+      if(!empty($view->exposed_raw_input['label'][$key])) {
+        $count++;
+      }
+    }
+  }
+
+	if($view->name == 'ma_browse') {
+    $condition_count = 0;
+    $unset = false;
+		foreach($query->where as &$condition_group) {
+		  foreach($condition_group['conditions'] as &$condition) {
+  		  if($condition['field'] == 'og_og_membership.label') {
+  			   if ($count >= 1) {
+    				$condition = array(
+    					'field' => 'og_og_membership.label',
+    					'value' => $view->exposed_raw_input['label'],
+    					'operator' => 'IN',
+    				);
+    				$view->exposed_data['label'] = $view->exposed_raw_input['label'];
+  				}
+  				elseif($count === 0){
+  				  $condition['value'] = '';
+  				  $unset = $condition_count;
+  				}
+  		  }
+		  }
+      $condition_count++;
+    }
+    // Remove the query if there are no items in the filter.
+    if(isset($unset) && isset($condition_count) && $count == 0) {
+      unset($query->where[$condition_count]['conditions'][$condition_count]);
+      $view->exposed_data['label'] = array();
+    }
+  }
+}
+
+function ma_base_theme_browse_get_view_options() {
+  $view = views_get_view_result('ma_groups_autocomplete', 'page_1'); 
+  $items = array();
+  foreach ($view as $item) {
+    $items[$item->node_title] = (string) $item->node_title;
+  }
+  return $items;
+}

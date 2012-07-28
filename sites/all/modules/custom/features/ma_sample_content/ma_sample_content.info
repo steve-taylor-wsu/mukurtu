@@ -1,0 +1,7 @@
+name = Mukurtu Sample Content
+core = 7.x
+package = Features
+features[content][] = ma_demo_cp_media
+features[content][] = ma_demo_starter_community
+features[content][] = ma_demo_starter_digital_heritage
+features[features_api][] = api:1

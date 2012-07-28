@@ -1,0 +1,24 @@
+#autoincrement was being difficult.
+
+
+INSERT INTO users  (uid, name, pass, mail, status, created)
+VALUES
+(141,'Chris Demo', '$S$DNyrm/IR38AbMcYEFDaTkWzaE8XwQ0FkVDhmeH0/vwj/20jHeDo/', 'chacha+Chris@mukurtu.org','1', '1338262562');
+INSERT INTO users  (uid, name, pass, mail, status, created)
+VALUES
+(142,'Beryl Demo', '$S$DcGCWfd9b5RMeF9iixvVQb6eMyFKHCaTOmixN2manxEoOvOVvyra', 'chacha+Beryl@mukurtu.org','1', '1338262562');
+INSERT INTO users  (uid, name, pass, mail, status, created)
+VALUES
+(143,'Alberto Demo', '$S$D/pLWO7Q5gLfPmaSykWOTjBqZUl49l10vm5ZONR0oPJSDQ/pSSzU', 'chacha+Alberto@mukurtu.org','1', '1338262562');
+INSERT INTO users  (uid, name, pass, mail, status, created)
+VALUES
+(144,'Gordon Demo', '$S$DLAhKuCxBSxXVExoDUs7KqmzhK5Z31wAYYDfqyClcP.IDE8d4Gt5', 'chacha+Gordon@mukurtu.org','1', '1338262562');
+INSERT INTO users  (uid, name, pass, mail, status, created)
+VALUES
+(145,'Florence Demo', '$S$Da98Y/FxBKFIvlKbKv9jTHpqhbwPk7kjSgOK8aVbsniGhzPUnfMm', 'chacha+Florence@mukurtu.org','1', '1338262562');
+INSERT INTO users  (uid, name, pass, mail, status, created)
+VALUES
+(146,'Ernesto Demo', '$S$DrjcgP2PoPSxkiN9LjoVZnXqLjtoroNyazcUKhNZA0NGmUwdHvth', 'chacha+Ernesto@mukurtu.org','1', '1338262562');
+INSERT INTO users  (uid, name, pass, mail, status, created)
+VALUES
+(147,'Debby Demo', '$S$DHzQQjQ./TH8esajhgW95sOjp5Im4oMcFhUrfvguSLPmeBh3ami8', 'chacha+Debby@mukurtu.org','1', '1338262562');

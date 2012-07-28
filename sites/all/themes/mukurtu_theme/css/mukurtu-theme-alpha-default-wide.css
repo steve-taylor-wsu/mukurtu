@@ -1,0 +1,45 @@
+/* This file will hold styles that are loaded using the same media query as the wide grid. */
+
+body.page-node .grid-10.region-content,
+body.page-media .grid-10.region-content {
+  padding-right: 200px;
+  width: 780px;
+}
+
+body.page-node-add.page-node .grid-10.region-content,
+body.page-node-add.page-media .grid-10.region-content,
+body.page-node-edit.page-node .grid-10.region-content,
+body.page-node-edit.page-media .grid-10.region-content {
+  padding-right: 0;
+  width: 980px;
+}
+
+body.page-node.node-type-digital-heritage .region-content {
+  background: transparent url('../images/digital_heritage_bg_wide.png') top left repeat-y;
+}
+
+body.page-node-add.node-type-digital-heritage .region-content,
+body.page-node-edit.node-type-digital-heritage .region-content {
+  background-image: none;
+  background-color: #F1F2F2;
+}
+
+body.node-type-digital-heritage .view-mode-full .group-left .field-type-media img {
+  width: 580px;
+/*   height: 580px; */
+}
+
+table.views-view-grid .field-type-media img,
+body.node-type-digital-heritage .group-right .field-type-media img {
+  width: 180px;
+  height: 180px;
+}
+
+table.views-view-grid .field-name-title h2 {
+  width: 160px;
+}
+
+table.views-view-grid.cols-6 td.grid-2 {
+  width: 180px;
+}
+

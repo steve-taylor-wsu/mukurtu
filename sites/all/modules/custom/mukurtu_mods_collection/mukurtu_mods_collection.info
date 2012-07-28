@@ -1,0 +1,6 @@
+; $Id:$
+name = Mukurtu Collection Modifications
+description = "Mukurtu Collection modifications"
+package = Mukurtu
+core = 7.x
+files[] = mukurtu_mods_collection.module

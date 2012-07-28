@@ -1,0 +1,1055 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions
+ */
+
+function mukurtu_platform_install() {
+  drupal_set_message('Installing Mukurtu Platform.');
+
+  // Permissions set via db sql script due to inability to set all of the media permissions.
+  // Passwords for demo users also set. Ideally this would be included in the installer.
+  
+  // mukurtu_platform_set_permissions();
+  mukurtu_platform_add_users();
+
+  // Set site frontpage.
+  variable_set('site_frontpage', 'home');
+  variable_set('site_403', 'access-denied'); 
+  variable_set('site_404', 'page-not-found'); 
+
+  mukurtu_platform_load_file_display_table();
+  mukurtu_platform_load_og_role_permission_table();
+  mukurtu_platform_load_user_insert_table();
+  
+  // Functions that are only called when admin/build/modules form is submitted.
+  menu_rebuild();
+  
+  // Rebuild permissions.
+  node_access_rebuild(TRUE);
+}
+
+function mukurtu_platform_set_permissions() {
+
+  $roles = user_roles(TRUE);
+  $anonymous_user = 1;
+  $authenticated_user = array_search('authenticated user', $roles);
+  $librarian = array_search('Librarian', $roles);
+  $mukurtu_administrator = array_search('Mukurtu Administrator', $roles);
+  $site_administrator = array_search('Site Administrator', $roles);
+  $tribal_administrator = array_search('Tribal Administrator', $roles);
+  $administrator = array_search('administrator', $roles);
+  
+  user_role_grant_permissions($anonymous_user, 
+    array(
+      "access content",
+      "search content",
+      "use text format filtered_html",
+      "view file"
+    ));
+  
+  user_role_grant_permissions($authenticated_user, 
+    array(
+      "access comments",
+      "access content",
+      "access content overview",
+      "access site-wide contact form",
+      "access user contact forms",
+      "access user profiles",
+      "add media from remote sources",
+      "cancel account",
+      "create digital_heritage content",
+      "create ma_collection content",
+      "delete own digital_heritage content",
+      "delete own ma_collection content",
+      "download media",
+      "edit own digital_heritage content",
+      "edit own ma_collection content",
+      "edit own tags",
+      "export media in zip format",
+      "filter media",
+      "media grid view",
+      "media list view",
+      "opt-in or out of tracking",
+      "post comments",
+      "preview media",
+      "search content",
+      "tag content",
+      "translate content",
+      "upload media",
+      "use advanced search",
+      "use text format filtered_html",
+      "view advanced help index",
+      "view advanced help popup",
+      "view advanced help topic",
+      "view file",
+      "view own unpublished content",
+      "view revisions",
+      "view the administration theme"
+    ));
+  
+  user_role_grant_permissions($administrator,
+    array(
+      "access administration menu",
+      "access administration pages",
+      "access all views",
+      "access backup and migrate",
+      "access backup files",
+      "access contextual links",
+      "access dashboard",
+      "access devel information",
+      "access media backend",
+      "access site in maintenance mode",
+      "access site reports",
+      "access site-wide contact form",
+      "access user contact forms",
+      "administer actions",
+      "administer backup and migrate",
+      "administer blocks",
+      "administer boxes",
+      "administer comments",
+      "administer contact forms",
+      "administer content types",
+      "administer delta",
+      "administer delta blocks",
+      "administer features",
+      "administer feeds",
+      "administer feeds_tamper",
+      "administer fieldgroups",
+      "administer files",
+      "administer filters",
+      "administer flags",
+      "administer google analytics",
+      "administer group",
+      "administer image metadata",
+      "administer image styles",
+      "administer languages",
+      "administer media folders",
+      "administer menu",
+      "administer mini panels",
+      "administer modernizr",
+      "administer modules",
+      "administer nodes",
+      "administer oembed",
+      "administer page manager",
+      "administer panel-nodes",
+      "administer site configuration",
+      "administer software updates",
+      "administer themes",
+      "administer url aliases",
+      "administer views",
+      "admin_display_suite",
+      "admin_fields",
+      "admin_view_modes",
+      "block IP addresses",
+      "bypass node access",
+      "clear digital_heritage_metadata feeds",
+      "clear import_categories feeds",
+      "clear import_collection feeds",
+      "clear import_communities feeds",
+      "clear import_cultural_protocols feeds",
+      "clear import_users feeds",
+      "create article content",
+      "create community content",
+      "create cultural_protocol_group content",
+      "create ma_collection content",
+      "create mini panels",
+      "create page content",
+      "create panel content",
+      "create panel-nodes",
+      "create url aliases",
+      "delete any article content",
+      "delete any community content",
+      "delete any cultural_protocol_group content",
+      "delete any digital_heritage content",
+      "delete any ma_collection content",
+      "delete any page content",
+      "delete any panel content",
+      "delete any panel-nodes",
+      "delete backup files",
+      "delete own article content",
+      "delete own community content",
+      "delete own cultural_protocol_group content",
+      "delete own digital_heritage content",
+      "delete own ma_collection content",
+      "delete own page content",
+      "delete own panel content",
+      "delete own panel-nodes",
+      "delete revisions",
+      "delete terms in 1",
+      "delete terms in 2",
+      "display drupal links",
+      "display source code",
+      "download media",
+      "edit any article content",
+      "edit any community content",
+      "edit any cultural_protocol_group content",
+      "edit any digital_heritage content",
+      "edit any ma_collection content",
+      "edit any page content",
+      "edit any panel content",
+      "edit any panel-nodes",
+      "edit boxes",
+      "edit file",
+      "edit node machine name",
+      "edit own article content",
+      "edit own comments",
+      "edit own community content",
+      "edit own cultural_protocol_group content",
+      "edit own ma_collection content",
+      "edit own page content",
+      "edit own panel content",
+      "edit own panel-nodes",
+      "execute php code",
+      "filter media",
+      "flush caches",
+      "import digital_heritage_metadata feeds",
+      "import import_categories feeds",
+      "import import_collection feeds",
+      "import import_communities feeds",
+      "import import_cultural_protocols feeds",
+      "import import_users feeds",
+      "import media",
+      "manage features",
+      "media grid view",
+      "media list view",
+      "perform backup",
+      "preview media",
+      "restore from backup",
+      "revert revisions",
+      "skip comment approval",
+      "switch users",
+      "tamper digital_heritage_metadata",
+      "tamper import_categories",
+      "tamper import_collection",
+      "tamper import_communities",
+      "tamper import_cultural_protocols",
+      "tamper import_users",
+      "translate content",
+      "translate interface",
+      "upload media",
+      "use advanced search",
+      "use page manager",
+      "use text format ds_code",
+      "use text format filtered_html",
+      "use text format full_html",
+      "view advanced help index",
+      "view advanced help popup",
+      "view advanced help topic",
+      "view file",
+      "view the administration theme"
+    ));
+  
+  user_role_grant_permissions($librarian, 
+    array(
+      "access administration menu",
+      "access administration pages",
+      "access content overview",
+      "access contextual links",
+      "access dashboard",
+      "access media backend",
+      "access site in maintenance mode",
+      "access site reports",
+      "administer feeds",
+      "administer feeds_tamper",
+      "administer image metadata",
+      "administer media folders",
+      "administer nodes",
+      "administer oembed",
+      "administer taxonomy",
+      "administer url aliases",
+      "create community content",
+      "create cultural_protocol_group content",
+      "create digital_heritage content",
+      "create page content",
+      "create url aliases",
+      "delete any community content",
+      "delete any cultural_protocol_group content",
+      "delete any digital_heritage content",
+      "delete any ma_collection content",
+      "delete any page content",
+      "delete own community content",
+      "delete own cultural_protocol_group content",
+      "delete own digital_heritage content",
+      "delete own page content",
+      "delete revisions",
+      "download media",
+      "edit any community content",
+      "edit any cultural_protocol_group content",
+      "edit any digital_heritage content",
+      "edit any ma_collection content",
+      "edit any page content",
+      "edit file",
+      "edit own comments",
+      "edit own community content",
+      "edit own cultural_protocol_group content",
+      "edit own digital_heritage content",
+      "edit own page content",
+      "import digital_heritage_metadata feeds",
+      "import import_categories feeds",
+      "import import_collection feeds",
+      "import import_communities feeds",
+      "import import_cultural_protocols feeds",
+      "import import_users feeds",
+      "import media",
+      "revert revisions",
+      "skip comment approval",
+      "tamper digital_heritage_metadata",
+      "tamper import_categories",
+      "tamper import_collection",
+      "tamper import_communities",
+      "tamper import_cultural_protocols",
+      "tamper import_users",
+      "translate content",
+      "translate interface",
+      "use advanced search",
+      "use text format ds_code",
+      "use text format full_html",
+      "view advanced help index",
+      "view advanced help popup",
+      "view advanced help topic",
+      "view own unpublished content"
+    ));
+  
+  user_role_grant_permissions($mukurtu_administrator, 
+    array(
+      "access administration menu",
+      "access administration pages",
+      "access content overview",
+      "access contextual links",
+      "access dashboard",
+      "access media backend",
+      "access site in maintenance mode",
+      "access site reports",
+      "access user profiles",
+      "administer boxes",
+      "administer comments",
+      "administer feeds",
+      "administer image metadata",
+      "administer image styles",
+      "administer languages",
+      "administer media folders",
+      "administer nodes",
+      "administer oembed",
+      "administer search",
+      "administer shortcuts",
+      "administer taxonomy",
+      "administer url aliases",
+      "administer users",
+      "block IP addresses",
+      "cancel account",
+      "change own username",
+      "create community content",
+      "create cultural_protocol_group content",
+      "create digital_heritage content",
+      "create page content",
+      "create url aliases",
+      "customize shortcut links",
+      "delete any community content",
+      "delete any cultural_protocol_group content",
+      "delete any digital_heritage content",
+      "delete any ma_collection content",
+      "delete any page content",
+      "delete own community content",
+      "delete own cultural_protocol_group content",
+      "delete own digital_heritage content",
+      "delete own page content",
+      "delete revisions",
+      "edit any community content",
+      "edit any cultural_protocol_group content",
+      "edit any digital_heritage content",
+      "edit any ma_collection content",
+      "edit any page content",
+      "edit boxes",
+      "edit file",
+      "edit own comments",
+      "edit own community content",
+      "edit own cultural_protocol_group content",
+      "edit own digital_heritage content",
+      "edit own page content",
+      "import digital_heritage_metadata feeds",
+      "import import_categories feeds",
+      "import import_collection feeds",
+      "import import_communities feeds",
+      "import import_cultural_protocols feeds",
+      "import import_users feeds",
+      "import media",
+      "revert revisions",
+      "search content",
+      "skip comment approval",
+      "translate content",
+      "translate interface",
+      "use advanced search",
+      "use text format ds_code",
+      "use text format full_html",
+      "view advanced help index",
+      "view advanced help popup",
+      "view advanced help topic",
+      "view own unpublished content",
+      "view revisions"
+    ));
+  
+  user_role_grant_permissions($site_administrator, 
+    array(
+      "access administration menu",
+      "access administration pages",
+      "access all views",
+      "access backup and migrate",
+      "access backup files",
+      "access comments",
+      "access content",
+      "access content overview",
+      "access contextual links",
+      "access dashboard",
+      "access devel information",
+      "access media backend",
+      "access site in maintenance mode",
+      "access site reports",
+      "access site-wide contact form",
+      "access user contact forms",
+      "access user profiles",
+      "add media from remote sources",
+      "administer actions",
+      "administer advanced pane settings",
+      "administer backup and migrate",
+      "administer blocks",
+      "administer boxes",
+      "administer comments",
+      "administer contact forms",
+      "administer content types",
+      "administer delta",
+      "administer delta blocks",
+      "administer features",
+      "administer feeds",
+      "administer feeds_tamper",
+      "administer fieldgroups",
+      "administer files",
+      "administer filters",
+      "administer flags",
+      "administer google analytics",
+      "administer group",
+      "administer image metadata",
+      "administer image styles",
+      "administer languages",
+      "administer media folders",
+      "administer menu",
+      "administer mini panels",
+      "administer modernizr",
+      "administer modules",
+      "administer nodes",
+      "administer oembed",
+      "administer page manager",
+      "administer pane access",
+      "administer panels layouts",
+      "administer panels styles",
+      "administer permissions",
+      "administer search",
+      "administer shortcuts",
+      "administer site configuration",
+      "administer software updates",
+      "administer taxonomy",
+      "administer themes",
+      "administer url aliases",
+      "administer users",
+      "administer views",
+      "admin_display_suite",
+      "admin_fields",
+      "admin_view_modes",
+      "block IP addresses",
+      "bypass node access",
+      "cancel account",
+      "change layouts in place editing",
+      "change own username",
+      "clear digital_heritage_metadata feeds",
+      "clear import_categories feeds",
+      "clear import_collection feeds",
+      "clear import_communities feeds",
+      "clear import_cultural_protocols feeds",
+      "clear import_users feeds",
+      "create article content",
+      "create community content",
+      "create cultural_protocol_group content",
+      "create digital_heritage content",
+      "create mini panels",
+      "create page content",
+      "create url aliases",
+      "customize shortcut links",
+      "delete any article content",
+      "delete any community content",
+      "delete any cultural_protocol_group content",
+      "delete any digital_heritage content",
+      "delete any ma_collection content",
+      "delete any page content",
+      "delete backup files",
+      "delete own article content",
+      "delete own community content",
+      "delete own cultural_protocol_group content",
+      "delete own digital_heritage content",
+      "delete own ma_collection content",
+      "delete own page content",
+      "delete revisions",
+      "display drupal links",
+      "display source code",
+      "edit any article content",
+      "edit any community content",
+      "edit any cultural_protocol_group content",
+      "edit any digital_heritage content",
+      "edit any ma_collection content",
+      "edit any page content",
+      "edit boxes",
+      "edit file",
+      "edit node machine name",
+      "edit own article content",
+      "edit own comments",
+      "edit own community content",
+      "edit own cultural_protocol_group content",
+      "edit own digital_heritage content",
+      "edit own page content",
+      "edit own tags",
+      "execute php code",
+      "export media in zip format",
+      "flush caches",
+      "import digital_heritage_metadata feeds",
+      "import import_categories feeds",
+      "import import_collection feeds",
+      "import import_communities feeds",
+      "import import_cultural_protocols feeds",
+      "import import_users feeds",
+      "import media",
+      "manage features",
+      "opt-in or out of tracking",
+      "perform backup",
+      "post comments",
+      "restore from backup",
+      "revert revisions",
+      "select account cancellation method",
+      "skip comment approval",
+      "switch shortcut sets",
+      "switch users",
+      "tag content",
+      "tamper digital_heritage_metadata",
+      "tamper import_categories",
+      "tamper import_collection",
+      "tamper import_communities",
+      "tamper import_cultural_protocols",
+      "tamper import_users",
+      "translate content",
+      "translate interface",
+      "use advanced search",
+      "use page manager",
+      "use panels caching features",
+      "use panels dashboard",
+      "use panels in place editing",
+      "use panels locks",
+      "use text format ds_code",
+      "use text format full_html",
+      "view advanced help index",
+      "view advanced help popup",
+      "view advanced help topic",
+      "view own unpublished content",
+      "view pane admin links",
+      "view revisions",
+      "view the administration theme"
+    ));
+  
+  
+  user_role_grant_permissions($tribal_administrator, 
+    array(
+      "access administration menu",
+      "access administration pages",
+      "access contextual links",
+      "access dashboard",
+      "access media backend",
+      "access site in maintenance mode",
+      "access site reports",
+      "administer boxes",
+      "administer comments",
+      "administer feeds",
+      "administer image metadata",
+      "administer image styles",
+      "administer languages",
+      "administer media folders",
+      "administer nodes",
+      "administer oembed",
+      "administer shortcuts",
+      "administer url aliases",
+      "block IP addresses",
+      "create community content",
+      "create cultural_protocol_group content",
+      "create page content",
+      "create url aliases",
+      "customize shortcut links",
+      "delete any community content",
+      "delete any cultural_protocol_group content",
+      "delete any digital_heritage content",
+      "delete any ma_collection content",
+      "delete any page content",
+      "delete own community content",
+      "delete own cultural_protocol_group content",
+      "delete own digital_heritage content",
+      "delete own page content",
+      "delete revisions",
+      "edit any community content",
+      "edit any cultural_protocol_group content",
+      "edit any digital_heritage content",
+      "edit any ma_collection content",
+      "edit any page content",
+      "edit boxes",
+      "edit file",
+      "edit own comments",
+      "edit own community content",
+      "edit own cultural_protocol_group content",
+      "edit own page content",
+      "import digital_heritage_metadata feeds",
+      "import import_categories feeds",
+      "import import_collection feeds",
+      "import import_communities feeds",
+      "import import_cultural_protocols feeds",
+      "import import_users feeds",
+      "import media",
+      "revert revisions",
+      "skip comment approval",
+      "translate content",
+      "translate interface",
+      "use advanced search",
+      "use text format ds_code",
+      "use text format full_html",
+      "view advanced help index",
+      "view advanced help popup",
+      "view advanced help topic"
+    ));
+    return t("Set permissions for all roles.");
+}
+
+function mukurtu_platform_add_users() {
+
+  // Add some default users.
+  $librarian = array(
+    'name' => 'Librarian',
+    'pass' => 'changeme', // note: do not md5 the password
+    'mail' => 'pantheon+mukurtu@codifi.info',
+    'status' => 1,
+    'timezone' => 'America/Los_Angeles',
+    'init' => 'pantheon+mukurtu@codifi.info',
+    'data' => array ('overlay' => 0),
+    );
+
+  $codaadmin = array(
+    'name' => 'Mukurtu Admin',
+    'pass' => 'changeme', // note: do not md5 the password
+    'mail' => 'pantheon+codaadmin@codifi.info',
+    'status' => 1,
+    'timezone' => 'America/Los_Angeles',
+    'init' => 'pantheon+codaadmin@codifi.info',
+    'data' => array ('overlay' => 0),
+    );
+
+  $demo= array(
+    'name' => 'Demo',
+    'pass' => 'changeme', // note: do not md5 the password
+    'mail' => 'pantheon+demo@codifi.info',
+    'status' => 1,
+    'timezone' => 'America/Los_Angeles',
+    'init' => 'pantheon+demo@codifi.info',
+    'data' => array ('overlay' => 0),
+    );
+
+  $community_admin= array(
+    'name' => 'Community Admin',
+    'pass' => 'changeme', // note: do not md5 the password
+    'mail' => 'pantheon+community_admin@codifi.info',
+    'status' => 1,
+    'timezone' => 'America/Los_Angeles',
+    'init' => 'pantheon+community_admin@codifi.info',
+    'data' => array ('overlay' => 0),
+    );
+
+  //@TODO Roles not saving on install. Requires an update.
+
+  $check_librarian = user_load_by_name('Librarian');
+  if (empty($check_librarian)) { 
+    $librarian = user_save(null, $librarian);
+    mukurtu_platform_add_role_to_user($librarian, "Librarian");
+  }
+
+  $check_demo = user_load_by_name('Demo');
+  if (empty($check_demo)) { 
+    $demo = user_save(null, $demo);
+    // No roles, this is an authenticated user.
+  }
+
+  $check_codaadmin = user_load_by_name('Mukurtu Admin');
+  if (empty($check_codaadmin)) {  
+    $codaadmin = user_save(null, $codaadmin);
+    mukurtu_platform_add_role_to_user($codaadmin, array("Librarian", "Site Administrator", "Mukurtu Administrator", "Tribal Administrator"));
+  }
+
+  $check_community_admin = user_load_by_name('Community Admin');
+  if (empty($check_community_admin)) {  
+    $community_admin = user_save(null, $community_admin);
+    mukurtu_platform_add_role_to_user($community_admin, array("Librarian", "Site Administrator", "Mukurtu Administrator", "Tribal Administrator"));
+  }
+
+  return t("Default users installed.");
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function mukurtu_platform_uninstall() {
+}
+
+/**
+ * Set all permissions.
+ */
+function mukurtu_platform_update_7000() {
+
+}
+
+/**
+ * Empty Update..
+ */
+function mukurtu_platform_update_7001() {
+
+}
+
+// Update file display permissions & organic groups permissions.
+function mukurtu_platform_update_7003() {
+  mukurtu_platform_load_file_display_table();
+}
+
+// Update file display permissions & organic groups permissions.
+function mukurtu_platform_update_7007() {
+  mukurtu_platform_load_og_role_permission_table();
+}
+
+/**
+ * Set basic settings.
+ */
+function mukurtu_platform_update_7010() {
+  drupal_set_message('Updating Mukurtu Platform.');
+  
+ // mukurtu_platform_set_permissions();
+  mukurtu_platform_add_users();
+
+  // Set site frontpage.
+  variable_set('site_frontpage', 'home'); 
+
+  // Functions that are only called when admin/build/modules form is submitted.
+  menu_rebuild();
+  
+  // Rebuild permissions.
+  node_access_rebuild(TRUE);  
+}
+
+/**
+ * Add permissions for media module.
+ */
+function mukurtu_platform_update_7033() {
+  // Update roles on users that already existed.
+  //mukurtu_platform_load_user_insert_table();
+
+  $check_librarian = user_load_by_name('Librarian');
+  if (!empty($check_librarian)) { 
+    mukurtu_platform_add_role_to_user($check_librarian, "Librarian");
+  }
+
+  $check_admin = user_load_by_name('admin');
+  if (!empty($check_admin)) { 
+    mukurtu_platform_add_role_to_user($check_admin, array("Librarian", "Site Administrator", "Mukurtu Administrator", "Tribal Administrator"));
+  }
+
+  $check_codaadmin = user_load_by_name('Mukurtu Admin');
+  if (!empty($check_codaadmin)) {  
+    mukurtu_platform_add_role_to_user($check_codaadmin, array("Librarian", "Site Administrator", "Mukurtu Administrator", "Tribal Administrator"));
+  }
+
+  $check_community_admin = user_load_by_name('Community Admin');
+  if (!empty($check_community_admin)) {  
+    mukurtu_platform_add_role_to_user($check_community_admin, array("Librarian", "Site Administrator", "Mukurtu Administrator", "Tribal Administrator"));
+  }
+
+  mukurtu_platform_load_file_display_table();
+  mukurtu_platform_load_og_role_permission_table();
+  mukurtu_platform_load_wysiwyg_table();  
+
+  module_enable(array('pathauto'));
+
+  // Rebuild permissions.
+  node_access_rebuild(TRUE);
+}
+
+function mukurtu_platform_more_media_permissions() {
+
+  $roles = user_roles(TRUE);
+
+  $librarian = array_search('Librarian', $roles);
+  $mukurtu_administrator = array_search('Mukurtu Administrator', $roles);
+  $site_administrator = array_search('Site Administrator', $roles);
+  $tribal_administrator = array_search('Tribal Administrator', $roles);
+
+  user_role_grant_permissions($librarian, 
+    array(
+      "filter media",
+      "import media",
+      "media grid view",
+      "media list view",
+      "upload media",  
+      "preview media",
+      "access media backend",
+      "download media"
+    ));
+  
+  user_role_grant_permissions($mukurtu_administrator, 
+    array(
+      "filter media",
+      "import media",
+      "media grid view",
+      "media list view",
+      "upload media",  
+      "preview media",
+      "access media backend",
+      "download media"
+    ));
+  
+  user_role_grant_permissions($site_administrator, 
+    array(
+       "filter media",
+      "import media",
+      "media grid view",
+      "media list view",
+      "upload media",  
+      "preview media",
+      "access media backend",
+      "download media"
+    ));
+
+  user_role_grant_permissions($tribal_administrator, 
+    array(
+      "filter media",
+      "import media",
+      "media grid view",
+      "media list view",
+      "upload media",  
+      "preview media",
+      "access media backend",
+      "download media"
+    ));
+}
+
+function mukurtu_platform_load_file_display_table() {
+ // Increase PHP's max_execution_time for large dumps.
+  drupal_set_time_limit(1200);
+  $file = DRUPAL_ROOT . '/' . drupal_get_path('module', 'mukurtu_platform') . '/sql_overrides/file_display.mysql';
+
+  if (!file_exists($file) || !($fp = fopen($file, 'r'))) {
+    watchdog('mukurtu', 'Unable to read file %filename.', array('%filename' => $file, WATCHDOG_ERROR));
+    return FALSE;
+  }
+
+  // The database loading code below is extracted from _demo_reset().
+
+  // Temporarily disable foreign key checks for the time of import and before
+  // dropping existing tables. Foreign key checks should already be re-enabled
+  // as one of the last operations in the SQL dump file.
+  // @see demo_dump_db()
+  db_query("SET FOREIGN_KEY_CHECKS = 0;");
+
+  // Load data from snapshot.
+  $success = TRUE;
+  $query = '';
+  while (!feof($fp)) {
+    $line = fgets($fp, 16384);
+    if ($line && $line != "\n" && strncmp($line, '--', 2) && strncmp($line, '#', 1)) {
+      $query .= $line;
+      if (substr($line, -2) == ";\n") {
+        $options = array(
+          'target' => 'default',
+          'return' => Database::RETURN_NULL,
+          // 'throw_exception' => FALSE,
+        );
+        $stmt = Database::getConnection($options['target'])->prepare($query);
+        if (!$stmt->execute(array(), $options)) {
+          if ($verbose) {
+            // Don't use t() here, as the locale_* tables might not (yet) exist.
+            drupal_set_message(strtr('Query failed: %query', array('%query' => $query)), 'error');
+          }
+          $success = FALSE;
+        }
+        $query = '';
+      }
+    }
+  }
+  fclose($fp);
+}
+
+function mukurtu_platform_load_og_role_permission_table() {
+ // Increase PHP's max_execution_time for large dumps.
+  drupal_set_time_limit(1200);
+  $file = DRUPAL_ROOT . '/' . drupal_get_path('module', 'mukurtu_platform') . '/sql_overrides/og_role_permission.mysql';
+
+  if (!file_exists($file) || !($fp = fopen($file, 'r'))) {
+    watchdog('mukurtu', 'Unable to read file %filename.', array('%filename' => $file, WATCHDOG_ERROR));
+    return FALSE;
+  }
+
+  // The database loading code below is extracted from _demo_reset().
+
+  // Temporarily disable foreign key checks for the time of import and before
+  // dropping existing tables. Foreign key checks should already be re-enabled
+  // as one of the last operations in the SQL dump file.
+  // @see demo_dump_db()
+  db_query("SET FOREIGN_KEY_CHECKS = 0;");
+
+  // Load data from snapshot.
+  $success = TRUE;
+  $query = '';
+  while (!feof($fp)) {
+    $line = fgets($fp, 16384);
+    if ($line && $line != "\n" && strncmp($line, '--', 2) && strncmp($line, '#', 1)) {
+      $query .= $line;
+      if (substr($line, -2) == ";\n") {
+        $options = array(
+          'target' => 'default',
+          'return' => Database::RETURN_NULL,
+          // 'throw_exception' => FALSE,
+        );
+        $stmt = Database::getConnection($options['target'])->prepare($query);
+        if (!$stmt->execute(array(), $options)) {
+          if ($verbose) {
+            // Don't use t() here, as the locale_* tables might not (yet) exist.
+            drupal_set_message(strtr('Query failed: %query', array('%query' => $query)), 'error');
+          }
+          $success = FALSE;
+        }
+        $query = '';
+      }
+    }
+  }
+  fclose($fp);
+}
+
+function mukurtu_platform_load_user_insert_table() {
+ // Increase PHP's max_execution_time for large dumps.
+  drupal_set_time_limit(1200);
+  $file = DRUPAL_ROOT . '/' . drupal_get_path('module', 'mukurtu_platform') . '/sql_overrides/users_insert_demo.mysql';
+
+  if (!file_exists($file) || !($fp = fopen($file, 'r'))) {
+    watchdog('mukurtu', 'Unable to read file %filename.', array('%filename' => $file, WATCHDOG_ERROR));
+    return FALSE;
+  }
+
+  // The database loading code below is extracted from _demo_reset().
+
+  // Temporarily disable foreign key checks for the time of import and before
+  // dropping existing tables. Foreign key checks should already be re-enabled
+  // as one of the last operations in the SQL dump file.
+  // @see demo_dump_db()
+  db_query("SET FOREIGN_KEY_CHECKS = 0;");
+
+  // Load data from snapshot.
+  $success = TRUE;
+  $query = '';
+  while (!feof($fp)) {
+    $line = fgets($fp, 16384);
+    if ($line && $line != "\n" && strncmp($line, '--', 2) && strncmp($line, '#', 1)) {
+      $query .= $line;
+      if (substr($line, -2) == ";\n") {
+        $options = array(
+          'target' => 'default',
+          'return' => Database::RETURN_NULL,
+          // 'throw_exception' => FALSE,
+        );
+        $stmt = Database::getConnection($options['target'])->prepare($query);
+        if (!$stmt->execute(array(), $options)) {
+          if ($verbose) {
+            // Don't use t() here, as the locale_* tables might not (yet) exist.
+            drupal_set_message(strtr('Query failed: %query', array('%query' => $query)), 'error');
+          }
+          $success = FALSE;
+        }
+        $query = '';
+      }
+    }
+  }
+  fclose($fp);
+}
+
+function mukurtu_platform_load_wysiwyg_table() {
+ // Increase PHP's max_execution_time for large dumps.
+  drupal_set_time_limit(1200);
+  $file = DRUPAL_ROOT . '/' . drupal_get_path('module', 'mukurtu_platform') . '/sql_overrides/wysiwyg.mysql';
+
+  if (!file_exists($file) || !($fp = fopen($file, 'r'))) {
+    watchdog('mukurtu', 'Unable to read file %filename.', array('%filename' => $file, WATCHDOG_ERROR));
+    return FALSE;
+  }
+
+  // The database loading code below is extracted from _demo_reset().
+
+  // Temporarily disable foreign key checks for the time of import and before
+  // dropping existing tables. Foreign key checks should already be re-enabled
+  // as one of the last operations in the SQL dump file.
+  // @see demo_dump_db()
+  db_query("SET FOREIGN_KEY_CHECKS = 0;");
+
+  // Load data from snapshot.
+  $success = TRUE;
+  $query = '';
+  while (!feof($fp)) {
+    $line = fgets($fp, 16384);
+    if ($line && $line != "\n" && strncmp($line, '--', 2) && strncmp($line, '#', 1)) {
+      $query .= $line;
+      if (substr($line, -2) == ";\n") {
+        $options = array(
+          'target' => 'default',
+          'return' => Database::RETURN_NULL,
+          // 'throw_exception' => FALSE,
+        );
+        $stmt = Database::getConnection($options['target'])->prepare($query);
+        if (!$stmt->execute(array(), $options)) {
+          if ($verbose) {
+            // Don't use t() here, as the locale_* tables might not (yet) exist.
+            drupal_set_message(strtr('Query failed: %query', array('%query' => $query)), 'error');
+          }
+          $success = FALSE;
+        }
+        $query = '';
+      }
+    }
+  }
+  fclose($fp);
+}
+
+
+function mukurtu_platform_add_role_to_user($user, $role_name) {
+  // For convenience, we'll allow user ids as well as full user objects.
+  if (is_numeric($user)) {
+    $user = user_load($user);
+  }
+  // If the user doesn't already have the role, add the role to that user.
+  $key = array_search($role_name, $user->roles);
+  if ($key == FALSE) {
+    // Get the rid from the roles table.
+    $roles = user_roles(TRUE);
+    if(is_array($role_name)) {
+    foreach($role_name as $role) {
+      $rid = array_search($role, $roles);
+      if ($rid != FALSE) {
+        $new_role[$rid] = $role_name;
+        $all_roles = $user->roles + $new_role; // Add new role to existing roles.
+        user_save($user, array('roles' => $all_roles));
+      }
+    }
+    }
+    else {
+      $rid = array_search($role_name, $roles);
+      if ($rid != FALSE) {
+        $new_role[$rid] = $role_name;
+        $all_roles = $user->roles + $new_role; // Add new role to existing roles.
+        user_save($user, array('roles' => $all_roles));
+      }
+    }
+  }
+}

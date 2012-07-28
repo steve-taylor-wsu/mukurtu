@@ -1,0 +1,9 @@
+
+/*HTML 5 specific*/
+header, section, aside, footer {
+  display: block;
+}
+
+.group-header {
+  clear: both;
+}

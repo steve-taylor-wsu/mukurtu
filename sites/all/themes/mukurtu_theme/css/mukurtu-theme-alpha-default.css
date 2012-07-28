@@ -1,0 +1,18 @@
+/* This file will hold styles for all layouts using the alpha grid (i.e. not the mobile layout). */
+
+body.page-browse .ui-widget-content .grid-2 {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+body.page-browse .ui-widget-content .grid-2:first-child {
+  margin-left: 0;
+}
+
+body.page-browse .ui-widget-content .grid-2:last-child {
+  margin-right: 0;
+}
+
+.ds-3col-unbalanced-html5 .container-left {
+  float: left;
+}

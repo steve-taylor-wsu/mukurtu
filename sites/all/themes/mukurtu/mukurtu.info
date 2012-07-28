@@ -1,0 +1,8 @@
+
+name = Mukurtu
+description = Mukurtu Archive Theme
+core = 7.x
+base theme = bartik
+
+stylesheets[all][] = css/mukurtu.css
+stylesheets[all][] = css/colors.css

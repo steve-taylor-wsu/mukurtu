@@ -1,0 +1,258 @@
+<?php
+
+/**
+ * Implementatation of hook_menu().
+ */
+function mukurtu_mods_collection_menu() {
+  $items = array();
+  $items['collection/build/save'] = array(
+      'title' => 'Saving Digital Heritiage Items to Collection',
+      'description' => 'save.',
+      'page callback' => 'mukurtu_mods_collection_save_collection',
+      'page arguments' => array(3, 4),
+      'access arguments' => array('access content'),
+      'type' => MENU_CALLBACK,
+    );
+  $items['collection/build/remove'] = array(
+      'title' => 'Remove Digital Heritiage Items from Collection',
+      'description' => 'remove.',
+      'page callback' => 'mukurtu_mods_collection_remove_collection',
+      'page arguments' => array(3, 4),
+      'access arguments' => array('access content'),
+      'type' => MENU_CALLBACK,
+    );
+  return $items;
+}
+
+/**
+ * Alter the community group form (a content type.)
+ */
+function mukurtu_mods_collection_form_alter(&$form, &$form_state, $form_id) {
+
+  //@TODO There is a bug with the Operations Override label
+  // as well as the fact that Operations is a terrible label and should be modified...
+  // -- this form seems to be connected to the field handlers, and not form alter...
+
+  if($form_id == 'views_form_collections_page') {
+/*     dpm($form); */
+  }
+  if($form_id == 'views_form_collections_attachment_1') {
+  /*   dpm($form); */
+  }
+
+  if ($form_id == 'ma_collection_node_form') {
+    if($form['nid']['#value']) {
+      $node = node_load($form['nid']['#value']);
+      $selected_digital_heritage = '<h4>' . t('Selected Digital Heritage') . '</h4><ul>';
+      // Build string of references to pass to views contextual filter.
+      // @TODO Could not figure out how to set the Views contextual filters and relationships 
+      // to filter the view by the set referenced fields, so passing to them directly.
+      $refs = array();
+      $refs_string = '';
+      foreach($node->field_reference_digital_heritage['und'] as $value) {
+        $noderef = node_load($value);  
+        $selected_digital_heritage .= '<li>' . $noderef->title . '</li>';
+        $refs_string .= $value['nid'] . '+';
+      }
+      $refs_string = substr($refs_string, 0, -1);
+      if($refs_string == "") {
+
+      }
+
+      $form['field_reference_digital_heritage']['#type'] = 'hidden';
+
+
+
+
+      $selected_media = array();
+      $selected_media['#type'] = 'container';
+      $selected_media[0] = array();
+      $selected_media[0]['und'] = array();
+      //, $form['nid']['#value']
+      $args = array($refs_string, 'build');
+      $view = views_get_view('collections');
+      $view_embed = $view->preview('attachment_1', $args);
+      $selected_media[0]['und']['#markup'] = $view_embed;
+      $form['field_markup_media_selected'] = $selected_media;
+      $form['#group_children']['field_markup_media_selected'] = 'group_digital_heritage';
+
+
+      $media = array();
+      $media['#type'] = 'container';
+      $media[0] = array();
+      $media[0]['und'] = array();
+      //, $form['nid']['#value']
+      $args = array($refs_string, 'build');
+      $view = views_get_view('collections');
+      $view_embed = $view->preview('page', $args);
+      $media[0]['und']['#markup'] = $view_embed;
+      $form['field_markup_media'] = $media;
+      $form['#group_children']['field_markup_media'] = 'group_digital_heritage';
+
+
+
+    }
+    else {
+      $form['field_reference_digital_heritage']['#type'] = 'hidden';
+      $media = array();
+      $media['#type'] = 'container';
+      $media[0] = array();
+      $media[0]['und'] = array();
+      $media[0]['und']['#markup'] = t("Save your collection to add Digital Heritage.");
+      $form['field_markup_media'] = $media;
+      $form['#group_children']['field_markup_media'] = 'group_digital_heritage';
+    }
+
+  // Display selected collection items.
+  // Add a button to select collection items.
+  // Popup a library.
+  // load a view
+  // add js
+  // connect selected nids to js
+  // ajax set nid in hidden field (values)
+  // select
+  // unselect
+  // show selected
+  // hide the normal field
+
+/*
+  $output['tabset'] = array(
+    '#prefix' => '<div id="media-browser-tabset">',
+    '#suffix' => '</div>',
+  );
+  $output['tabset']['list'] = array(
+    '#markup' => '<ul><li>test</li></ul>'
+  );
+*/
+
+/*    return $output;    */
+
+  }
+}
+/*
+
+function mukurtu_mods_collection_display_selected_items(&$form){
+  return $output;
+}
+*/
+
+/**
+ * Save nids to a given collection.
+ * @TODO error handling. 
+ *
+ */
+function mukurtu_mods_collection_save_collection($nids, $nid){
+  $node = node_load($nid);
+  $nids_array = $nids_combined = drupal_explode_tags($nids);
+  $output = '';
+  
+  $i = 0;
+  foreach($node->field_reference_digital_heritage['und'] as $value) {
+    array_push($nids_combined, $node->field_reference_digital_heritage['und'][$i]['nid']);
+  $i++;
+  }
+
+  $field = array();
+  $i = 0;
+  // Consolidate duplicate items.
+  $nids_combined = array_unique($nids_combined);
+
+  foreach($nids_combined as $nid) {
+    $field[$i]['nid'] = $nid;
+    if(in_array($nid, $nids_array)){
+      $noderef = node_load($nid);
+      $output .= '<li>' . $noderef->title . '</li>';    
+    }
+    $i++;
+  }
+  $node->field_reference_digital_heritage['und'] = $field;
+  field_attach_update('node', $node);
+  return t("The following Digital Heritage items were saved to ")
+   . l($node->title, 'node/' . $node->nid) . ' ' 
+   . "<ul>" . $output . "</ul>"
+   . l('Back to editing', 'node/' . $node->nid . '/edit');
+}
+
+function mukurtu_mods_collection_remove_collection($nids, $nid){
+  $node = node_load($nid);
+  // Nodes to remove.
+  $nids_array = drupal_explode_tags($nids);
+  $output = '';
+
+  $field = array();
+  $i = 0;
+  $nids_array = array_unique($nids_array);
+
+  foreach($node->field_reference_digital_heritage['und'] as $value) {
+    if(in_array($value['nid'], $nids_array)) {
+      $noderef = node_load($value['nid']);
+      $output .= '<li>' . $noderef->title . '</li>';      
+    }
+    else {
+      array_push($field, $value);
+    }
+    $i++;
+  }
+
+  $node->field_reference_digital_heritage['und'] = $field;
+  field_attach_update('node', $node);
+  return t("The following Digital Heritage items were removed from ")
+   . l($node->title, 'node/' . $node->nid) . ' ' 
+   . "<ul>" . $output . "</ul>"
+   . l('Back to editing', 'node/' . $node->nid . '/edit');
+}
+
+/**
+ * @file
+ * Passes selected ids as arguments to a page.
+ * The ids might be entity ids or revision ids, depending on the type of the
+ * VBO field.
+ */
+
+/**
+ * Implementation of hook_action_info().
+ */
+function mukurtu_mods_collection_action_info() {
+  return array(
+    'add_to_collection_action' => array(
+      'type' => 'entity',
+      'label' => t("Save to Collection"),
+      'triggers' => array(),
+      'configurable' => FALSE,
+      'aggregate' => TRUE,
+    ),
+    'delete_from_collection_action' => array(
+      'type' => 'entity',
+      'label' => t("Remove from Collection"),
+      'configurable' => FALSE,
+      'triggers' => array(),
+      'aggregate' => TRUE,
+    ),
+  );
+}
+
+/**
+* Implementation of a Drupal action.
+* Passes selected ids as arguments to a view.
+*/
+function add_to_collection_action($entities, $context = array()) {
+  $base_url = 'collection/build/save';
+  $nid = arg(1);
+  $arguments = implode(',', array_keys($entities));
+  // Add a trailing slash if missing.
+  if (substr($base_url, -1, 1) != '/') {
+    $base_url .= '/';
+  }
+  drupal_goto($base_url . $arguments . '/' . $nid);
+}
+
+function delete_from_collection_action($entities, $context = array()) {
+  $base_url = 'collection/build/remove';
+  $nid = arg(1);
+  $arguments = implode(',', array_keys($entities));
+  // Add a trailing slash if missing.
+  if (substr($base_url, -1, 1) != '/') {
+    $base_url .= '/';
+  }
+  drupal_goto($base_url . $arguments . '/' . $nid);
+}

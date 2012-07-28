@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * Add a module weight to make ma_base_theme heavy.
+ */
+function ma_base_theme_update_7000() {
+  db_update('system')
+    ->fields(array(
+      'weight' => 5
+    ))
+    ->condition('name', 'ma_base_theme', '=')
+    ->execute();
+}

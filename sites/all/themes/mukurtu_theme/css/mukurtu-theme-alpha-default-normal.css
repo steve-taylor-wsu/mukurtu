@@ -1,0 +1,33 @@
+/* This file will hold styles that are loaded using the same media query as the normal grid. */
+/* If you are using the default media queries provided by Omega, these styles will also
+ *  apply to the widescreen layout unless they are overridden by the widescreen styles. */
+
+body.node-type-digital-heritage .view-mode-full .group-left .field-type-media img {
+  width: 460px;
+/*   height: 460px; */
+}
+
+body.page-node.node-type-digital-heritage .region-content {
+  background: transparent url('../images/digital_heritage_bg_normal.png') top left repeat-y;
+}
+
+body.page-node-add.node-type-digital-heritage .region-content,
+body.page-node-edit.node-type-digital-heritage .region-content {
+  background-image: none;
+  background-color: #DEDEDE;
+}
+
+table.views-view-grid .field-type-media img,
+body.node-type-digital-heritage .group-right .field-type-media img {
+  width: 140px;
+  height: 140px;
+}
+
+table.views-view-grid .field-name-title h2 {
+  width: 120px;
+}
+
+table.views-view-grid.cols-6 td.grid-2 {
+  width: 140px;
+}
+

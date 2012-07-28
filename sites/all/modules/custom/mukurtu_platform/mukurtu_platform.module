@@ -1,0 +1,7 @@
+<?php
+
+
+function  mukurtu_platform_init() {
+
+}
+

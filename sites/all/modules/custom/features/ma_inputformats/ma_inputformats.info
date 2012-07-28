@@ -1,0 +1,15 @@
+name = Mukurtu Input Formats
+description = Input formats, WYSIWYG configuration, permissions.
+core = 7.x
+package = Features
+php = 5.2.4
+version = 7.x-0.1
+project = ma_inputformats
+dependencies[] = features
+dependencies[] = media
+dependencies[] = oembed
+dependencies[] = wysiwyg
+features[features_api][] = api:1
+features[filter][] = full_html
+features[filter][] = plain_text
+features[user_permission][] = use text format full_html

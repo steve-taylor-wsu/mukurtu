@@ -1,0 +1,16 @@
+# Add mukurtu AND bartik specific CSS overrides here only
+
+
+
+/* This works for the admin viewing this, but not for non admin because the checkboxes aren't there
+.view-browse table.views-view-grid td.browse-page-row .form-type-checkbox {
+  margin-left: 5px;
+  vertical-align: top;
+  position: relative;
+  z-index: 5;
+}
+
+.view-browse table.views-view-grid td.browse-page-row div.views-field .field-content div.node-digital-heritage {
+  margin-top: -30px;
+}
+*/
