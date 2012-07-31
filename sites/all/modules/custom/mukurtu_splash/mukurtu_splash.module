@@ -394,9 +394,9 @@ function mukurtu_splash_block_demo_config() {
 
   $items[] = array (
     'title' => 'Download Sample Content',
-    'href' => drupal_get_path('module', 'mukurtu_splash') . '/ma_demo_content.zip',
+    'href' => 'https://github.com/codamatic/mukurtu-demo-content/zipball/master',
     'localized_options' => array('attributes' => array('class' => array('opic-dashboard-content'))),    
-    'description' => t('100MB folder of Demo Content, Media & Documentation.'),
+    'description' => t('100MB of Demo Content. Download from Github: https://github.com/codamatic/mukurtu-demo-content'),
   );
   
   $items[] = array (
