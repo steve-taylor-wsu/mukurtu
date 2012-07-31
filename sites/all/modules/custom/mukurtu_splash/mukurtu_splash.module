@@ -240,17 +240,17 @@ function mukurtu_splash_block_site_start() {
   );
 
   $items[] = array (
-    'title' => 'Change Logo (Browse)',
+    'title' => 'Change Logo (Homepage & Browse)',
     'href' => 'admin/appearance/delta/list/browse/configure',
     'localized_options' => array('attributes' => array('class' => array('opic-dashboard-content'))),    
-    'description' => t('Shortcut to page where you can change your logo.'),
+    'description' => t('Shortcut to theme settings where you can change your logo.'),
   );
 
   $items[] = array (
-    'title' => 'Change Logo (Site Sub-Pages)',
+    'title' => 'Change Logo (All other site pages)',
     'href' => 'admin/appearance/settings/mukurtu_theme',
     'localized_options' => array('attributes' => array('class' => array('opic-dashboard-content'))),    
-    'description' => t('Shortcut to page where you can change your logo.'),
+    'description' => t('Shortcut to theme settings where you can change your logo.'),
   );
   	
   $content = array ('content' => $items);
