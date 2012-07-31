@@ -62,7 +62,7 @@ function ma_base_theme_form_alter(&$form, &$form_state, $form_id) {
       $form['label']['#multiple'] = true;
       $form['label']['#options'] = ma_base_theme_browse_get_view_options();
       $form['label']['#size'] = 2; 
-
+/* dpm($form_state); */
       break;
   }
 }
@@ -70,13 +70,18 @@ function ma_base_theme_form_alter(&$form, &$form_state, $form_id) {
 
 function ma_base_theme_views_query_alter(&$view, &$query) {
   $count = 0;
+  
+  // Create a new label array, to only query if option values are checked in the exposed filter.
+  $newlabel = array();
 
   if(isset($view->exposed_raw_input['label']) && $view->name == 'ma_browse') {
     foreach($view->exposed_raw_input['label'] as $key) {
       if(!empty($view->exposed_raw_input['label'][$key])) {
         $count++;
-      }
+        $newlabel[$key] = $view->exposed_raw_input['label'][$key];
+      }     
     }
+    $view->exposed_raw_input['label'] = $newlabel;
   }
 
 	if($view->name == 'ma_browse') {
