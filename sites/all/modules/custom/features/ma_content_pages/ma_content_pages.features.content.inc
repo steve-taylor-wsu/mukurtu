@@ -118,10 +118,10 @@ function ma_content_pages_content_defaults() {
     'body' => array(
       'und' => array(
         0 => array(
-          'value' => '<p>Contanct information.</p>',
+          'value' => '<p>Contact information.</p>',
           'summary' => '',
           'format' => 'full_html',
-          'safe_value' => ' <p>Contanct information.</p> ',
+          'safe_value' => ' <p>Contact information.</p> ',
           'safe_summary' => '  ',
         ),
       ),
