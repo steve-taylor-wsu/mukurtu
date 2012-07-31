@@ -1428,3 +1428,11 @@ html.js div.contextual-links-wrapper {
   margin-bottom: 20px;
   color: #C4CBCC;
 }
+
+.front .field-name-field-media .field-item {
+  display: none;
+}
+
+.front .field-name-field-media .field-item:nth-child(1) {
+  display: block;
+}
