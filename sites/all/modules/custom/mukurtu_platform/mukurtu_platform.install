@@ -746,7 +746,7 @@ function mukurtu_platform_update_7010() {
 /**
  * Add permissions for media module.
  */
-function mukurtu_platform_update_7033() {
+function mukurtu_platform_update_7034() {
   // Update roles on users that already existed.
   //mukurtu_platform_load_user_insert_table();
 
