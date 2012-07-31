@@ -252,6 +252,20 @@ function mukurtu_splash_block_site_start() {
     'localized_options' => array('attributes' => array('class' => array('opic-dashboard-content'))),    
     'description' => t('Shortcut to theme settings where you can change your logo.'),
   );
+
+  $items[] = array (
+    'title' => 'View & Edit About page',
+    'href' => 'about',
+    'localized_options' => array('attributes' => array('class' => array('opic-dashboard-content'))),    
+    'description' => t('Mukurtu comes with a default about page that you can edit.'),
+  );
+
+  $items[] = array (
+    'title' => 'Enable and disable extra menu items',
+    'href' => 'admin/structure/menu/manage/main-menu',
+    'localized_options' => array('attributes' => array('class' => array('opic-dashboard-content'))),    
+    'description' => t('Mukurtu comes with additional pages that you can enable.'),
+  );
   	
   $content = array ('content' => $items);
   $markup = theme('admin_block_content', $content);
