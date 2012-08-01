@@ -65,7 +65,6 @@ function mukurtu_mods_keyed_fields(&$updated_membership, &$updated_nids, &$origi
   // Retrieve a nid keyed lookup list of currently selected and original node references.
   foreach ($fields as $field_name) {
     if (isset($entity->{$field_name})) {
-    dpm($field_name);
       if(isset($entity->{$field_name}[$language_content->language])){
         foreach ($entity->{$field_name}[$language_content->language] as $item) {
           if (is_array($item) && !empty($item['nid']) && is_numeric($item['nid'])) {
