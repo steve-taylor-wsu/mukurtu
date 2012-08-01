@@ -236,7 +236,7 @@ function mukurtu_splash_block_site_start() {
     'title' => 'Change site name, slogan and email address.',
     'href' => 'admin/config/system/site-information',
     'localized_options' => array('attributes' => array('class' => array('opic-dashboard-content'))),    
-    'description' => t('Shortcut to page where you can change some settings for this site.'),
+    'description' => t('Shortcut to page where you can change some settings for this site. The site name, a slogan for your site, and the email address for the site administrator.'),
   );
 
   $items[] = array (
