@@ -79,7 +79,7 @@ function ma_base_theme_views_query_alter(&$view, &$query) {
       if(!empty($view->exposed_raw_input['label'][$key])) {
         $count++;
         $newlabel[$key] = $view->exposed_raw_input['label'][$key];
-      }     
+      }
     }
     $view->exposed_raw_input['label'] = $newlabel;
   }

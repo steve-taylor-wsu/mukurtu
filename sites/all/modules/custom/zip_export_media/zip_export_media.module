@@ -53,7 +53,8 @@ function zip_export_media_from_node($nid) {
   if (is_numeric($nid) && $node = node_load($nid)) {
     // Loop through the node's media fields and load the files into an array.
     $data = array();
-    foreach ($node->field_media['und'] as $media) {
+    //@TODO Double check language support here.
+    foreach ($node->field_media[LANGUAGE_NONE] as $media) {
       $data[$nid]['field_field_media'][] = file_load($media['fid']);
     }
     // Produce the export.

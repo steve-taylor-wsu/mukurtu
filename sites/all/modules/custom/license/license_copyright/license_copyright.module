@@ -14,8 +14,11 @@ function license_copyright_license_load($data) {
 function license_copyright_license_display($license, $entity) {
   if ($license['type'] == 'copyright') {
     $date = date("Y");
-    if (isset($entity->field_date['und'][0]['safe_value'])) {
-      $from_date = $entity->field_date['und'][0]['safe_value'];
+    // field_date probably uses LANGUAGE_NONE (and not the language, ex. 'en'
+    // leaving as is for now.
+    if (isset($entity->field_date[LANGUAGE_NONE][0]['safe_value'])) {
+      $from_date = $entity->field_date[LANGUAGE_NONE][0]['safe_value'];
+      // Display date range for copyright.
       if ($from_date < $date) {
         $date = $from_date . '-' . $date;
       }
@@ -32,8 +35,8 @@ function license_copyright_license_display($license, $entity) {
 function license_copyright_license_display_export($license, $entity) {
   if ($license['type'] == 'copyright') {
     $date = date("Y");
-    if (isset($entity->field_date['und'][0]['safe_value'])) {
-      $from_date = $entity->field_date['und'][0]['safe_value'];
+    if (isset($entity->field_date[LANGUAGE_NONE][0]['safe_value'])) {
+      $from_date = $entity->field_date[LANGUAGE_NONE][0]['safe_value'];
       if ($from_date < $date) {
         $date = $from_date . '-' . $date;
       }

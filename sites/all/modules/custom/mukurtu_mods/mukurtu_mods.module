@@ -53,6 +53,8 @@ function mukurtu_mods_field_widget_form(&$form, &$form_state, $field, $instance,
  *   An array of node reference field names that should be tied OG membership.
  */
 function mukurtu_mods_keyed_fields(&$updated_membership, &$updated_nids, &$original_nids, $entity, $fields) {
+  global $language_content;
+
   // Produce a gid keyed lookup table of current group membership.
   if(isset($entity->{OG_AUDIENCE_FIELD}[LANGUAGE_NONE])) {
     foreach ($entity->{OG_AUDIENCE_FIELD}[LANGUAGE_NONE] as $item) {
@@ -63,16 +65,17 @@ function mukurtu_mods_keyed_fields(&$updated_membership, &$updated_nids, &$origi
   // Retrieve a nid keyed lookup list of currently selected and original node references.
   foreach ($fields as $field_name) {
     if (isset($entity->{$field_name})) {
-      if(isset($entity->{$field_name}[LANGUAGE_NONE])){
-        foreach ($entity->{$field_name}[LANGUAGE_NONE] as $item) {
+    dpm($field_name);
+      if(isset($entity->{$field_name}[$language_content->language])){
+        foreach ($entity->{$field_name}[$language_content->language] as $item) {
           if (is_array($item) && !empty($item['nid']) && is_numeric($item['nid'])) {
             $updated_nids[$item['nid']] = $item['nid'];
           }
         }
       }
       if(isset($entity->original)){
-        if(isset($entity->original->{$field_name}[LANGUAGE_NONE])) {
-          foreach ($entity->original->{$field_name}[LANGUAGE_NONE] as $item) {
+        if(isset($entity->original->{$field_name}[$language_content->language])) {
+          foreach ($entity->original->{$field_name}[$language_content->language] as $item) {
             if (is_array($item) && !empty($item['nid']) && is_numeric($item['nid'])) {
               $original_nids[$item['nid']] = $item['nid'];
             }
@@ -237,16 +240,18 @@ function mukurtu_mods_update_nodereference($updated_nids, $updated_membership, $
  *   An array of node reference field names that should be tied OG membership.
  */
 function mukurtu_mods_rebuild_nodereference(&$entity, $updated_nids, $fields) {
+  global $language_content;
   foreach ($fields as $field_name) {
+  dpm($field_name);
     // We don't check the field exists, since it actually doesn't on feed import
     // yet we still need to fill in the field values.
     $field = field_info_field($field_name);
-    $entity->{$field_name}[LANGUAGE_NONE] = array();
+    $entity->{$field_name}[$language_content->language] = array();
     // Retrieve a list of listed (potentially selectable) nids.
     $potential_nids = node_reference_potential_references($field);
     foreach ($updated_nids as $nid) {
       if (isset($potential_nids[$nid])) {
-        $entity->{$field_name}[LANGUAGE_NONE][] = array('nid' => $nid);
+        $entity->{$field_name}[$language_content->language][] = array('nid' => $nid);
       }
     }
   }
@@ -263,6 +268,7 @@ function mukurtu_mods_rebuild_nodereference(&$entity, $updated_nids, $fields) {
  *
  */
 function mukurtu_mods_entity_presave($entity, $entity_type) {
+  global $language_content;
   // TODO: replace this with a check that the appropriate OG membership and
   // node reference fields are present.
   if (!in_array($entity_type, array('node', 'user'))) {
@@ -335,9 +341,12 @@ function mukurtu_mods_feeds_set_target($source, &$entity, $target, $value) {
   // Iterate over all values.
   $i = 0;
   $entity->$target = isset($entity->$target) ? $entity->$target : array();
+  
+  global $language_content;
+  
   foreach ($value as $nid) {
     if (!is_array($nid) && !is_object($nid)) {
-      $field['und'][$i]['nid'] = $nid;
+      $field[$language_content->language][$i]['nid'] = $nid;
     }
     if ($info['cardinality'] == 1) {
       break;
