@@ -56,19 +56,22 @@ function ma_base_theme_form_alter(&$form, &$form_state, $form_id) {
       }
       
       // http://drupal.org/node/1661030
+/*
       $form['label'] = array();
       $form['label']['#type'] = 'checkboxes';
       $form['label']['#default_value'] = array();
       $form['label']['#multiple'] = true;
       $form['label']['#options'] = ma_base_theme_browse_get_view_options();
       $form['label']['#size'] = 2; 
-/* dpm($form_state); */
+*/
+
       break;
   }
 }
 
 
 function ma_base_theme_views_query_alter(&$view, &$query) {
+/*
   $count = 0;
   
   // Create a new label array, to only query if option values are checked in the exposed filter.
@@ -112,6 +115,7 @@ function ma_base_theme_views_query_alter(&$view, &$query) {
       $view->exposed_data['label'] = array();
     }
   }
+*/
 }
 
 function ma_base_theme_browse_get_view_options() {
