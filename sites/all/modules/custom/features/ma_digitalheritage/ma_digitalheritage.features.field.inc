@@ -97,7 +97,7 @@ function ma_digitalheritage_field_default_fields() {
       'required' => 0,
       'settings' => array(
         'display_summary' => 0,
-        'text_processing' => '0',
+        'text_processing' => '1',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
@@ -1685,7 +1685,6 @@ Use yyyy-mm-dd format or insert incomplete date.',
         'settings' => array(
           'allowed_schemes' => array(
             'oembed' => 'oembed',
-            'private' => 'private',
             'public' => 'public',
           ),
           'allowed_types' => array(
@@ -1697,7 +1696,8 @@ Use yyyy-mm-dd format or insert incomplete date.',
           'browser_plugins' => array(
             'library' => 'library',
             'library_plus' => 'library_plus',
-            'media_default--media_browser_1' => 'media_default--media_browser_1',
+            'media_default--media_browser_1' => 0,
+            'media_default--media_browser_my_files' => 0,
             'media_internet' => 'media_internet',
             'upload' => 'upload',
           ),
@@ -2417,7 +2417,7 @@ Use yyyy-mm-dd format or insert incomplete date.',
       'label' => 'Traditional Knowledge',
       'required' => 0,
       'settings' => array(
-        'text_processing' => '0',
+        'text_processing' => '1',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
