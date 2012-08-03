@@ -924,7 +924,7 @@ function ma_media_file_default_displays() {
   $file_display->weight = -50;
   $file_display->status = TRUE;
   $file_display->settings = array(
-    'image_style' => '',
+    'image_style' => 'full',
   );
   $export['image__default__file_image'] = $file_display;
 
