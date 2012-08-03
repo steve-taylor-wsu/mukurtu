@@ -11,6 +11,7 @@ include_once('ma_base_theme.features.inc');
  */
 function ma_base_theme_form_alter(&$form, &$form_state, $form_id) {
   switch ($form_id) {
+  
     case 'user_login_block':
       $form['name']['#attributes']['placeholder'] = t('Username');
       $form['pass']['#attributes']['placeholder'] = t('Password');
@@ -21,6 +22,7 @@ function ma_base_theme_form_alter(&$form, &$form_state, $form_id) {
 
     // Browse Archive Views Bulk Operations.
     case 'views_form_ma_browse_page':
+    case 'views_form_my_collection_page':
 
       // Make fieldset not collapsible.
       $form['select']['#collapsible'] = FALSE;
@@ -51,7 +53,9 @@ function ma_base_theme_form_alter(&$form, &$form_state, $form_id) {
 
     // Browse Archive Views Exposed Filters.
     case 'views_exposed_form':
-      if (substr($form['#id'], 0, 33) == 'views-exposed-form-ma-browse-page') {
+
+      if ((substr($form['#id'], 0, 33) == 'views-exposed-form-ma-browse-page') || 
+       (substr($form['#id'], 0, 33) == 'views-exposed-form-my-collection-page')){
         $form['keys']['#attributes']['placeholder'] = t('Or search by keyword');
       }
       

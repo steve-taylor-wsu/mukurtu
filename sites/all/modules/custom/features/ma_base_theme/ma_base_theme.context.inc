@@ -24,12 +24,16 @@ function ma_base_theme_context_default_contexts() {
         'group-list' => 'group-list',
         'home' => 'home',
         'featured' => 'featured',
+        'my-collection' => 'my-collection',
       ),
     ),
   );
   $context->reactions = array(
     'delta' => array(
       'delta_template' => 'browse',
+    ),
+    'theme_html' => array(
+      'class' => 'browse-context',
     ),
   );
   $context->condition_mode = 0;
