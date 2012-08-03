@@ -1002,45 +1002,45 @@ body.page-browse .zone-branding-wrapper {
 /******************************************************
  * BROWSE ARCHIVE: VIEWS BULK OPERATIONS
  ******************************************************/
-body.page-browse #views-form-ma-browse-page #edit-select,
-body.page-browse #views-form-ma-browse-page #vbo-operations,
-body.page-browse #views-form-ma-browse-page #edit-select .fieldset-wrapper,
-body.page-browse #views-form-ma-browse-page .vbo-select-all-markup,
-body.page-browse #views-form-ma-browse-page .vbo-fieldset-select-all,
-body.page-browse #views-form-ma-browse-page .vbo-select-all-markup em,
-body.page-browse #views-form-ma-browse-page .vbo-select-all-markup .form-type-checkbox {
+body.browse-context #views-form-ma-browse-page #edit-select,
+body.browse-context #views-form-ma-browse-page #vbo-operations,
+body.browse-context #views-form-ma-browse-page #edit-select .fieldset-wrapper,
+body.browse-context #views-form-ma-browse-page .vbo-select-all-markup,
+body.browse-context #views-form-ma-browse-page .vbo-fieldset-select-all,
+body.browse-context #views-form-ma-browse-page .vbo-select-all-markup em,
+body.browse-context #views-form-ma-browse-page .vbo-select-all-markup .form-type-checkbox, {
   float: left;
 }
 
-body.page-browse #views-form-ma-browse-page #edit-select,
-body.page-browse #views-form-ma-browse-page #vbo-operations,
-body.page-browse #views-form-ma-browse-page .vbo-select-all-markup {
+body.browse-context #views-form-ma-browse-page #edit-select,
+body.browse-context #views-form-ma-browse-page #vbo-operations,
+body.browse-context #views-form-ma-browse-page .vbo-select-all-markup {
   margin-top: 20px;
   margin-bottom: 40px;
 }
 
-body.page-browse #views-form-ma-browse-page .vbo-fieldset-select-all {
+body.browse-context #views-form-ma-browse-page .vbo-fieldset-select-all {
   width: auto;
 }
 
-body.page-browse #views-form-ma-browse-page .vbo-select-all-markup em,
-body.page-browse #views-form-ma-browse-page .vbo-select-all-markup .form-type-checkbox label {
+body.browse-context #views-form-ma-browse-page .vbo-select-all-markup em,
+body.browse-context #views-form-ma-browse-page .vbo-select-all-markup .form-type-checkbox label {
   margin-right: 10px;
 }
 
-body.page-browse #views-form-ma-browse-page h3.grid-2 {
+body.browse-context #views-form-ma-browse-page h3.grid-2 {
   margin-left: 0;
 }
 
-body.page-browse #views-form-ma-browse-page .vbo-select-all-markup.grid-6 {
+body.browse-context #views-form-ma-browse-page .vbo-select-all-markup.grid-6 {
   margin-right: 0;
 }
 
-body.page-browse #views-form-ma-browse-page .vbo-select-all-markup.grid-6 fieldset {
+body.browse-context #views-form-ma-browse-page .vbo-select-all-markup.grid-6 fieldset {
   padding: 0;
 }
 
-body.page-browse #views-form-ma-browse-page #vbo-operations {
+body.browse-context #views-form-ma-browse-page #vbo-operations {
   font-weight: normal;
   padding-left: 21px;
   background: url('../images/operations.png') top left no-repeat;
@@ -1050,16 +1050,16 @@ body.page-browse #views-form-ma-browse-page #vbo-operations {
   box-sizing: border-box;
 }
 
-body.page-browse #views-form-ma-browse-page #edit-select {
+body.browse-context #views-form-ma-browse-page #edit-select {
   margin-bottom: 0;
 }
 
-body.page-browse #views-form-ma-browse-page .views-view-grid .form-type-checkbox {
+body.browse-context #views-form-ma-browse-page .views-view-grid .form-type-checkbox {
   margin: 0 10px 10px 0;
   float: right;
 }
 
-body.page-browse #views-form-ma-browse-page #edit-select input[type="submit"] {
+body.browse-context #views-form-ma-browse-page #edit-select input[type="submit"] {
   margin: 5px 0 0 10px;
   background: url('../images/arrow-dark.png') top left no-repeat;
   height: 14px;
@@ -1075,7 +1075,7 @@ body.page-browse #views-form-ma-browse-page #edit-select input[type="submit"] {
 /******************************************************
  * BROWSE ARCHIVE: TABS
  ******************************************************/
-body.page-browse h1#page-title {
+body.browse-context h1#page-title {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -1086,52 +1086,52 @@ body.page-browse h1#page-title {
   width: 1px;
 }
 
-body.page-browse .region-content {
+body.browse-context .region-content {
   padding-top: 0;
   margin: 0;
   width: 100%;
 }
 
-body.page-browse .region-content .view-content,
-body.page-browse .region-content .views-exposed-widgets {
+body.browse-context .region-content .view-content,
+body.browse-context .region-content .views-exposed-widgets {
   margin-left: 10px;
   margin-right: 10px;
 }
 
-.js body.page-browse .region-content .views-exposed-widgets {
+.js body.browse-context .region-content .views-exposed-widgets {
   margin-left: 0;
   margin-right: 0;
 }
 
-.js body.page-browse .views-exposed-widgets > div > label {
+.js body.browse-context .views-exposed-widgets > div > label {
   display: none;
 }
 
-body.page-browse .region-content .views-exposed-widgets label {
+body.browse-context .region-content .views-exposed-widgets label {
   display: block;
   padding-left: 15px;
 }
 
-body.page-browse .region-content .views-exposed-widgets input[type="checkbox"] {
+body.browse-context .region-content .views-exposed-widgets input[type="checkbox"] {
   float: left;
   width: 13px;
   margin-top: 3px;
 }
 
-body.page-browse .region-content .pager {
+body.browse-context .region-content .pager {
   margin-right: 10px;
 }
 
-body.page-browse .region-content div.feed-icon {
+body.browse-context .region-content div.feed-icon {
   margin-left: 10px;
 }
 
-body.page-browse .views-exposed-form .views-exposed-widget label {
+body.browse-context .views-exposed-form .views-exposed-widget label {
   color: #000;
   font-weight: normal;
 }
 
-body.page-browse .views-exposed-form .views-exposed-widget > label {
+body.browse-context .views-exposed-form .views-exposed-widget > label {
   color: #506466;
   background: url('../images/triangle-open.png') center left no-repeat;
   padding-left: 15px;
@@ -1139,7 +1139,7 @@ body.page-browse .views-exposed-form .views-exposed-widget > label {
   line-height: 1.2857em;
 }
 
-body.page-browse .views-exposed-widgets #edit-reset {
+body.browse-context .views-exposed-widgets #edit-reset {
   border: none;
   color: #575757;
   font-size: 0.8em;
@@ -1151,11 +1151,11 @@ body.page-browse .views-exposed-widgets #edit-reset {
   text-shadow: none;
 }
 
-body.page-browse .views-exposed-widgets #edit-reset:hover {
+body.browse-context .views-exposed-widgets #edit-reset:hover {
   color: #FF8D47;
 }
 
-body.page-browse .views-exposed-widgets #edit-submit-ma-browse {
+body.browse-context .views-exposed-widgets #edit-submit-ma-browse {
   background: #FF8D47 url('../images/arrow-white.png') 85% center no-repeat;
   color: #fff;
   text-transform: uppercase;
@@ -1168,30 +1168,30 @@ body.page-browse .views-exposed-widgets #edit-submit-ma-browse {
   padding-right: 25px;
 }
 
-body.page-browse .views-exposed-widgets #edit-submit-ma-browse:hover {
+body.browse-context .views-exposed-widgets #edit-submit-ma-browse:hover {
   background-color: #C4CBCC;
 }
 
-body.page-browse .view-empty {
+body.browse-context .view-empty {
   margin-left: 10px;
   margin-right: 10px;
 }
 
-body.page-browse .ui-tabs,
-body.page-browse .ui-tabs .ui-tabs-nav {
+body.browse-context .ui-tabs,
+body.browse-context .ui-tabs .ui-tabs-nav {
   padding: 0;
   border: none;
 }
 
-body.page-browse .ui-tabs .ui-tabs-nav li {
+body.browse-context .ui-tabs .ui-tabs-nav li {
   margin: 0;
   border: none;
   top: 0;
 }
 
-body.page-browse .ui-tabs .ui-tabs-nav li a,
-body.page-browse .ui-tabs .ui-tabs-nav li a:link,
-body.page-browse .ui-tabs .ui-tabs-nav li a:visited {
+body.browse-context .ui-tabs .ui-tabs-nav li a,
+body.browse-context .ui-tabs .ui-tabs-nav li a:link,
+body.browse-context .ui-tabs .ui-tabs-nav li a:visited {
   background: #C4CBCC;
   color: #506466;
   background: #C4CBCC url('../images/triangle-open.png') 20px center no-repeat;
@@ -1202,52 +1202,52 @@ body.page-browse .ui-tabs .ui-tabs-nav li a:visited {
   cursor: pointer;
 }
 
-body.page-browse .ui-tabs .ui-tabs-nav li a:hover {
+body.browse-context .ui-tabs .ui-tabs-nav li a:hover {
   color: #fff;
   background: #FF8D47 url('../images/triangle-open.png') 20px center no-repeat;
 }
 
-body.page-browse .ui-tabs .ui-tabs-nav li.ui-state-active a {
+body.browse-context .ui-tabs .ui-tabs-nav li.ui-state-active a {
   cursor: default;
 }
 
-body.page-browse .ui-tabs .ui-tabs-nav li.ui-state-active a,
-body.page-browse .ui-tabs .ui-tabs-nav li.ui-state-active a:link,
-body.page-browse .ui-tabs .ui-tabs-nav li.ui-state-active a:visited,
-body.page-browse .ui-tabs .ui-tabs-nav li.ui-state-active a:hover {
+body.browse-context .ui-tabs .ui-tabs-nav li.ui-state-active a,
+body.browse-context .ui-tabs .ui-tabs-nav li.ui-state-active a:link,
+body.browse-context .ui-tabs .ui-tabs-nav li.ui-state-active a:visited,
+body.browse-context .ui-tabs .ui-tabs-nav li.ui-state-active a:hover {
   color: #506466;
   background: #E3E6E6 url('../images/triangle-open.png') 20px center no-repeat;
   cursor: default;
 }
 
-body.page-browse .ui-tabs .ui-tabs-nav li.ui-state-active {
+body.browse-context .ui-tabs .ui-tabs-nav li.ui-state-active {
   padding: 0;
 }
 
-body.page-browse .ui-tabs .ui-tabs-nav li:first-child a,
-body.page-browse .ui-tabs .ui-tabs-nav li:first-child a:hover,
-body.page-browse .ui-tabs .ui-tabs-nav li:first-child.ui-state-active a {
+body.browse-context .ui-tabs .ui-tabs-nav li:first-child a,
+body.browse-context .ui-tabs .ui-tabs-nav li:first-child a:hover,
+body.browse-context .ui-tabs .ui-tabs-nav li:first-child.ui-state-active a {
   padding-left: 24px;
   background-position: 10px center;
 }
 
-body.page-browse .ui-widget-content {
+body.browse-context .ui-widget-content {
   background: #E3E6E6;
 }
 
-body.page-browse .ui-widget-content .views-operator {
+body.browse-context .ui-widget-content .views-operator {
   margin-bottom: 10px;
 }
 
-body.page-browse .ui-tabs .ui-tabs-panel {
+body.browse-context .ui-tabs .ui-tabs-panel {
   padding: 10px;
 }
 
-body.page-browse .ui-widget-content .grid-2 {
+body.browse-context .ui-widget-content .grid-2 {
   margin: 0;
 }
 
-body.page-browse .ui-tabs #browse-archive-tabs input[type="submit"] {
+body.browse-context .ui-tabs #browse-archive-tabs input[type="submit"] {
   background-image: url('../images/search.png');
   background-repeat: no-repeat;
   background-color: transparent;
@@ -1262,29 +1262,29 @@ body.page-browse .ui-tabs #browse-archive-tabs input[type="submit"] {
   text-indent: -5000px;
 }
 
-body.page-browse .ui-tabs #browse-archive-tabs li.keyword-search {
+body.browse-context .ui-tabs #browse-archive-tabs li.keyword-search {
   background: #E3E6E6;
   padding: 7px 10px 8px;
   float: right;
 }
 
-body.page-browse .ui-tabs #summary-bar {
+body.browse-context .ui-tabs #summary-bar {
   clear: both;
   background: #F1F2F2;
   color: #757F80;
   padding: 10px;
 }
 
-body.page-browse .ui-tabs #summary-bar h3,
-body.page-browse .ui-tabs #summary-bar li {
+body.browse-context .ui-tabs #summary-bar h3,
+body.browse-context .ui-tabs #summary-bar li {
   float: left;
 }
 
-body.page-browse .ui-tabs #summary-bar .summary-element {
+body.browse-context .ui-tabs #summary-bar .summary-element {
   clear: left;
 }
 
-body.page-browse .ui-tabs #summary-bar h3 {
+body.browse-context .ui-tabs #summary-bar h3 {
   font-weight: normal;
   font-style: italic;
   font-size: 0.857em;
@@ -1293,7 +1293,7 @@ body.page-browse .ui-tabs #summary-bar h3 {
   margin-bottom: 5px;
 }
 
-body.page-browse .ui-tabs #summary-bar ul {
+body.browse-context .ui-tabs #summary-bar ul {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -1303,11 +1303,11 @@ body.page-browse .ui-tabs #summary-bar ul {
   position: relative;
 }
 
-body.page-browse .ui-tabs #summary-bar li {
+body.browse-context .ui-tabs #summary-bar li {
   margin-right: 15px;
 }
 
-body.page-browse .ui-tabs #summary-bar #summary-buttons {
+body.browse-context .ui-tabs #summary-bar #summary-buttons {
   float: right;
 }
 
@@ -1571,4 +1571,24 @@ div.ctools-modal-content {
 #media-browser-page .zone-postscript,
 body.page-media-browser .region-content {
   background: transparent;
+}
+
+table tbody tr.update-security, table tbody tr.update-unsupported {
+  background: #FCC;
+}
+
+tr.even, tr.odd {
+  border-width: 0 1px 0 1px;
+  border-style: solid;
+  border-color: #BEBFB9;
+  background: #F3F4EE;
+}
+
+tr.odd {
+  background: white;
+}
+
+
+tr.odd td {
+background: inherit;
 }

@@ -55,138 +55,148 @@ var mukurtu = mukurtu || {};
 
     $("div.mejs-video").css("height", "auto");
 
-    // Create tabs for exposed filters on the Browse Archive page.
-    // Remove the keyword search box.
-    var keyword_search = $('body.page-browse .views-exposed-widgets .views-widget-filter-keys input').detach();
-    keyword_search.attr('size', '25');
-    $('body.page-browse .views-exposed-widgets .views-widget-filter-keys').remove();
+    // Retheme browse interactions all browse related views.
+    var browsePages = ['.view-ma-browse', '.view-my-collection' ];
 
-    // Create the tab list.
-    $('body.page-browse .views-exposed-widgets > div')
-      .first()
-      .before('<ul id="browse-archive-tabs"></ul>');
-
-    // Create the summary bar for the Browse Archive page.
-    $('<div id="summary-bar"></div>').appendTo('body.page-browse .views-exposed-widgets');
-
-    // Get the tab labels.
-    $('body.page-browse .views-exposed-widgets > div > label').each(function () {
-      // Clean up the labels by trimming spaces off the ends, converting spaces
-      // to underscores, and changing to lowercase.
-      var id = $(this)
-        .html()
-        .replace(/^\s+|\s+$/g, '')
-        .replace(/ /g, "_")
-        .toLowerCase();
-
-      // Add the labels as list elements.
-      $('<li></li>')
-        .append('<a></a>')
-        .children()
-        .attr('href', '#' + id)
-        .text($(this).html())
-        .parent().
-        appendTo('#browse-archive-tabs');
-
-      // Change the ids the exposed filters to match the labels.
-      $(this)
-      .parent()
-      .attr('id', id);
-
-      // Add the label as a table header in the summary bar.
-      $('<div class="summary-element"></div>')
-        .append('<h3></h3>')
-        .children('h3')
-        .text($(this).html() + ':')
-        .addClass(id + '-summary')
+    for (var i=0; i < browsePages.length; i++) {
+      var browsePage = browsePages[i];
+      
+      // Create tabs for exposed filters on the Browse Archive page.
+      // Remove the keyword search box.
+      var keyword_search = $(browsePage + ' .views-exposed-widgets .views-widget-filter-keys input').detach();
+      keyword_search.attr('size', '25');
+      $(browsePage + ' .views-exposed-widgets .views-widget-filter-keys').remove();
+  
+      // Create the tab list.
+      $(browsePage + ' .views-exposed-widgets > div')
+        .first()
+        .before('<ul id="browse-archive-tabs"></ul>');
+  
+      // Create the summary bar for the Browse Archive page.
+      $('<div id="summary-bar"></div>').appendTo(browsePage + ' .views-exposed-widgets');
+  
+      // Get the tab labels.
+      $(browsePage + ' .views-exposed-widgets > div > label').each(function () {
+        // Clean up the labels by trimming spaces off the ends, converting spaces
+        // to underscores, and changing to lowercase.
+        var id = $(this)
+          .html()
+          .replace(/^\s+|\s+$/g, '')
+          .replace(/ /g, "_")
+          .toLowerCase();
+  
+        // Add the labels as list elements.
+        $('<li></li>')
+          .append('<a></a>')
+          .children()
+          .attr('href', '#' + id)
+          .text($(this).html())
+          .parent().
+          appendTo('#browse-archive-tabs');
+  
+        // Change the ids the exposed filters to match the labels.
+        $(this)
         .parent()
-        .append('<ul class="' + id + '-summary"></ul>')
+        .attr('id', id);
+  
+        // Add the label as a table header in the summary bar.
+        $('<div class="summary-element"></div>')
+          .append('<h3></h3>')
+          .children('h3')
+          .text($(this).html() + ':')
+          .addClass(id + '-summary')
+          .parent()
+          .append('<ul class="' + id + '-summary"></ul>')
+          .appendTo('#summary-bar');
+      });
+  
+      // Move the apply and reset buttons.
+      $('<div id="summary-buttons"></div>')
+        .append($(browsePage + ' .views-exposed-widget #edit-reset'))
+        .append($(browsePage + ' .views-exposed-widget #edit-submit-ma-browse'))
         .appendTo('#summary-bar');
-    });
-
-    // Move the apply and reset buttons.
-    $('<div id="summary-buttons"></div>')
-      .append($('body.page-browse .views-exposed-widget #edit-reset'))
-      .append($('body.page-browse .views-exposed-widget #edit-submit-ma-browse'))
-      .appendTo('#summary-bar');
-    $('body.page-browse #summary-bar').append('<div class="clearfix"></div>');
-
-    // Construct the search by keyword in the correct location.
-    $('<li class="keyword-search"></li>')
-      .append(keyword_search)
-      .append($('body.page-browse .views-exposed-widgets #edit-submit-ma-browse').clone())
-      .children('#edit-submit-ma-browse')
-      .removeAttr('id')
-      .addClass('search-submit')
-      .parent()
-      .appendTo('#browse-archive-tabs');
-
-    // Enable jQuery UI tabs.
-    $('body.page-browse .views-exposed-widgets').tabs();
-
-    // Setup change function for checkboxes.
-    $('body.page-browse .views-exposed-widget.ui-tabs-panel input[type="checkbox"]').each(function() {
-      $(this).change(function() {
-        var widget_id = 'ul.' + $(this).parents('.views-exposed-widget').attr('id') + '-summary';
-        var label = $(this).siblings('label').text();
-        var li = $('body.page-browse ' + widget_id + ' li').filter(function() {
-          return $(this).html() == label;
+      $(browsePage + ' #summary-bar').append('<div class="clearfix"></div>');
+  
+      // Construct the search by keyword in the correct location.
+      $('<li class="keyword-search"></li>')
+        .append(keyword_search)
+        .append($(browsePage + ' .views-exposed-widgets #edit-submit-ma-browse').clone())
+        .children('#edit-submit-ma-browse')
+        .removeAttr('id')
+        .addClass('search-submit')
+        .parent()
+        .appendTo('#browse-archive-tabs');
+  
+      // Enable jQuery UI tabs.
+      $(browsePage + ' .views-exposed-widgets').tabs();
+  
+      // Setup change function for checkboxes.
+      $(browsePage + ' .views-exposed-widget.ui-tabs-panel input[type="checkbox"]').each(function() {
+        $(this).change(function() {
+          var widget_id = 'ul.' + $(this).parents('.views-exposed-widget').attr('id') + '-summary';
+          var label = $(this).siblings('label').text();
+          var li = $(browsePage + ' ' + widget_id + ' li').filter(function() {
+            return $(this).html() == label;
+          });
+          if ($(this).not(':checked') && li.length > 0) {
+            $(li).remove();
+          } else {
+            $('<li></li>').text(label).appendTo(widget_id);
+          }
+          mukurtu.checkboxAlphaSort($(widget_id), 'li');
         });
-        if ($(this).not(':checked') && li.length > 0) {
-          $(li).remove();
-        } else {
-          $('<li></li>').text(label).appendTo(widget_id);
+      });
+  
+      // Setup change function for exposed operators.
+      $(browsePage + ' .views-exposed-widget.ui-tabs-panel .views-operator select').change(function() {
+        var widget_id = 'ul.' + $(this).parents('.views-exposed-widget').attr('id') + '-summary';
+        if ($(widget_id).find('li').length > 1 && $(widget_id).find('li').first().html() != $(this).val()) {
+          $(widget_id).find('li').first().html($(this).find('option:selected').text());
+        }
+      });
+  
+      // Setup change function for text fieldsets.
+      // Only to empty out the summary bar if the content of the autocomplete
+      // is emptied.
+      $(browsePage + ' .views-exposed-widget.ui-tabs-panel input[type="text"]').each(function() {
+        $(this).change(function() {
+          var widget_id = 'ul.' + $(this).parents('.views-exposed-widget').attr('id') + '-summary';
+          if ($(widget_id).find('li').length > 1 && $(this).val() == "") {
+            $(widget_id).find('li').remove();
+          }
+        });
+      });
+  
+      // Setup alphabetical sort for summary bar checkboxes.
+  
+      // Add already selected checkbox filters to the summary bar.
+      $(browsePage + ' .views-exposed-widget.ui-tabs-panel input[type="checkbox"]').each(function() {
+        var widget_id = 'ul.' + $(this).parents('.views-exposed-widget').attr('id') + '-summary';
+        if ($(this).is(':checked')) {
+          var label = $(this).siblings('label').text();
+          $('<li class="list-item"></li>').text(label).appendTo(widget_id);
         }
         mukurtu.checkboxAlphaSort($(widget_id), 'li');
       });
-    });
-
-    // Setup change function for exposed operators.
-    $('body.page-browse .views-exposed-widget.ui-tabs-panel .views-operator select').change(function() {
-      var widget_id = 'ul.' + $(this).parents('.views-exposed-widget').attr('id') + '-summary';
-      if ($(widget_id).find('li').length > 1 && $(widget_id).find('li').first().html() != $(this).val()) {
-        $(widget_id).find('li').first().html($(this).find('option:selected').text());
-      }
-    });
-
-    // Setup change function for text fieldsets.
-    // Only to empty out the summary bar if the content of the autocomplete
-    // is emptied.
-    $('body.page-browse .views-exposed-widget.ui-tabs-panel input[type="text"]').each(function() {
-      $(this).change(function() {
+  
+      // Add already selected text filters to the summary bar.
+      $(browsePage + ' .views-exposed-widget.ui-tabs-panel input[type="text"]').each(function() {
         var widget_id = 'ul.' + $(this).parents('.views-exposed-widget').attr('id') + '-summary';
-        if ($(widget_id).find('li').length > 1 && $(this).val() == "") {
-          $(widget_id).find('li').remove();
+        if ($(this).val() != "") {
+          $('<li></li>').text($(this).val()).appendTo(widget_id);
+        }
+        // Get any exposed operators.
+        if ($(widget_id).children().length != 0) {
+          var operator = $(this).parents('.views-exposed-widget').find('select option:selected').text();
+          if (operator != "") {
+            $('<li class="operator"></li>').text(operator).prependTo(widget_id);
+          }
         }
       });
-    });
+  
 
-    // Setup alphabetical sort for summary bar checkboxes.
+}
 
-    // Add already selected checkbox filters to the summary bar.
-    $('body.page-browse .views-exposed-widget.ui-tabs-panel input[type="checkbox"]').each(function() {
-      var widget_id = 'ul.' + $(this).parents('.views-exposed-widget').attr('id') + '-summary';
-      if ($(this).is(':checked')) {
-        var label = $(this).siblings('label').text();
-        $('<li class="list-item"></li>').text(label).appendTo(widget_id);
-      }
-      mukurtu.checkboxAlphaSort($(widget_id), 'li');
-    });
-
-    // Add already selected text filters to the summary bar.
-    $('body.page-browse .views-exposed-widget.ui-tabs-panel input[type="text"]').each(function() {
-      var widget_id = 'ul.' + $(this).parents('.views-exposed-widget').attr('id') + '-summary';
-      if ($(this).val() != "") {
-        $('<li></li>').text($(this).val()).appendTo(widget_id);
-      }
-      // Get any exposed operators.
-      if ($(widget_id).children().length != 0) {
-        var operator = $(this).parents('.views-exposed-widget').find('select option:selected').text();
-        if (operator != "") {
-          $('<li class="operator"></li>').text(operator).prependTo(widget_id);
-        }
-      }
-    });
 
     // mukurtu.autocompleteSelect();
 
