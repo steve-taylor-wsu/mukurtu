@@ -1438,3 +1438,109 @@ html.js div.contextual-links-wrapper {
 .front .field-name-field-media .field-item:nth-child(1) {
   display: block;
 }
+
+
+ul.action-links {
+  list-style: none;
+  clear: both;
+}
+
+.compact-link a,
+ul.action-links li a{
+  display: inline-block;
+  padding: 10px;
+  margin: 0 5px 5px 0;
+  text-transform: uppercase;
+  background: #FF8D47;
+  color: white;
+}
+
+.page-node-add dt,
+.page-admin dt {
+  font-size: 1em;
+  margin: 0;
+}
+
+.page-node-add dd,
+.page-admin dd {
+  padding-left: 0px;
+  font-size: 1em;
+  font-style: normal;
+  margin-bottom: 20px;
+}
+
+#dashboard h2 {
+  margin: 2em 0 1em 0;
+}
+
+.page-admin .admin h3 {
+  font-size: 18px;
+  color: #000;
+  margin: 2em 0 1em 0;
+}
+
+
+.page-admin td, 
+.page-admin th {
+  padding: 10px 8px;
+  vertical-align: middle;
+}
+
+.page-admin .block-system-main .form-item {
+  margin-bottom: 2em;
+}
+
+div.admin-panel .body {
+  padding: 0 0 1em 0;
+}
+
+div.admin .left {
+  margin-left: 0;
+}
+
+.page-admin table ul {
+  list-style: none;
+}
+
+.page-admin form input {
+  margin-right: 3px;
+}
+
+#dashboard.customize-inactive #disabled-blocks .block:hover {
+  background: #0074BD;
+  color: #FFF;
+}
+
+#dashboard #disabled-blocks .block {
+  background: #C4CBCC;
+  color: #FFF;
+}
+
+#dashboard .canvas-content a.button {
+  margin: 0 0 0 10px;
+  color: #FFF;
+  text-decoration: none;
+}
+
+.page-node .field-name-field-format {
+  display: none;
+}
+
+div.ctools-modal-content .modal-header {
+  background-color: #8D9899;
+  padding: 0.5em;
+}
+
+
+div.ctools-modal-content a.close img {
+  margin-left: 5px;
+}
+#media-browser-page .zone-preface,
+#media-browser-page  .zone-content,
+#media-browser-page  .zone-postscript {
+  background: #fff;
+}
+#media-browser-tabset,
+div.ctools-modal-content {
+  background-color: #F1F2F2;
+}
