@@ -1544,3 +1544,31 @@ div.ctools-modal-content a.close img {
 div.ctools-modal-content {
   background-color: #F1F2F2;
 }
+
+#media-browser-page a.button, 
+#media-browser-page input[type="submit"] {
+  text-transform: uppercase;
+  background: #FF8D47;
+  color: white;
+  padding: 7px 5px 5px;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  text-shadow: none;
+  font-weight: normal;
+  line-height: 1em;
+  font-size: 14px;
+  vertical-align: baseline;
+}
+
+#media-browser-tabset .item-list li:nth-child(3) a span {
+  content: "Library";
+}
+
+#media-browser-page,
+#media-browser-page .zone-preface, 
+#media-browser-page .zone-content, 
+#media-browser-page .zone-postscript,
+body.page-media-browser .region-content {
+  background: transparent;
+}
