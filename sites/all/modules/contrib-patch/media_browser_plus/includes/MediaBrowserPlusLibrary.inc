@@ -9,7 +9,7 @@ class MediaBrowserPlusLibrary extends MediaBrowserLibrary {
     // Get plugin form.
     $upload_form = drupal_get_form('media_browser_plus_library_browser', $multiselect, $types);
     return array(
-      '#title' => t('Library Plus'),
+      '#title' => t('Media Library'),
       'form' => array($upload_form),
     );
   }

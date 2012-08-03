@@ -1519,7 +1519,7 @@ function media_browser_plus_get_media_root_folder($autocreate = FALSE) {
 function media_browser_plus_media_browser_plugin_info() {
   $plugins = array();
   $plugins['library_plus'] = array(
-    'title' => t('Library Plus'),
+    'title' => t('Media Library'),
     'weight' => 10,
     'handler' => array(
       'path' => drupal_get_path('module', 'media_browser_plus') . '/includes',
@@ -1562,6 +1562,13 @@ function media_browser_plus_media_browser_plugins_alter(&$form, &$form_state) {
  */
 function media_browser_plus_library_browser($form, &$form_state, $multiselect, $types) {
   $path = drupal_get_path('module', 'media_browser_plus');
+
+
+  $form['prompt'] =array(
+    '#type' => 'item',
+    '#markup' => '<p>Select one media item at a time.</p>'
+  );
+
 
   // Assemble library from grid view.
   $form['#attached']['library'][] = array('media_browser_plus', 'media_browser_plus');
