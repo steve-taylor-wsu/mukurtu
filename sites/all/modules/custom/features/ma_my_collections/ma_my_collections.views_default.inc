@@ -132,6 +132,20 @@ function ma_my_collections_views_default_views() {
   $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['arguments']['nid']['break_phrase'] = 1;
   $handler->display->display_options['arguments']['nid']['not'] = 0;
+  /* Filter criterion: Organic groups group: Label */
+  $handler->display->display_options['filters']['label']['id'] = 'label';
+  $handler->display->display_options['filters']['label']['table'] = 'og';
+  $handler->display->display_options['filters']['label']['field'] = 'label';
+  $handler->display->display_options['filters']['label']['relationship'] = 'group';
+  $handler->display->display_options['filters']['label']['group'] = 1;
+  $handler->display->display_options['filters']['label']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['label']['expose']['operator_id'] = 'label_op';
+  $handler->display->display_options['filters']['label']['expose']['label'] = 'Community';
+  $handler->display->display_options['filters']['label']['expose']['operator'] = 'label_op';
+  $handler->display->display_options['filters']['label']['expose']['identifier'] = 'label';
+  $handler->display->display_options['filters']['label']['expose']['required'] = 0;
+  $handler->display->display_options['filters']['label']['expose']['multiple'] = FALSE;
+  $handler->display->display_options['filters']['label']['autocomplete'] = 'groups/autocomplete';
   /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
@@ -139,12 +153,12 @@ function ma_my_collections_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'digital_heritage' => 'digital_heritage',
   );
-  $handler->display->display_options['filters']['type']['group'] = 0;
+  $handler->display->display_options['filters']['type']['group'] = 1;
   /* Filter criterion: Content: Has taxonomy term */
   $handler->display->display_options['filters']['tid_1']['id'] = 'tid_1';
   $handler->display->display_options['filters']['tid_1']['table'] = 'taxonomy_index';
   $handler->display->display_options['filters']['tid_1']['field'] = 'tid';
-  $handler->display->display_options['filters']['tid_1']['group'] = 0;
+  $handler->display->display_options['filters']['tid_1']['group'] = 1;
   $handler->display->display_options['filters']['tid_1']['exposed'] = TRUE;
   $handler->display->display_options['filters']['tid_1']['expose']['operator_id'] = 'tid_1_op';
   $handler->display->display_options['filters']['tid_1']['expose']['label'] = 'Category';
@@ -162,10 +176,10 @@ function ma_my_collections_views_default_views() {
   $handler->display->display_options['filters']['tid']['id'] = 'tid';
   $handler->display->display_options['filters']['tid']['table'] = 'taxonomy_index';
   $handler->display->display_options['filters']['tid']['field'] = 'tid';
-  $handler->display->display_options['filters']['tid']['group'] = 0;
+  $handler->display->display_options['filters']['tid']['group'] = 1;
   $handler->display->display_options['filters']['tid']['exposed'] = TRUE;
   $handler->display->display_options['filters']['tid']['expose']['operator_id'] = 'tid_op';
-  $handler->display->display_options['filters']['tid']['expose']['label'] = 'Tags';
+  $handler->display->display_options['filters']['tid']['expose']['label'] = 'Tag';
   $handler->display->display_options['filters']['tid']['expose']['use_operator'] = 1;
   $handler->display->display_options['filters']['tid']['expose']['operator'] = 'tid_op';
   $handler->display->display_options['filters']['tid']['expose']['identifier'] = 'tid';
@@ -175,27 +189,11 @@ function ma_my_collections_views_default_views() {
   $handler->display->display_options['filters']['tid']['type'] = 'select';
   $handler->display->display_options['filters']['tid']['vocabulary'] = 'tags';
   $handler->display->display_options['filters']['tid']['error_message'] = 1;
-  /* Filter criterion: Organic groups group: Label */
-  $handler->display->display_options['filters']['label']['id'] = 'label';
-  $handler->display->display_options['filters']['label']['table'] = 'og';
-  $handler->display->display_options['filters']['label']['field'] = 'label';
-  $handler->display->display_options['filters']['label']['relationship'] = 'group';
-  $handler->display->display_options['filters']['label']['operator'] = 'contains';
-  $handler->display->display_options['filters']['label']['group'] = 0;
-  $handler->display->display_options['filters']['label']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['label']['expose']['operator_id'] = 'label_op';
-  $handler->display->display_options['filters']['label']['expose']['label'] = 'Group';
-  $handler->display->display_options['filters']['label']['expose']['use_operator'] = 1;
-  $handler->display->display_options['filters']['label']['expose']['operator'] = 'label_op';
-  $handler->display->display_options['filters']['label']['expose']['identifier'] = 'label';
-  $handler->display->display_options['filters']['label']['expose']['required'] = 0;
-  $handler->display->display_options['filters']['label']['expose']['multiple'] = FALSE;
-  $handler->display->display_options['filters']['label']['autocomplete'] = 'groups/autocomplete';
   /* Filter criterion: Search: Search Terms */
   $handler->display->display_options['filters']['keys']['id'] = 'keys';
   $handler->display->display_options['filters']['keys']['table'] = 'search_index';
   $handler->display->display_options['filters']['keys']['field'] = 'keys';
-  $handler->display->display_options['filters']['keys']['group'] = 0;
+  $handler->display->display_options['filters']['keys']['group'] = 1;
   $handler->display->display_options['filters']['keys']['exposed'] = TRUE;
   $handler->display->display_options['filters']['keys']['expose']['operator_id'] = 'keys_op';
   $handler->display->display_options['filters']['keys']['expose']['label'] = 'Search';
@@ -203,6 +201,11 @@ function ma_my_collections_views_default_views() {
   $handler->display->display_options['filters']['keys']['expose']['identifier'] = 'keys';
   $handler->display->display_options['filters']['keys']['expose']['remember'] = 1;
   $handler->display->display_options['filters']['keys']['expose']['multiple'] = FALSE;
+  /* Filter criterion: Content: Published or admin */
+  $handler->display->display_options['filters']['status_extra']['id'] = 'status_extra';
+  $handler->display->display_options['filters']['status_extra']['table'] = 'node';
+  $handler->display->display_options['filters']['status_extra']['field'] = 'status_extra';
+  $handler->display->display_options['filters']['status_extra']['group'] = 1;
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
@@ -431,6 +434,31 @@ function ma_my_collections_views_default_views() {
   $handler->display->display_options['tab_options']['description'] = 'Your collection of digital heritage items';
   $handler->display->display_options['tab_options']['weight'] = '0';
   $handler->display->display_options['tab_options']['name'] = 'main-menu';
+  $translatables['my_collection'] = array(
+    t('Master'),
+    t('My Collection'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('No results'),
+    t('No results found'),
+    t('group membership'),
+    t('Organic groups group'),
+    t('in_my_collection_flag'),
+    t('Content'),
+    t('All'),
+    t('Community'),
+    t('Category'),
+    t('Tag'),
+    t('Search'),
+    t('Page'),
+  );
   $export['my_collection'] = $view;
 
   return $export;
