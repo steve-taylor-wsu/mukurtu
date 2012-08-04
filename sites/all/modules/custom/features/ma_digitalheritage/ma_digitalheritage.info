@@ -101,6 +101,7 @@ features[variable][] = comment_subject_field_digital_heritage
 features[variable][] = community_tags_display_digital_heritage
 features[variable][] = community_tags_vocabularies
 features[variable][] = enable_revisions_page_digital_heritage
+features[variable][] = language_content_type_digital_heritage
 features[variable][] = menu_options_digital_heritage
 features[variable][] = menu_parent_digital_heritage
 features[variable][] = node_options_digital_heritage
