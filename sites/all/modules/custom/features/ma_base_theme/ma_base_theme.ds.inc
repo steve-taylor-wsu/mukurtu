@@ -18,7 +18,7 @@ function ma_base_theme_ds_field_settings_info() {
   $ds_fieldsetting->view_mode = 'full';
   $ds_fieldsetting->settings = array(
     'admin_actions' => array(
-      'weight' => '7',
+      'weight' => '6',
       'label' => 'hidden',
       'format' => 'default',
       'formatter_settings' => array(
@@ -29,7 +29,7 @@ function ma_base_theme_ds_field_settings_info() {
       ),
     ),
     'component_media_items' => array(
-      'weight' => '0',
+      'weight' => '28',
       'label' => 'hidden',
       'format' => 'default',
       'formatter_settings' => array(
@@ -40,7 +40,7 @@ function ma_base_theme_ds_field_settings_info() {
       ),
     ),
     'title' => array(
-      'weight' => '1',
+      'weight' => '0',
       'label' => 'hidden',
       'format' => 'default',
       'formatter_settings' => array(
@@ -49,15 +49,25 @@ function ma_base_theme_ds_field_settings_info() {
         'class' => 'page-title',
       ),
     ),
+    'links' => array(
+      'weight' => '27',
+      'label' => 'hidden',
+      'format' => 'default',
+    ),
     'comments' => array(
-      'weight' => '6',
+      'weight' => '5',
       'label' => 'hidden',
       'format' => 'default',
     ),
     'author' => array(
-      'weight' => '26',
+      'weight' => '25',
       'label' => 'above',
       'format' => 'author',
+    ),
+    'post_date' => array(
+      'weight' => '26',
+      'label' => 'hidden',
+      'format' => 'ds_post_date_exif',
     ),
   );
   $export['node|digital_heritage|full'] = $ds_fieldsetting;
@@ -141,13 +151,8 @@ function ma_base_theme_ds_layout_settings_info() {
     'hide_empty_regions' => 0,
     'hide_sidebars' => 0,
     'regions' => array(
-      'right' => array(
-        0 => 'component_media_items',
-        1 => 'field_relation',
-      ),
       'header' => array(
-        0 => 'field_format',
-        1 => 'title',
+        0 => 'title',
       ),
       'left' => array(
         0 => 'field_media',
@@ -177,11 +182,15 @@ function ma_base_theme_ds_layout_settings_info() {
         17 => 'field_coverage',
         18 => 'field_coverage_description',
         19 => 'author',
+        20 => 'post_date',
+        21 => 'links',
+      ),
+      'right' => array(
+        0 => 'component_media_items',
+        1 => 'field_relation',
       ),
     ),
     'fields' => array(
-      'component_media_items' => 'right',
-      'field_format' => 'header',
       'title' => 'header',
       'field_media' => 'left',
       'field_description' => 'left',
@@ -208,6 +217,9 @@ function ma_base_theme_ds_layout_settings_info() {
       'field_coverage' => 'middle',
       'field_coverage_description' => 'middle',
       'author' => 'middle',
+      'post_date' => 'middle',
+      'links' => 'middle',
+      'component_media_items' => 'right',
       'field_relation' => 'right',
     ),
     'limit' => array(
