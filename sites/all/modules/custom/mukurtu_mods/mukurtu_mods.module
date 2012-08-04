@@ -55,6 +55,8 @@ function mukurtu_mods_field_widget_form(&$form, &$form_state, $field, $instance,
 function mukurtu_mods_keyed_fields(&$updated_membership, &$updated_nids, &$original_nids, $entity, $fields) {
   global $language_content;
 
+
+
   // Produce a gid keyed lookup table of current group membership.
   if(isset($entity->{OG_AUDIENCE_FIELD}[LANGUAGE_NONE])) {
     foreach ($entity->{OG_AUDIENCE_FIELD}[LANGUAGE_NONE] as $item) {
@@ -65,6 +67,28 @@ function mukurtu_mods_keyed_fields(&$updated_membership, &$updated_nids, &$origi
   // Retrieve a nid keyed lookup list of currently selected and original node references.
   foreach ($fields as $field_name) {
     if (isset($entity->{$field_name})) {
+
+      // @TODO there is still some question about how or when the
+      // language field gets used for Drupal fields
+      // If Drupal field is set to UND
+      if(isset($entity->{$field_name}[LANGUAGE_NONE])){
+        foreach ($entity->{$field_name}[LANGUAGE_NONE] as $item) {
+          if (is_array($item) && !empty($item['nid']) && is_numeric($item['nid'])) {
+            $updated_nids[$item['nid']] = $item['nid'];
+          }
+        }
+      }
+      if(isset($entity->original)){
+        if(isset($entity->original->{$field_name}[LANGUAGE_NONE])) {
+          foreach ($entity->original->{$field_name}[LANGUAGE_NONE] as $item) {
+            if (is_array($item) && !empty($item['nid']) && is_numeric($item['nid'])) {
+              $original_nids[$item['nid']] = $item['nid'];
+            }
+          }
+        }
+      }
+
+      // If Drupal field uses language feature (ex. 'en')
       if(isset($entity->{$field_name}[$language_content->language])){
         foreach ($entity->{$field_name}[$language_content->language] as $item) {
           if (is_array($item) && !empty($item['nid']) && is_numeric($item['nid'])) {
@@ -244,11 +268,14 @@ function mukurtu_mods_rebuild_nodereference(&$entity, $updated_nids, $fields) {
     // We don't check the field exists, since it actually doesn't on feed import
     // yet we still need to fill in the field values.
     $field = field_info_field($field_name);
+
+    // This will manually set the field to use the language feature.
     $entity->{$field_name}[$language_content->language] = array();
     // Retrieve a list of listed (potentially selectable) nids.
     $potential_nids = node_reference_potential_references($field);
     foreach ($updated_nids as $nid) {
       if (isset($potential_nids[$nid])) {
+        // This will manually set the field to use the language feature.
         $entity->{$field_name}[$language_content->language][] = array('nid' => $nid);
       }
     }
@@ -344,6 +371,7 @@ function mukurtu_mods_feeds_set_target($source, &$entity, $target, $value) {
   
   foreach ($value as $nid) {
     if (!is_array($nid) && !is_object($nid)) {
+      // This will manually set the field data to use the language options.
       $field[$language_content->language][$i]['nid'] = $nid;
     }
     if ($info['cardinality'] == 1) {

@@ -55,7 +55,7 @@ function ma_base_theme_form_alter(&$form, &$form_state, $form_id) {
     case 'views_exposed_form':
 
       if ((substr($form['#id'], 0, 33) == 'views-exposed-form-ma-browse-page') || 
-       (substr($form['#id'], 0, 33) == 'views-exposed-form-my-collection-page')){
+       (substr($form['#id'], 0, 37) == 'views-exposed-form-my-collection-page')){
         $form['keys']['#attributes']['placeholder'] = t('Or search by keyword');
       }
       
@@ -71,50 +71,59 @@ function ma_base_theme_form_alter(&$form, &$form_state, $form_id) {
   }
 }
 
-
 function ma_base_theme_views_query_alter(&$view, &$query) {
   $count = 0;
   
   // Create a new label array, to only query if option values are checked in the exposed filter.
   $newlabel = array();
 
-  if(isset($view->exposed_raw_input['label']) && $view->name == 'ma_browse') {
-    foreach($view->exposed_raw_input['label'] as $key) {
-      if(!empty($view->exposed_raw_input['label'][$key])) {
-        $count++;
-        $newlabel[$key] = $view->exposed_raw_input['label'][$key];
-      }
+  if(isset($view->exposed_raw_input['label'])) {
+    switch($view->name) {
+      case 'ma_browse':
+      case 'my_collection':
+        foreach($view->exposed_raw_input['label'] as $key) {
+          if(!empty($view->exposed_raw_input['label'][$key])) {
+            $count++;
+            $newlabel[$key] = $view->exposed_raw_input['label'][$key];
+          }
+        }
+        $view->exposed_raw_input['label'] = $newlabel;
+      break;
     }
-    $view->exposed_raw_input['label'] = $newlabel;
   }
-
-	if($view->name == 'ma_browse') {
-    $condition_count = 0;
-    $unset = false;
-		foreach($query->where as &$condition_group) {
-		  foreach($condition_group['conditions'] as &$condition) {
-  		  if($condition['field'] == 'og_og_membership.label') {
-  			   if ($count >= 1) {
-    				$condition = array(
-    					'field' => 'og_og_membership.label',
-    					'value' => $view->exposed_raw_input['label'],
-    					'operator' => 'IN',
-    				);
-    				$view->exposed_data['label'] = $view->exposed_raw_input['label'];
-  				}
-  				elseif($count === 0){
-  				  $condition['value'] = '';
-  				  $unset = $condition_count;
-  				}
+ 
+  switch($view->name) {
+    case 'ma_browse':
+    case 'my_collection':
+      $condition_count = 0;
+      $unset = false;
+  		foreach($query->where as &$condition_group) {
+  		  foreach($condition_group['conditions'] as &$condition) {
+    		  if($condition['field'] == 'og_og_membership.label') {
+    			   if ($count >= 1) {
+      				$condition = array(
+      					'field' => 'og_og_membership.label',
+      					'value' => $view->exposed_raw_input['label'],
+      					'operator' => 'IN',
+      				);
+      				$view->exposed_data['label'] = $view->exposed_raw_input['label'];
+    				}
+    				elseif($count === 0){
+    				  $condition['value'] = '';
+    				  $unset = $condition_count;
+    				}
+    		  }
   		  }
-		  }
-      $condition_count++;
-    }
-    // Remove the query if there are no items in the filter.
-    if(isset($unset) && isset($condition_count) && $count == 0) {
-      unset($query->where[$condition_count]['conditions'][$condition_count]);
-      $view->exposed_data['label'] = array();
-    }
+        $condition_count++;
+      }
+      // Remove the query if there are no items in the filter.
+      // @TODO this is a bit hackish, the count order maps to the view filter order.
+      // If you can find a better way to do this, then by all means try.
+      if(isset($unset) && isset($condition_count) && $count == 0) {
+        unset($query->where[$condition_count]['conditions'][$condition_count]);
+        $view->exposed_data['label'] = array();
+      }
+    break;
   }
 }
 

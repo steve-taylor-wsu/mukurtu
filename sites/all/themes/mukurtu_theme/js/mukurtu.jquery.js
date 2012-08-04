@@ -114,7 +114,7 @@ var mukurtu = mukurtu || {};
       // Move the apply and reset buttons.
       $('<div id="summary-buttons"></div>')
         .append($(browsePage + ' .views-exposed-widget #edit-reset'))
-        .append($(browsePage + ' .views-exposed-widget #edit-submit-ma-browse'))
+        .append($(browsePage + ' .views-exposed-widget ' + editSubmit[i]))
         .appendTo('#summary-bar');
       $(browsePage + ' #summary-bar').append('<div class="clearfix"></div>');
   
