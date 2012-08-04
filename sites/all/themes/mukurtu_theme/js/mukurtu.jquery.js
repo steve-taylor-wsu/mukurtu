@@ -57,6 +57,7 @@ var mukurtu = mukurtu || {};
 
     // Retheme browse interactions all browse related views.
     var browsePages = ['.view-ma-browse', '.view-my-collection' ];
+    var editSubmit = ['#edit-submit-ma-browse', '#edit-submit-my-collection'];
 
     for (var i=0; i < browsePages.length; i++) {
       var browsePage = browsePages[i];
@@ -120,8 +121,8 @@ var mukurtu = mukurtu || {};
       // Construct the search by keyword in the correct location.
       $('<li class="keyword-search"></li>')
         .append(keyword_search)
-        .append($(browsePage + ' .views-exposed-widgets #edit-submit-ma-browse').clone())
-        .children('#edit-submit-ma-browse')
+        .append($(browsePage + ' .views-exposed-widgets ' + editSubmit[i]).clone())
+        .children(editSubmit[i])
         .removeAttr('id')
         .addClass('search-submit')
         .parent()

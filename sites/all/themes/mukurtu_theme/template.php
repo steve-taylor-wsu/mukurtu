@@ -92,6 +92,12 @@ function mukurtu_theme_field__digital_heritage($variables) {
   return $output;
 }
 
+function mukurtu_theme_community_tags($variables) {
+dpm("com tags");
+  $tags = $variables['tags'];
+  return '<div class="cloud">' . (count($tags) ? theme('tagadelic_weighted', array('terms' => $tags)) : t('None')) . '</div>';
+}
+
 
 /**
  * Override theme_field() for digital heritage nodes media fields.
