@@ -1002,45 +1002,45 @@ body.page-browse .zone-branding-wrapper {
 /******************************************************
  * BROWSE ARCHIVE: VIEWS BULK OPERATIONS
  ******************************************************/
-body.browse-context #views-form-ma-browse-page #edit-select,
-body.browse-context #views-form-ma-browse-page #vbo-operations,
-body.browse-context #views-form-ma-browse-page #edit-select .fieldset-wrapper,
-body.browse-context #views-form-ma-browse-page .vbo-select-all-markup,
-body.browse-context #views-form-ma-browse-page .vbo-fieldset-select-all,
-body.browse-context #views-form-ma-browse-page .vbo-select-all-markup em,
-body.browse-context #views-form-ma-browse-page .vbo-select-all-markup .form-type-checkbox, {
+body.browse-context .vbo-views-form form #edit-select,
+body.browse-context .vbo-views-form form #vbo-operations,
+body.browse-context .vbo-views-form form #edit-select .fieldset-wrapper,
+body.browse-context .vbo-views-form form .vbo-select-all-markup,
+body.browse-context .vbo-views-form form .vbo-fieldset-select-all,
+body.browse-context .vbo-views-form form .vbo-select-all-markup em,
+body.browse-context .vbo-views-form form .vbo-select-all-markup .form-type-checkbox, {
   float: left;
 }
 
-body.browse-context #views-form-ma-browse-page #edit-select,
-body.browse-context #views-form-ma-browse-page #vbo-operations,
-body.browse-context #views-form-ma-browse-page .vbo-select-all-markup {
+body.browse-context .vbo-views-form form #edit-select,
+body.browse-context .vbo-views-form form #vbo-operations,
+body.browse-context .vbo-views-form form .vbo-select-all-markup {
   margin-top: 20px;
   margin-bottom: 40px;
 }
 
-body.browse-context #views-form-ma-browse-page .vbo-fieldset-select-all {
+body.browse-context .vbo-views-form form .vbo-fieldset-select-all {
   width: auto;
 }
 
-body.browse-context #views-form-ma-browse-page .vbo-select-all-markup em,
-body.browse-context #views-form-ma-browse-page .vbo-select-all-markup .form-type-checkbox label {
+body.browse-context .vbo-views-form form .vbo-select-all-markup em,
+body.browse-context .vbo-views-form form .vbo-select-all-markup .form-type-checkbox label {
   margin-right: 10px;
 }
 
-body.browse-context #views-form-ma-browse-page h3.grid-2 {
+body.browse-context .vbo-views-form form h3.grid-2 {
   margin-left: 0;
 }
 
-body.browse-context #views-form-ma-browse-page .vbo-select-all-markup.grid-6 {
+body.browse-context .vbo-views-form form .vbo-select-all-markup.grid-6 {
   margin-right: 0;
 }
 
-body.browse-context #views-form-ma-browse-page .vbo-select-all-markup.grid-6 fieldset {
+body.browse-context .vbo-views-form form .vbo-select-all-markup.grid-6 fieldset {
   padding: 0;
 }
 
-body.browse-context #views-form-ma-browse-page #vbo-operations {
+body.browse-context .vbo-views-form form #vbo-operations {
   font-weight: normal;
   padding-left: 21px;
   background: url('../images/operations.png') top left no-repeat;
@@ -1050,16 +1050,16 @@ body.browse-context #views-form-ma-browse-page #vbo-operations {
   box-sizing: border-box;
 }
 
-body.browse-context #views-form-ma-browse-page #edit-select {
+body.browse-context .vbo-views-form form #edit-select {
   margin-bottom: 0;
 }
 
-body.browse-context #views-form-ma-browse-page .views-view-grid .form-type-checkbox {
+body.browse-context .vbo-views-form form .views-view-grid .form-type-checkbox {
   margin: 0 10px 10px 0;
   float: right;
 }
 
-body.browse-context #views-form-ma-browse-page #edit-select input[type="submit"] {
+body.browse-context .vbo-views-form form #edit-select input[type="submit"] {
   margin: 5px 0 0 10px;
   background: url('../images/arrow-dark.png') top left no-repeat;
   height: 14px;
