@@ -1618,6 +1618,6 @@ form.confirmation {
   vertical-align: baseline;
 }
 
-ul.links li.comments-add {
+.page-node .group-middle ul.links.inline li.comments-add {
   display: none;
 }
