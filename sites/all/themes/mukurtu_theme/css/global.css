@@ -1617,3 +1617,7 @@ form.confirmation {
   font-size: 14px;
   vertical-align: baseline;
 }
+
+ul.links li.comments-add {
+  display: none;
+}
