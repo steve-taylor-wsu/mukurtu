@@ -38,9 +38,12 @@ zones[postscript] = 'Postscript'
 css[global.css][name] = 'Your custom global styles'
 css[global.css][description] = 'This file holds all the globally active custom CSS of your theme.'
 css[global.css][options][weight] = '10'
+
 scripts[] = js/mukurtu.jquery.js
 stylesheets[all][] = fonts/lato/stylesheet.css
 stylesheets[screen, projection, handheld][] = css/mukurtu_theme_jquery_ui_theme/jquery-ui-1.8.20.custom.css
+; Add our stylesheet for the Color module to override.
+stylesheets[all][] = css/colors.css
 
 settings[toggle_logo] = '1'
 settings[toggle_name] = '1'

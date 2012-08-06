@@ -273,3 +273,25 @@ function mukurtu_theme_media_formatter_large_icon($variables) {
   }
   return theme('image', $variables);
 }
+
+/**
+ * Implements template_process_html().
+ *
+ * Override or insert variables into the page template for HTML output.
+ */
+function mukurtu_theme_process_html(&$variables) {
+  // Hook into color.module.
+  if (module_exists('color')) {
+    _color_html_alter($variables);
+  }
+}
+ 
+/*
+ * Implements template_process_page().
+ */
+function mukurtu_theme_process_page(&$variables, $hook) {
+  // Hook into color.module.
+  if (module_exists('color')) {
+    _color_page_alter($variables);
+  }
+}
