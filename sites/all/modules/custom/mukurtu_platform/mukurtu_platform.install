@@ -18,7 +18,9 @@ function mukurtu_platform_install() {
   variable_set('site_frontpage', 'home');
   variable_set('site_403', 'access-denied'); 
   variable_set('site_404', 'page-not-found'); 
-
+  variable_set('search_default_module', 'node'); 
+  variable_set('search_active_modules', array('node'));
+  
   mukurtu_platform_load_file_display_table();
   mukurtu_platform_load_og_role_permission_table();
   mukurtu_platform_load_user_insert_table();
@@ -745,6 +747,8 @@ function mukurtu_platform_update_7010() {
 
 /**
  * Add permissions for media module.
+ * @TODO right now this update can only be run manually by incrementing the number value so drupal registers it as new.
+ * This needs to happen after the site is fully installed.
  */
 function mukurtu_platform_update_7035() {
   // Update roles on users that already existed.
@@ -778,6 +782,14 @@ function mukurtu_platform_update_7035() {
 
   // Rebuild permissions.
   node_access_rebuild(TRUE);
+}
+
+/** 
+ * Enable search by node. Requires cron run to index search.
+ */ 
+function mukurtu_platform_update_7036() {
+  variable_set('search_default_module', 'node'); 
+  variable_set('search_active_modules', array('node'));
 }
 
 function mukurtu_platform_more_media_permissions() {

@@ -77,7 +77,7 @@ function ma_base_theme_views_query_alter(&$view, &$query) {
   // Create a new label array, to only query if option values are checked in the exposed filter.
   $newlabel = array();
 
-  if(isset($view->exposed_raw_input['label'])) {
+  if(isset($view->exposed_raw_input['label']) && $view->exposed_raw_input['label'] !== "") {
     switch($view->name) {
       case 'ma_browse':
       case 'my_collection':
@@ -99,7 +99,7 @@ function ma_base_theme_views_query_alter(&$view, &$query) {
       $unset = false;
   		foreach($query->where as &$condition_group) {
   		  foreach($condition_group['conditions'] as &$condition) {
-    		  if($condition['field'] == 'og_og_membership.label') {
+    		  if($condition['field'] === "og_og_membership.label") {
     			   if ($count >= 1) {
       				$condition = array(
       					'field' => 'og_og_membership.label',
