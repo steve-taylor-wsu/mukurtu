@@ -155,9 +155,7 @@ function color_get_palette($theme, $default = FALSE) {
   $palette = $info['schemes']['default']['colors'];
 
   // Load variable.
-  // @PATCH  http://drupal.org/files/issues/include-newly-added-colorable-elements-1236098.patch
-  // return $default ? $palette : variable_get('color_' . $theme . '_palette', $palette);
-  return $default ? $palette : variable_get('color_' . $theme . '_palette', $palette) + $palette;
+  return $default ? $palette : variable_get('color_' . $theme . '_palette', $palette);
 }
 
 /**
@@ -478,10 +476,6 @@ function _color_rewrite_stylesheet($theme, &$info, &$paths, $palette, $style) {
       }
       // Not a pre-set color. Extrapolate from the base.
       else {
-      dpm($palette);
-      dpm($default);
-      dpm($chunk);
-      dpm($info);
         $chunk = _color_shift($palette[$base], $default[$base], $chunk, $info['blend_target']);
       }
     }

@@ -295,6 +295,7 @@ function mukurtu_theme_process_page(&$vars, $hook) {
     _color_page_alter($variables);
   }
 }
+/*
 
 function mukurtu_theme_form_system_theme_settings_alter(&$form, &$form_state) {
   mukurtu_theme_theme_settings_add_new_colors();
@@ -325,3 +326,4 @@ function mukurtu_theme_theme_settings_add_new_colors() {
     variable_set('color_' . $theme . '_palette', $palette);
   }
 }
+*/

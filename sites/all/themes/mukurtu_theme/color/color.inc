@@ -11,6 +11,9 @@ $info = array();
  
 // Define the possible replaceable items and their labels.
 $info['fields'] = array(
+  'base' => t("Base: IGNORE"),
+  'text' => t("Text: IGNORE"),
+  'link' => t("Link: IGNORE"),
  'highlight' => t('Highlight color'),
  'highlight_light' => t('Highlight Light color'),
  'greyscale_10' => t('Greyscale 100% - Darkest'),
