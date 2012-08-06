@@ -1,6 +1,579 @@
 /* This file will hold styles for the mobile version of your website (mobile first). */
 /* This also can include ANY global CSS that applies site-wide. Unless overwritten by a more specific style rule, CSS declarations in global.css will apply site-wide. */
 
+/* This file will hold styles for the mobile version of your website (mobile first). */
+/* This also can include ANY global CSS that applies site-wide. Unless overwritten by a more specific style rule, CSS declarations in global.css will apply site-wide. */
+
+/******************************************************
+ * GENERIC STYLES
+ ******************************************************/
+
+/** 
+
+    Colors
+    To be overridden by color module (eventually.)
+    
+    --------------------------------
+    #FFF      body background
+    #67787A
+    #F1F2F2   light background
+    #000
+    #575757
+    #FF8D47
+    #C4CBCC
+    #506466
+    #E3E6E6
+    #F1F2F2
+    #757F80
+
+    #DEDEDE  theme
+    #FEF1EC
+    #222222  jquery icons
+    #858585
+    #8D9899 
+    #D1D8D9
+
+**/
+
+body {
+  background: #FFFFFF;
+}
+
+p {
+  color: #000000;
+}
+
+a,
+a:link,
+a:visited {
+  color: #FF8D47;
+}
+
+a:active,
+a:hover {
+  color: #757F80;
+}
+
+h1.title {
+  color: #000000;
+}
+
+h2 {
+  color: #000000;
+}
+
+h3 {
+  color: #8D9899;
+}
+
+#section-content small {
+  color: #000000;
+}
+
+a.button,
+input[type="submit"] {
+  background: #FF8D47;
+  color: #FFFFFF;
+}
+
+a.button:hover,
+input[type="submit"]:hover {
+  background: #C4CBCC;
+}
+
+/******************************************************
+ * REGIONS
+ ******************************************************/
+.region-header-second {
+  background: #E3E6E6;
+}
+
+.zone-menu,
+.zone-footer {
+  background: #F1F2F2;
+}
+
+.zone-preface,
+.zone-content,
+.zone-postscript {
+  background: #F1F2F2;
+}
+
+.site-name a {
+  color: #FF8D47;;
+}
+
+h6.site-slogan,
+.block-logintoboggan-logged-in {
+  color: #757F80;
+  color: #757F80;
+}
+
+/******************************************************
+ * LOGGED IN & LOGGED OUT & SEARCH BLOCKS
+ ******************************************************/
+.region-user-first a {
+  color: #C4CBCC;
+}
+
+.region-user-first a:hover {
+  color: #FF8D47;
+}
+
+#block-user-login input[type="text"],
+#block-user-login input[type="password"],
+.block-search-form input[type="text"] {
+  background: #F1F2F2;
+}
+
+.block-search-form input[type="text"] {
+  background: #FFFFFF;
+}
+
+#block-user-login input[type="submit"],
+.block-search-form input[type="submit"] {
+  background: url('../images/arrow-dark.png') top left no-repeat;
+}
+
+.block-search-form input[type="submit"] {
+  background-image: url('../images/search.png');
+}
+
+
+/******************************************************
+ * PRIMARY NAVIGATION
+ ******************************************************/
+
+.navigation li a:link,
+.navigation li a:visited,
+.navigation li a:active,
+.navigation li a:hover {
+  color: #67787A;
+}
+
+.navigation li a {
+  background: #F1F2F2;
+}
+
+.navigation li a:hover {
+  background: #FF8D47;
+  color: #FFFFFF;
+}
+
+.navigation li a.active {
+  background: #C4CBCC;
+}
+
+.navigation li a.browse {
+  background-image: url('../images/browse.png');
+}
+
+
+/******************************************************
+ * GENERAL NODE STYLES
+ ******************************************************/
+
+body.page-node .region-content,
+body.page-media .region-content {
+  background: #FFFFFF;
+}
+
+.field .field-label,
+label {
+  color: #757F80;
+}
+
+/******************************************************
+ * COMMENTS
+ ******************************************************/
+#comments h2.title:hover {
+  color: #757F80;
+}
+
+.comments-count {
+  background: url('../images/comment.png') top left no-repeat;
+  color: #FFFFFF;
+}
+
+
+/******************************************************
+ * PAGER
+ ******************************************************/
+
+.pager li.pager-ellipsis,
+.pager li.pager-current {
+  color: #000000;
+}
+
+.pager li a {
+  color: #FF8D47;
+}
+
+.pager li a:hover {
+  background: transparent;
+  color: #757F80;
+}
+
+.pager li.pager-previous a,
+.pager li.pager-next a,
+.pager li.pager-previous a:hover,
+.pager li.pager-next a:hover {
+  background: url('../images/next.png') top left no-repeat;
+}
+
+.pager li.pager-previous a,
+.pager li.pager-previous a:hover {
+  background: url('../images/previous.png') top left no-repeat;
+}
+
+
+/******************************************************
+ * DIGITAL HERITAGE NODE STYLES
+ ******************************************************/
+body.node-type-digital-heritage .region-content {
+  background: #FFFFFF;
+}
+
+body.node-type-digital-heritage .container-left {
+  background: #FFFFFF;
+}
+
+body.node-type-digital-heritage .field-type-media .enlarge {
+  background: url('../images/enlarge.png') top left no-repeat;
+}
+
+body.node-type-digital-heritage .group-right .field-type-media > .field-items > .field-item {
+  background: #FFFFFF;
+}
+
+body.node-type-digital-heritage .group-right .field-name-component-media-items h2,
+body.node-type-digital-heritage .group-right .field-name-field-relation .field-label { 
+  color: #000000;
+}
+
+body.node-type-digital-heritage .group-right .field-name-field-relation .node-digital-heritage {
+  background: #FFFFFF;
+}
+
+body.node-type-digital-heritage .group-right .field-name-title a {
+  color: #000000;
+}
+
+body.node-type-digital-heritage .group-right .field-name-title a:hover {
+  color: #757F80;
+}
+
+body.node-type-digital-heritage .group-right .field-type-media .file-image {
+  background: url('../images/image.png') 10px 10px no-repeat;
+}
+
+body.node-type-digital-heritage .group-right .field-type-media .file-video {
+  background: url('../images/video.png') 10px 10px no-repeat;
+}
+
+body.node-type-digital-heritage .group-right .field-type-media .file-audio {
+  background: url('../images/video.png') 10px 10px no-repeat;
+}
+
+body.node-type-digital-heritage .group-right .field-type-media .file-text,
+body.node-type-digital-heritage .group-right .field-type-media .file-default {
+  background: url('../images/doc.png') 10px 10px no-repeat;
+}
+
+body.node-type-digital-heritage .field-name-admin-actions ul.tabs a {
+  color: #FFFFFF;
+  background: #C4CBCC;
+}
+
+body.node-type-digital-heritage .field-name-admin-actions ul.tabs a:hover,
+body.node-type-digital-heritage .field-name-admin-actions ul.tabs a.active {
+  background: #FF8D47;
+}
+
+body.node-type-digital-heritage form#community-tags-form input[type="text"] {
+  background: #FFFFFF;
+  color: #757F80;
+  border: 10px solid #F1F2F2;
+  border-right: 40px solid #F1F2F2;
+}
+
+body.node-type-digital-heritage form#community-tags-form input[type="submit"],
+body.node-type-digital-heritage form#community-tags-form input[type="button"] {
+  background: url('../images/add.png') center center no-repeat;
+}
+
+
+/******************************************************
+ * DIGITAL HERITAGE NODE: ACCORDION SIDEBAR
+ ******************************************************/
+body.node-type-digital-heritage .ui-accordion .ui-accordion-header {
+  background: #E3E6E6;
+  color: #000000;
+}
+
+body.node-type-digital-heritage .ui-accordion .ui-accordion-header:hover,
+body.node-type-digital-heritage .ui-accordion .ui-accordion-header.ui-state-active {
+  background: #FF8D47;
+  color: #FFFFFF;
+}
+
+body.node-type-digital-heritage .ui-accordion .ui-accordion-header.ui-state-active .ui-icon {
+  background: url('../images/components.png') top left no-repeat;
+}
+
+/******************************************************
+ * NODE: EDIT
+ ******************************************************/
+body.page-node-edit .region-content,
+body.page-node-add .region-content {
+  background-color: #F1F2F2;
+}
+
+
+body.page-node-edit .node-form input[type="text"],
+body.page-node-edit .node-form select,
+body.page-node-edit .node-form ul.chzn-choices,
+body.page-node-edit .node-form textarea,
+body.page-node-add .node-form input[type="text"],
+body.page-node-add .node-form select,
+body.page-node-add .node-form ul.chzn-choices,
+body.page-node-add .node-form textarea {
+  -webkit-box-shadow: 0 0 0 0 #000000;
+  -moz-box-shadow: 0 0 0 0 #000000;
+  -o-box-shadow: 0 0 0 0 #000000;
+  box-shadow: 0 0 0 0 #000000;
+}
+
+body.page-node-edit .chzn-choices .search-choice,
+body.page-node-add .chzn-choices .search-choice {
+  color: #FFFFFF;
+  background: #C4CBCC;
+}
+
+body.page-node-edit .chzn-choices .search-choice .search-choice-close,
+body.page-node-add .chzn-choices .search-choice .search-choice-close {
+  background: url('../images/chzn-close.png') top left no-repeat;
+}
+
+body.page-node-edit .field-type-media tr,
+body.page-node-add .field-type-media tr {
+  border-right: 1px solid #CCCCCC;
+}
+
+/******************************************************
+ * GRID STYLE (BASED ON BROWSE ARCHIVE)
+ ******************************************************/
+
+table.views-view-grid .field-type-media .file-type h4 {
+  background: url('../images/audio.png') 10px 10px no-repeat;
+}
+
+table.views-view-grid .field-type-media .file-type.file-type-video h4 {
+  background-image: url('../images/video.png');
+}
+
+table.views-view-grid .field-type-media .file-type.file-type-image h4 {
+  background-image: url('../images/image.png');
+}
+
+table.views-view-grid .field-type-media .file-type.file-type-text h4,
+table.views-view-grid .field-type-media .file-type.file-type-application h4 {
+  background-image: url('../images/doc.png');
+}
+
+body.node-type-digital-heritage .ui-accordion .file-type h4 {
+  display: none;
+}
+
+table.views-view-grid td {
+  background: #FFFFFF;
+}
+
+/******************************************************
+ * GRID LAYOUT: CULTURAL PROTOCOL & COMMUNITY
+ * FULL CONTENT VIEW MODE
+ ******************************************************/
+body.node-type-community .region-content,
+body.node-type-cultural-protocol-group .region-content {
+  background: #F1F2F2;
+}
+
+/******************************************************
+ * BROWSE ARCHIVE: VIEWS BULK OPERATIONS
+ ******************************************************/
+
+body.browse-context .vbo-views-form form #vbo-operations {
+  background: url('../images/operations.png') top left no-repeat;
+}
+
+body.browse-context .vbo-views-form form #edit-select input[type="submit"] {
+  background: url('../images/arrow-dark.png') top left no-repeat;
+}
+
+
+/******************************************************
+ * BROWSE ARCHIVE: TABS
+ ******************************************************/
+
+body.browse-context .views-exposed-form .views-exposed-widget label {
+  color: #000000;
+}
+
+body.browse-context .views-exposed-form .views-exposed-widget > label {
+  color: #506466;
+  background: url('../images/triangle-open.png') center left no-repeat;
+}
+
+body.browse-context .views-exposed-widgets #edit-reset {
+  color: #575757;
+}
+
+body.browse-context .views-exposed-widgets #edit-reset:hover {
+  color: #FF8D47;
+}
+
+body.browse-context .views-exposed-widgets #edit-submit-ma-browse {
+  background: #FF8D47 url('../images/arrow-white.png') 85% center no-repeat;
+  color: #FFFFFF;
+}
+
+body.browse-context .views-exposed-widgets #edit-submit-ma-browse:hover {
+  background-color: #C4CBCC;
+}
+
+body.browse-context .ui-tabs .ui-tabs-nav li a,
+body.browse-context .ui-tabs .ui-tabs-nav li a:link,
+body.browse-context .ui-tabs .ui-tabs-nav li a:visited {
+  background: #C4CBCC;
+  color: #506466;
+  background: #C4CBCC url('../images/triangle-open.png') 20px center no-repeat;
+}
+
+body.browse-context .ui-tabs .ui-tabs-nav li a:hover {
+  color: #FFFFFF;
+  background: #FF8D47 url('../images/triangle-open.png') 20px center no-repeat;
+}
+
+body.browse-context .ui-tabs .ui-tabs-nav li.ui-state-active a,
+body.browse-context .ui-tabs .ui-tabs-nav li.ui-state-active a:link,
+body.browse-context .ui-tabs .ui-tabs-nav li.ui-state-active a:visited,
+body.browse-context .ui-tabs .ui-tabs-nav li.ui-state-active a:hover {
+  color: #506466;
+  background: #E3E6E6 url('../images/triangle-open.png') 20px center no-repeat;
+}
+
+body.browse-context .ui-widget-content {
+  background: #E3E6E6;
+}
+
+body.browse-context .ui-tabs #browse-archive-tabs input[type="submit"] {
+  background-image: url('../images/search.png');
+}
+
+body.browse-context .ui-tabs #browse-archive-tabs li.keyword-search {
+  background: #E3E6E6;
+}
+
+body.browse-context .ui-tabs #summary-bar {
+  background: #F1F2F2;
+  color: #757F80;
+}
+
+#feeds-import-form .help,
+.form-item-files-feeds {
+  background: #FFFFFF;
+}
+
+.zone-footer table,
+.zone-footer tr:hover td,
+.zone-footer tr.even:hover td.active,
+.zone-footer tr.odd:hover td.active {
+  background-color: #FFFFFF;
+}
+
+.views-slideshow-slide-counter {
+  color: #757F80;
+}
+
+.front .view-featured footer {
+  color: #C4CBCC;
+}
+
+.view-ma-recent-comments .views-field-timestamp {
+  color: #C4CBCC;
+}
+
+.compact-link a,
+ul.action-links li a{
+  background: #FF8D47;
+  color: #FFFFFF;
+}
+
+.page-admin .admin h3 {
+  color: #000000;
+}
+
+#dashboard.customize-inactive #disabled-blocks .block:hover {
+  background: #0074BD;
+  color: #FFFFFF;
+}
+
+#dashboard #disabled-blocks .block {
+  background: #C4CBCC;
+  color: #FFFFFF;
+}
+
+#dashboard .canvas-content a.button {
+  color: #FFFFFF;
+}
+
+div.ctools-modal-content .modal-header {
+  background-color: #8D9899;
+}
+
+#media-browser-page .zone-preface,
+#media-browser-page  .zone-content,
+#media-browser-page  .zone-postscript {
+  background: #FFFFFF;
+}
+#media-browser-tabset,
+div.ctools-modal-content {
+  background-color: #F1F2F2;
+}
+
+#media-browser-page a.button, 
+#media-browser-page input[type="submit"] {
+  background: #FF8D47;
+}
+
+table tbody tr.update-security, table tbody tr.update-unsupported {
+  background: #FFCCCC;
+}
+
+tr.even, tr.odd {
+  border-color: #BEBFB9;
+  background: #F3F4EE;
+}
+
+.page-node .group-middle ul.links.inline li.flag-add_to_my_collection a {
+  background: #FF8D47;
+  color: #FFFFFF;
+}
+
+
+
+
+
+/*******************************************************************
+ * Color Module: Don't touch                                       *
+ *******************************************************************/
+
+
+
+
+
+
+
 /******************************************************
  * GENERIC STYLES
  ******************************************************/

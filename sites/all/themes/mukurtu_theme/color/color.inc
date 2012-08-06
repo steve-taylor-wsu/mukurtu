@@ -14,6 +14,7 @@ $info['fields'] = array(
   'base' => t("Base: IGNORE"),
   'text' => t("Text: IGNORE"),
   'link' => t("Link: IGNORE"),
+
  'highlight' => t('Highlight color'),
  'highlight_light' => t('Highlight Light color'),
  'greyscale_10' => t('Greyscale 100% - Darkest'),
@@ -122,8 +123,10 @@ $info['schemes'] = array(
 );
 
 // Define the CSS file(s) that we want the Color module to use as a base.
+
+// Can only use global.css due to css order issues and conflicts with Omega's stylesheets.
 $info['css'] = array(
- 'css/colors.css',
+ 'css/global.css',
 );
 
 /***** Advanced Color settings - Defaults. Will be used in the Part 2. *****/
