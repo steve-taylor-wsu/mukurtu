@@ -7,8 +7,8 @@
 /*       $('#preview', form).css('backgroundColor', $('#palette input[name="palette[bg]"]', form).val()); */
  
       // Text
-     /*
- $('#preview #preview-main h2, #preview .preview-content', form).css('color', $('#palette input[name="palette[text]"]', form).val());
+ /*
+     $('#preview #preview-main h2, #preview .preview-content', form).css('color', $('#palette input[name="palette[text]"]', form).val());
  
       // Links
       $('#preview #preview-content a', form).css('color', $('#palette input[name="palette[link]"]', form).val());

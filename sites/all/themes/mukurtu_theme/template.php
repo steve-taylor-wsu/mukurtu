@@ -289,9 +289,39 @@ function mukurtu_theme_process_html(&$variables) {
 /*
  * Implements template_process_page().
  */
-function mukurtu_theme_process_page(&$variables, $hook) {
+function mukurtu_theme_process_page(&$vars, $hook) {
   // Hook into color.module.
   if (module_exists('color')) {
     _color_page_alter($variables);
+  }
+}
+
+function mukurtu_theme_form_system_theme_settings_alter(&$form, &$form_state) {
+  mukurtu_theme_theme_settings_add_new_colors();
+  return $form;
+}
+
+function mukurtu_theme_theme_settings_add_new_colors() {
+  // Add in any new colors that are defined in default scheme
+  // but are not defined in the saved palette values.
+  // Supplements logic in color.module color_scheme_form().
+  $theme = 'mukurtu_theme';
+  $info = color_get_info($theme);
+  $names = $info['fields'];
+  $palette = color_get_palette($theme); //calls variable_get
+  $default = color_get_palette($theme, TRUE);
+  $new = array();
+  if(isset($default)) {
+    foreach ($default as $name => $value) {
+      if (!isset($palette[$name]) && isset($names[$name])) {
+        $palette[$name] = $default[$name];
+        $new[] = $names[$name];
+      }
+    }
+  }
+  if (count($new)) {
+    drupal_set_message(t('One or more new colors are now available: @colors',
+      array('@colors' => implode(', ', $new))));
+    variable_set('color_' . $theme . '_palette', $palette);
   }
 }

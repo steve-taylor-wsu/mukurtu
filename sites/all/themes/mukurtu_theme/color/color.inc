@@ -5,6 +5,8 @@
  */
 
 // http://mearra.com/comment/817 
+// http://drupal.org/node/1236098
+
 $info = array();
  
 // Define the possible replaceable items and their labels.
@@ -35,6 +37,10 @@ $info['schemes'] = array(
    'title' => t('Mukurtu default colors'),
    // Scheme colors (Keys are coming from $info['fields']).
    'colors' => array(
+      'base'            => '#333333',
+      'text'            => '#333333',
+      'link'            => '#333333',
+
      'highlight'        => '#FF8D47',
      'highlight_light'  => '#FEF1EC',
      'greyscale_10'     => '#000000',
@@ -54,11 +60,15 @@ $info['schemes'] = array(
    ),
  ),
  // Let's create a scheme called Drupal Love.
- 'mukurtu_default' => array(
+ 'mukurtu_orange' => array(
    // Scheme title.
    'title' => t('Mukurtu Orange'),
    // Scheme colors (Keys are coming from $info['fields']).
    'colors' => array(
+      'base'            => '#333333',
+      'text'            => '#333333',
+      'link'            => '#333333',
+
      'highlight'        => '#FF8D47',
      'highlight_light'  => '#FEF1EC',
      'greyscale_10'     => '#000000',
@@ -75,6 +85,35 @@ $info['schemes'] = array(
      'colorscale_3'     => '#8D9899',
      'colorscale_1'     => '#C4CBCC',
      'colorscale_0'     => '#D1D8D9',
+   ),
+  ),
+ 'mukurtu_sandy' => array(
+
+   // Scheme title.
+   'title' => t('Mukurtu Sandy'),
+   // Scheme colors (Keys are coming from $info['fields']).
+   'colors' => array(
+      'base'            => '#333333',
+      'text'            => '#333333',
+      'link'            => '#333333',
+
+     'highlight'        => '#6B9CE8',
+     'highlight_light'  => '#D7E4F7',
+     'greyscale_10'     => '#000000',
+     'greyscale_8'      => '#222222',
+     'greyscale_7'      => '#575757',
+     'greyscale_6'      => '#858585',
+     'greyscale_5'      => '#DEDEDE',
+     'greyscale_2'      => '#E3E6E6',
+     'greyscale_1'      => '#F1F2F2',
+     'greyscale_0'      => '#FFFFFF',
+     
+     'colorscale_10'    => '#506466',
+     'colorscale_8'     => '#807E7A',
+     'colorscale_5'     => '#91908B',
+     'colorscale_3'     => '#B5B3AD',
+     'colorscale_1'     => '#B8B6B0',
+     'colorscale_0'     => '#BFBDB7',
    ),
  ),
 );
@@ -105,6 +144,9 @@ $info['preview_html'] = 'color/preview.html';
 // Gradients
 $info['gradients'] = array();
  
+// Reference color used for blending. Matches the base.png's colors.
+$info['blend_target'] = '#ffffff';
+ 
 // Color areas to fill (x, y, width, height).
 $info['fill'] = array();
  
@@ -114,45 +156,6 @@ $info['slices'] = array();
  
 // Base file for image generation.
 $info['base_image'] = 'color/base.png';
-
-/*
-// Reference color used for blending. Matches the base.png's colors.
-$info['blend_target'] = '#ffffff';
-
-// Gradients.
-$info['gradients'] = array(
-  array(
-    // Where to apply and with what dimension. (x, y, width, height).
-    'dimension' => array(0, 0, 760, 100),
-    // Direction of gradient ('vertical' or 'horizontal').
-    'direction' => 'vertical',
-    // Keys of colors to use for the gradient.
-    'colors' => array('header_top', 'header_bottom'),
-  ),
-);
-
-// Color areas to fill (x, y, width, height).
-$info['fill'] = array(
-  'bg' => array(0, 0, 760, 321),
-  'menu_item_a_bg' => array(100, 250, 476, 42),
-);
-
-// Coordinates of all the theme slices (x, y, width, height)
-// with their filename as used in the stylesheet.
-$info['slices'] = array(
-  'images/header.png' => array(40, 0, 40, 125),
-  'images/menu-item-active-left.png' => array(100, 250, 428, 42),
-  'images/menu-item-active-right.png' => array(530, 250, 47, 42),
-);
-*/
-/** Copying **/
- 
-// Files we want to copy along with the CSS files.
-/*
-$info['copy'] = array(
-  'images/druplicon.png'
-);
-*/
 
 // HTML file to be used in the preview window.
 $info['preview_html'] = 'color/preview.html';

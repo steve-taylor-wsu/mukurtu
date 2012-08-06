@@ -42,8 +42,12 @@ css[global.css][options][weight] = '10'
 scripts[] = js/mukurtu.jquery.js
 stylesheets[all][] = fonts/lato/stylesheet.css
 stylesheets[screen, projection, handheld][] = css/mukurtu_theme_jquery_ui_theme/jquery-ui-1.8.20.custom.css
+
 ; Add our stylesheet for the Color module to override.
 stylesheets[all][] = css/colors.css
+css[colors.css][name] = 'Color Styles'
+css[colors.css][description] = 'Color CSS'
+css[colors.css][options][weight] = '-20'
 
 settings[toggle_logo] = '1'
 settings[toggle_name] = '1'
