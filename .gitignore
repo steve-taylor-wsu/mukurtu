@@ -1,4 +1,10 @@
+updatemysql_australia.sh
+MukurtuCMS-2012-08-01T03-49-42.mysql
+MukurtuCMS-2012-08-05T04-46-10.mysql  
+
+
 # Ignore paths that contain user-generated content.
+
 /sites/*/files
 /sites/*/private
 /files/*

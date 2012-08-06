@@ -1621,3 +1621,7 @@ form.confirmation {
 .page-node .group-middle ul.links.inline li.comment-add {
   display: none;
 }
+
+.front .view-features {
+  margin: 1em 0;
+}
