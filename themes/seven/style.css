@@ -987,14 +987,3 @@ div.add-or-remove-shortcuts {
   -webkit-border-radius: 8px;
   border-radius: 8px;
 }
-
-
-
-table.file-display-table .file img.file-icon {
-  width: 30px;
-  height: 30px;
-}
-
-.file-form .file img.file-icon {
-  width: 180px;
-}
