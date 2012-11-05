@@ -1,2 +1,1 @@
-</channel>
-</rss>
+</<?php print $root_node; ?>>

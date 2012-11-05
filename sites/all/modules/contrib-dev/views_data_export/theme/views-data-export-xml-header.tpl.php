@@ -13,7 +13,6 @@
 
 // Short tags act bad below in the html so we print it here.
 print '<?xml version="1.0" encoding="UTF-8" ?>';
-print '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">';
 ?>
 
-<channel>
+<<?php print $root_node; ?>>

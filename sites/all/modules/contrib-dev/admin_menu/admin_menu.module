@@ -140,6 +140,8 @@ function admin_menu_menu_link_delete($link) {
  * Indicate that the 'page_bottom' region (in which the administration menu
  * is displayed) is an overlay supplemental region that should be refreshed
  * whenever its content is updated.
+ *
+ * @see toolbar_system_info_alter()
  */
 function admin_menu_system_info_alter(&$info, $file, $type) {
   if ($type == 'theme') {
@@ -165,16 +167,17 @@ function admin_menu_page_build(&$page) {
     '#attached' => array(),
   );
   $attached = &$page['page_bottom']['admin_menu']['#attached'];
+  $options = array('every_page' => TRUE);
 
-  $attached['css'][] = $path . '/admin_menu.css';
+  $attached['css'][$path . '/admin_menu.css'] = $options;
   if ($user->uid == 1) {
-    $attached['css'][] = $path . '/admin_menu.uid1.css';
+    $attached['css'][$path . '/admin_menu.uid1.css'] = $options;
   }
   // Previous versions used the 'defer' attribute to increase browser rendering
   // performance. At least starting with Firefox 3.6, deferred .js files are
   // loaded, but Drupal.behaviors are not contained in the DOM when drupal.js
   // executes Drupal.attachBehaviors().
-  $attached['js'][] = $path . '/admin_menu.js';
+  $attached['js'][$path . '/admin_menu.js'] = $options;
 
   // Destination query strings are applied via JS.
   $settings['destination'] = drupal_http_build_query(drupal_get_destination());
@@ -458,10 +461,16 @@ function admin_menu_output() {
     // Add site name as CSS class for development/staging theming purposes. We
     // leverage the cookie domain instead of HTTP_HOST to account for many (but
     // not all) multi-domain setups (e.g. language-based sub-domains).
-    $class_site = 'admin-menu-site' . drupal_strtolower(preg_replace('/[^a-zA-Z0-9-]/', '-', $GLOBALS['cookie_domain']));
+    $classes = 'admin-menu-site' . drupal_strtolower(preg_replace('/[^a-zA-Z0-9-]/', '-', $GLOBALS['cookie_domain']));
+    // Displace overlay.
+    // @see Drupal.overlay.create
+    // @see toolbar_preprocess_toolbar()
+    if (module_exists('overlay')) {
+      $classes .= ' overlay-displace-top';
+    }
     // @todo Always output container to harden JS-less support.
-    $content['#prefix'] = '<div id="admin-menu" class="' . $class_site . '"><div id="admin-menu-wrapper"><ul>';
-    $content['#suffix'] = '</ul></div></div>';
+    $content['#prefix'] = '<div id="admin-menu" class="' . $classes . '"><div id="admin-menu-wrapper">';
+    $content['#suffix'] = '</div></div>';
 
     // Load menu builder functions.
     module_load_include('inc', 'admin_menu');
@@ -571,12 +580,10 @@ function admin_menu_admin_menu_output_alter(&$content) {
  *     - #description: Optional alternative text for the link, passed to l().
  *     - #options: Optional alternative text for the link, passed to l().
  *     The array key of each child element itself is passed as path for l().
- *   - depth: Current recursion level; internal use only.
  */
 function theme_admin_menu_links($variables) {
   $destination = &drupal_static('admin_menu_destination');
   $elements = $variables['elements'];
-  $depth = (isset($variables['depth']) ? $variables['depth'] : 0);
 
   if (!isset($destination)) {
     $destination = drupal_get_destination();
@@ -592,7 +599,6 @@ function theme_admin_menu_links($variables) {
   $elements['#sorted'] = TRUE;
 
   $output = '';
-  $depth_child = $depth + 1;
   foreach (element_children($elements) as $path) {
     // Early-return nothing if user does not have access.
     if (isset($elements[$path]['#access']) && !$elements[$path]['#access']) {
@@ -604,11 +610,10 @@ function theme_admin_menu_links($variables) {
     );
     // Render children to determine whether this link is expandable.
     if (isset($elements[$path]['#type']) || isset($elements[$path]['#theme']) || isset($elements[$path]['#pre_render'])) {
-      $elements[$path]['#admin_menu_depth'] = $depth_child;
       $elements[$path]['#children'] = drupal_render($elements[$path]);
     }
     else {
-      $elements[$path]['#children'] = theme('admin_menu_links', array('elements' => $elements[$path], 'depth' => $depth_child));
+      $elements[$path]['#children'] = theme('admin_menu_links', array('elements' => $elements[$path]));
       if (!empty($elements[$path]['#children'])) {
         $elements[$path]['#attributes']['class'][] = 'expandable';
       }
@@ -649,8 +654,8 @@ function theme_admin_menu_links($variables) {
   }
   // @todo #attributes probably required for UL, but already used for LI.
   // @todo Use $element['#children'] here instead.
-  if ($output && $depth > 0) {
-    $output = "\n<ul>" . $output . '</ul>';
+  if ($output) {
+    $output = "\n" . '<ul class="dropdown">' . $output . '</ul>';
   }
   return $output;
 }

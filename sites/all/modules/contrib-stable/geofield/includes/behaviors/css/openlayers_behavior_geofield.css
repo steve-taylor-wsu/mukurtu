@@ -3,10 +3,10 @@
  * CSS for OpenLayers Draw Features Behavior
  */
 
-.olControlGeofieldEditingToolbar .olControlModifyFeatureItemActive {
+.olControlEditingToolbar .olControlModifyFeatureItemActive {
   background-position: -0px -23px;
 }
 
-.olControlGeofieldEditingToolbar .olControlModifyFeatureItemInactive {
+.olControlEditingToolbar .olControlModifyFeatureItemInactive {
   background-position: -0px -0px;
 }

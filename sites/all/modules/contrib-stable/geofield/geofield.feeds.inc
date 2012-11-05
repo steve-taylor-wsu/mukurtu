@@ -63,7 +63,6 @@ function geofield_feeds_combined_source($source, FeedsParserResult $result, $key
   return $values;
 }
 
-
 /**
  * Implements hook_feeds_node_processor_targets_alter().
  */

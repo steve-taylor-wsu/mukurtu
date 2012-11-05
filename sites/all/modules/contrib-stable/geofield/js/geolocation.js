@@ -5,6 +5,7 @@
 // depends on jQuery
 
 ;(function(geolocation, $){
+
   if (geolocation) return;
   
   var cache;
@@ -37,16 +38,18 @@
     attach: function (context, settings) {
       // callback for getCurrentPosition
       function updateLocation(position) {
-        $fields.find('.geofield-lat').val(position.coords.latitude);
-        $fields.find('.geofield-lon').val(position.coords.longitude);
+        // @TODO: calculate bounding box from accuracy value (accuracy is in meters)
+        $fields.find('.geofield_lat').val(position.coords.latitude);
+        $fields.find('.geofield_lon').val(position.coords.longitude);
       }
+      
       // don't do anything if we're on field configuration
       if (!$(context).find("#edit-instance").length) {
-        var $fields = $(context);
+        var $fields = $(context).find('.field-widget-geofield-geolocation');
         // check that we have something to fill up
         // on muti values check only that the first one is empty
-        if ($fields.find('.geofield-lat').val() == '' && $fields.find('.geofield-lon').val() == '') {
-          // Check to see if we have geolocation support, either natively or through Google.
+        if ($fields.find('.geofield_lat').val() == '' && $fields.find('.geofield_lon').val() == '') {
+          // very simple geolocation, no fallback support
           if (navigator.geolocation) {        
 	          navigator.geolocation.getCurrentPosition(updateLocation);
           }

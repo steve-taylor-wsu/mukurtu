@@ -282,11 +282,12 @@ function geofield_field_formatter_view($entity_type, $entity, $field, $instance,
     case 'geofield_latlon':
       foreach ($items as $delta => $item) {
         if ($display['settings']['labels']) {
-          $element[$delta] = array('#markup' => t('Latitude: !latitude <br/>Longitude: !longitude', array('!latitude' => $item['lat'], '!longitude' => $item['lon'])));
+          $output = t('Latitude: !latitude <br/>Longitude: !longitude', array('!latitude' => $item['lat'], '!longitude' => $item['lon']));
         }
         else {
-          $element[$delta] = array('#markup' => $item['lat'] . ', ' . $item['lon']);
+          $output = $item['lat'] . ', ' . $item['lon'];
         }
+        $element[$delta] = array('#markup' => $output);
       }
       return $element;
     case 'geofield_lat':
@@ -364,7 +365,7 @@ function _geofield_def_list_formatter($item, $settings) {
   $geometry = geoPHP::load($item['wkt'], 'wkt');
 
   // Single types
-  $single_types = array('Point', 'LineString', 'Polygon');
+  $single_types = array('Point', 'LineStrnig', 'Polygon');
 
   if (in_array($geometry->geometryType(), $single_types)) {
     $centroid = new Point($item['lon'], $item['lat']);

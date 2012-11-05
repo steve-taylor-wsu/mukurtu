@@ -124,11 +124,7 @@ function user_permission_features_rebuild($module) {
 
     $roles = _user_features_get_roles();
     $permissions_by_role = _user_features_get_permissions(FALSE);
-    $modules = user_permission_get_modules();
     foreach ($defaults as $permission) {
-      if (empty($modules[$permission['name']])) {
-        continue;
-      }
       $perm = $permission['name'];
       foreach ($roles as $role) {
         if (in_array($role, $permission['roles'])) {
