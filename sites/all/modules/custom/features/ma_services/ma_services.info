@@ -1,0 +1,9 @@
+name = Mukurtu Services
+description = Expose REST server functions for Mukurtu content.
+core = 7.x
+package = Features
+dependencies[] = ctools
+dependencies[] = services
+features[ctools][] = services:services:3
+features[features_api][] = api:1
+features[services_endpoint][] = app
