@@ -1,0 +1,122 @@
+<?php
+
+/**
+ * Implementation of hook_menu()
+ */
+function mukurtu_frontpage_menu() {
+  $items['frontpage_app'] = array(
+    'title' => t('Mukurtu'),
+    'description' => t(''),
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+    'page callback' => 'mukurtu_frontpage_content',
+  );
+  return $items;	  
+}
+
+function mukurtu_frontpage_content() {
+
+  global $base_url;
+  $output = '';
+  
+  return $output;
+}
+
+// A lightweight frontpage singlepage app - with a little bit of database integration for content-editing purposes.
+function mukurtu_frontpage_preprocess_page(&$vars){
+
+  $vars['frontpage'] = array();
+
+  // Menu
+  // @TODO load menu items from list form -- the title, shortname, detail and html (4 fields each) == 5 if using views json parser -- have the json fields named a certain way in views:  title image description link
+  // We are not using the menu system, it is overkill.
+  
+  // @TODO build off page items.
+  
+  
+
+  
+  // @TODO these will be linked to a form -- and will be able to add some more as necessary. Hard-coding for now.
+  $vars['frontpage']['page_items'] = array(
+    0 => array(
+      'title' => t(''),
+      'anchor' => 'header',
+      'content' => 'header content asdf adsf asdf asd fasd.',
+      ),
+    1 => array(
+      'title' => 'Vision',
+      'anchor' => 'vision',
+      'link' => 'about',
+      'detail' => 'blasdf asdf asdfasd fasdf a.',
+      'content' => 'content asdf adsf asdf asd fasd.',      
+      'data' => '',
+      ),
+    2 => array(
+      'title' => 'Features',
+      'anchor' => 'features',
+      'detail' => 'blasdf asdf asdfasd fasdf a.',
+      'content' => 'content asdf adsf asdf asd fasd.',
+      'data' => 'http://mukurtu.local/app/views/browse.json?keys=&label[Sample+Community]=Sample+Community',
+      ),  
+    3 => array(
+      'title' => 'Communities',
+      'anchor' => 'communities',
+      'link' => 'communities',
+      'detail' => 'blasdf asdf asdfasd fasdf a.',
+      'content' => 'content asdf adsf asdf asd fasd.',
+      'data' => 'http://mukurtu.local/app/views/communities.json?&display_id=communities',
+      ),   
+    4 => array(
+      'title' => 'Contact',
+      'anchor' => 'contact',
+      'link' => 'contact',
+      'detail' => 'blasdf asdf asdfasd fasdf a.',
+      'content' => 'content asdf adsf asdf asd fasd.',
+      ),    
+    5 => array(
+      'title' => 'Support',
+      'anchor' => 'support',
+      'link' => 'support',
+      'detail' => 'blasdf asdf asdfasd fasdf a.',
+      'content' => 'content asdf adsf asdf asd fasd.',
+      ),
+    6 => array(
+      'title' => '',
+      'anchor' => 'footer',
+      'detail' => 'blasdf asdf asdfasd fasdf a.',
+      'content' => 'content asdf adsf asdf asd fasd.',
+      ),
+  );
+
+  $menu_items = array();
+  
+  foreach($vars['frontpage']['page_items'] as $item) {
+    $menu_items['#' . $item['anchor']] = '<span class="label"><a href="#' . $item['anchor'] . '">' . $item['title'] . '</a></span>'
+      . '<span class="detail">' . $item['detail'] .'</span>';
+  }
+  dpm($menu_items);
+  
+  $menu = array(
+    'title' => t(''),
+    'type' => 'ul',
+    'attributes' => array(),
+    'items' => $menu_items
+  );
+  
+  $vars['frontpage']['menu'] = theme_item_list($menu);
+  
+
+
+
+}
+
+
+
+/**
+ * Implements hook_init().
+ */
+function mukurtu_frontpage_init() {
+  global $base_path;
+  drupal_add_js(array('mukurtu_frontpage' => array('menu_element' => variable_get('mukurtu_frontpage_menu', '#main-menu'), 'base_path' => $base_path)), 'setting');
+  drupal_add_js(drupal_get_path('module', 'mukurtu_frontpage') . '/js/mukurtu_frontpage.js');
+}
