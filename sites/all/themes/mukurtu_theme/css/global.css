@@ -2174,3 +2174,39 @@ form.confirmation {
 .front .view-features {
   margin: 1em 0;
 }
+
+body.page-frontpage-app {
+  margin: 10px;
+}
+
+body.page-frontpage-app h1#page-title {
+  display: none;
+}
+
+body.page-frontpage-app .frontpage-content {
+  margin: 40px;
+}
+
+body.page-frontpage-app .logo {
+  display: inline-block;
+}
+
+body.page-frontpage-app .navigation {
+  display: inline-block;
+}
+
+
+body.page-frontpage-app .navigation .item-list ul li {
+  display: inline-block;
+}
+
+body.page-frontpage-app .navigation .item-list .label {
+  display: block;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+body.page-frontpage-app #navigation .item-list .detail {
+  display: block;
+  font-style: italic;
+}

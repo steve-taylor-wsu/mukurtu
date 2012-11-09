@@ -11,7 +11,8 @@
 
 
 
-foreach($frontpage['page_items'] as $item) {
+foreach($frontpage['page_items']['sections'] as $item) {
+
   $output = '';
   $output .= t('<h3>' . $item['title'] . '</h3>' );
   $output .= t('<div class="frontpage-content" id="' . $item['anchor'] . '">' . $item['content'] . '</div>' );
