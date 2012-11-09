@@ -500,6 +500,32 @@ function ma_browse_views_default_views() {
   $handler->display->display_options['fields']['nodefield_1']['hide_alter_empty'] = FALSE;
   $handler->display->display_options['fields']['nodefield_1']['links'] = 1;
   $handler->display->display_options['fields']['nodefield_1']['comments'] = 0;
+  /* Field: Content: Image for this group */
+  $handler->display->display_options['fields']['field_media']['id'] = 'field_media';
+  $handler->display->display_options['fields']['field_media']['table'] = 'field_data_field_media';
+  $handler->display->display_options['fields']['field_media']['field'] = 'field_media';
+  $handler->display->display_options['fields']['field_media']['label'] = 'image';
+  $handler->display->display_options['fields']['field_media']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_media']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_media']['type'] = 'media';
+  $handler->display->display_options['fields']['field_media']['settings'] = array(
+    'file_view_mode' => 'component_media_item',
+  );
+  $handler->display->display_options['fields']['field_media']['group_column'] = 'entity_id';
+  $handler->display->display_options['fields']['field_media']['delta_limit'] = '1';
+  $handler->display->display_options['fields']['field_media']['delta_offset'] = '0';
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = 'title';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  /* Field: Content: Body */
+  $handler->display->display_options['fields']['body']['id'] = 'body';
+  $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
+  $handler->display->display_options['fields']['body']['field'] = 'body';
+  $handler->display->display_options['fields']['body']['label'] = 'desciption';
+  $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
   $handler->display->display_options['path'] = 'browse/app';
   $handler->display->display_options['menu']['type'] = 'default tab';
   $handler->display->display_options['menu']['title'] = 'Browse';
@@ -542,6 +568,9 @@ function ma_browse_views_default_views() {
     t('Page'),
     t('path'),
     t('content'),
+    t('image'),
+    t('title'),
+    t('desciption'),
   );
   $export['ma_browse'] = $view;
 
