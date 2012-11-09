@@ -24,6 +24,8 @@ function mukurtu_frontpage_menu() {
 }
 
 function mukurtu_frontpage_content_load() {
+
+  // @TODO add drupal site path for default.
   $default_content = array( 
     'sections' => array(
       0 => array(

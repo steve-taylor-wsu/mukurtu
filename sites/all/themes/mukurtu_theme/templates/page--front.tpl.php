@@ -13,7 +13,7 @@ foreach($frontpage['page_items']['sections'] as $item) {
   $output = '';
   $output .= t('<h3>' . $item['title'] . '</h3>' );
   $output .= t('<div class="frontpage-content" id="' . $item['anchor'] . '">' . $item['content'] . '</div>' );
-
+  echo $output;
 
   if(!empty($item['jsondata']) || $item['jsondata'] !== '') { ?>
 
@@ -41,7 +41,7 @@ foreach($frontpage['page_items']['sections'] as $item) {
 <?php
   }
    
-  echo $output;
+
   
 }
 
