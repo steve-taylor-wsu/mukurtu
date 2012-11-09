@@ -11,8 +11,226 @@ function mukurtu_frontpage_menu() {
     'type' => MENU_CALLBACK,
     'page callback' => 'mukurtu_frontpage_content',
   );
+
+  $items['admin/config/frontpage_app'] = array(
+    'title' => 'Mukurtu FrontPage',
+    'description' => 'Frontpage content.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('mukurtu_frontpage_settings'),
+    'access arguments' => array('administer site configuration'),
+  );
+
   return $items;	  
 }
+
+function mukurtu_frontpage_content_default() {
+  $default_content = array( 
+    'sections' => array(
+      0 => array(
+        'title' => t(''),
+        'anchor' => 'header',
+        'detail' => '',
+        'jsondata' => '',
+        'content' => 'header content asdf adsf asdf asd fasd.',
+        ),
+      1 => array(
+        'title' => 'Vision',
+        'anchor' => 'vision',
+        'link' => 'about',
+        'detail' => 'blasdf asdf asdfasd fasdf a.',
+        'content' => 'content asdf adsf asdf asd fasd.',      
+        'jsondata' => '',
+        'display' => TRUE,
+        ),
+      2 => array(
+        'title' => 'Features',
+        'anchor' => 'features',
+        'detail' => 'blasdf asdf asdfasd fasdf a.',
+        'content' => 'content asdf adsf asdf asd fasd.',
+        'jsondata' => 'http://mukurtu.local/app/views/browse.json?keys=&label[Sample+Community]=Sample+Community',
+        'display' => TRUE,
+        ),  
+      3 => array(
+        'title' => 'Features',
+        'anchor' => 'features',
+        'detail' => 'blasdf asdf asdfasd fasdf a.',
+        'content' => 'content asdf adsf asdf asd fasd.',
+        'jsondata' => 'http://mukurtu.local/app/views/browse.json?keys=&label[Sample+Community]=Sample+Community',
+        'display' => TRUE,
+        ),  
+      4 => array(
+        'title' => 'Communities',
+        'anchor' => 'communities',
+        'link' => 'communities',
+        'detail' => 'blasdf asdf asdfasd fasdf a.',
+        'content' => 'content asdf adsf asdf asd fasd.',
+        'jsondata' => 'http://mukurtu.local/app/views/communities.json?&display_id=communities',
+        'display' => TRUE,
+        ),   
+      5 => array(
+        'title' => 'Contact',
+        'anchor' => 'contact',
+        'link' => 'contact',
+        'detail' => 'blasdf asdf asdfasd fasdf a.',
+        'content' => 'content asdf adsf asdf asd fasd.',
+        'display' => TRUE,
+        'jsondata' => '',
+        ),    
+      6 => array(
+        'title' => 'Support',
+        'anchor' => 'support',
+        'link' => 'support',
+        'detail' => 'blasdf asdf asdfasd fasdf a.',
+        'content' => 'content asdf adsf asdf asd fasd.',
+        'display' => TRUE,
+        'jsondata' => '',
+        ),
+      7 => array(
+        'title' => '',
+        'anchor' => 'footer',
+        'detail' => 'blasdf asdf asdfasd fasdf a.',
+        'content' => 'content asdf adsf asdf asd fasd.',
+        'jsondata' => '',
+        ),
+    )
+  );
+
+  // Load content saved in database if it exists.
+  $default_content = variable_get('mukurtu_frontpage_settings', $default_content);
+  return $default_content;
+}
+
+
+
+
+
+
+
+
+
+/**
+ * General configuration form for controlling the colorbox behaviour.
+ */
+function mukurtu_frontpage_settings() {
+
+  $db_fields = mukurtu_frontpage_content_default();
+  
+  $form['mukurtu_frontpage_settings'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Mukurtu Frontpage settings'),
+    '#collapsible' => FALSE,
+    '#collapsed' => FALSE,
+    '#tree' => TRUE,
+  );
+
+  $form['mukurtu_frontpage_settings']['sections'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Sections'),
+    '#collapsible' => TRUE,
+    '#collapsed' => FALSE,
+  );
+
+  for($i=0; $i < count($db_fields['sections']); $i++) {
+
+    $form['mukurtu_frontpage_settings']['sections'][$i] = array(
+      '#type' => 'fieldset',
+      '#title' => $db_fields['sections'][$i]['title'],
+      '#collapsible' => TRUE,
+      '#collapsed' => FALSE,
+    );
+
+    $form['mukurtu_frontpage_settings']['sections'][$i]['title'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Title'),
+      '#default_value' => $db_fields['sections'][$i]['title'],
+    );
+
+    $form['mukurtu_frontpage_settings']['sections'][$i]['anchor'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Anchor'),
+      '#default_value' => $db_fields['sections'][$i]['anchor'],
+    );
+
+    $form['mukurtu_frontpage_settings']['sections'][$i]['detail'] = array(
+      '#type' => 'textarea',
+      '#title' => t('Detail'),
+      '#default_value' => $db_fields['sections'][$i]['detail'],
+    );
+
+    $form['mukurtu_frontpage_settings']['sections'][$i]['content'] = array(
+      '#type' => 'textarea',
+      '#title' => t('Markup'),
+      '#default_value' => $db_fields['sections'][$i]['content'],
+    );
+
+    $form['mukurtu_frontpage_settings']['sections'][$i]['jsondata'] = array(
+      '#type' => 'textfield',
+      '#title' => t('JSON Data'),
+      '#default_value' => $db_fields['sections'][$i]['jsondata'],
+    );      
+  }
+
+  return system_settings_form($form);
+}
+
+
+// @TODO Add an extra section dynamically.
+// ?? - http://drupal.org/node/331941
+
+/** 
+ * Submit handler for the "Add Tab" button.
+ */ 
+/*
+function mukurtu_frontpage_settings_submit($form, &$form_state) {
+  unset($form_state['submit_handlers']);
+  form_execute_handlers('submit', $form, $form_state);
+  $mukurtu_frontpage_values = $form_state['values'];
+  $form_state['mukurtu_frontpage_settings'] = $mukurtu_frontpage_values;
+  $form_state['rebuild'] = TRUE;
+
+
+  if ($form_state['values']['sections']) {
+    $form_state['section_count'] = count($form_state['values']['mukurtu_frontpage_sections']) + 1;
+  }
+
+  return $mukurtu_frontpage_values;
+}
+*/
+
+/** 
+ * AHAH callback.
+ */ 
+/*
+function mukurtu_frontpage_ahah() {
+  $form_state = array('storage' => NULL, 'rebuild' => TRUE);
+  $form_build_id = $_POST['form_build_id'];
+  $form = form_get_cache($form_build_id, $form_state);
+  $args = $form['#parameters'];
+  $form_id = array_shift($args);
+  $form['#post'] = $_POST;
+  $form['#redirect'] = FALSE;
+  $form['#programmed'] = FALSE;
+  $form_state['post'] = $_POST;
+  drupal_process_form($form_id, $form, $form_state);
+  $form = drupal_rebuild_form($form_id, $form_state, $args, $form_build_id);
+  $mukurtu_frontpage_form = $form['mukurtu_frontpage_settings']['mukurtu_frontpage_sections'];
+  unset($mukurtu_frontpage_form['#prefix'], $mukurtu_frontpage_form['#suffix']); // Prevent duplicate wrappers.
+  $javascript = drupal_add_js(NULL, NULL, 'header');
+  drupal_json(array(
+    'status'   => TRUE,
+    'data'     => theme('status_messages') . drupal_render($mukurtu_frontpage_form),
+    'settings' => call_user_func_array('array_merge_recursive', $javascript['setting']),
+  ));
+}
+*/
+
+
+
+
+
+
+
+
 
 function mukurtu_frontpage_content() {
 
@@ -38,54 +256,6 @@ function mukurtu_frontpage_preprocess_page(&$vars){
   
   // @TODO these will be linked to a form -- and will be able to add some more as necessary. Hard-coding for now.
   $vars['frontpage']['page_items'] = array(
-    0 => array(
-      'title' => t(''),
-      'anchor' => 'header',
-      'content' => 'header content asdf adsf asdf asd fasd.',
-      ),
-    1 => array(
-      'title' => 'Vision',
-      'anchor' => 'vision',
-      'link' => 'about',
-      'detail' => 'blasdf asdf asdfasd fasdf a.',
-      'content' => 'content asdf adsf asdf asd fasd.',      
-      'data' => '',
-      ),
-    2 => array(
-      'title' => 'Features',
-      'anchor' => 'features',
-      'detail' => 'blasdf asdf asdfasd fasdf a.',
-      'content' => 'content asdf adsf asdf asd fasd.',
-      'data' => 'http://mukurtu.local/app/views/browse.json?keys=&label[Sample+Community]=Sample+Community',
-      ),  
-    3 => array(
-      'title' => 'Communities',
-      'anchor' => 'communities',
-      'link' => 'communities',
-      'detail' => 'blasdf asdf asdfasd fasdf a.',
-      'content' => 'content asdf adsf asdf asd fasd.',
-      'data' => 'http://mukurtu.local/app/views/communities.json?&display_id=communities',
-      ),   
-    4 => array(
-      'title' => 'Contact',
-      'anchor' => 'contact',
-      'link' => 'contact',
-      'detail' => 'blasdf asdf asdfasd fasdf a.',
-      'content' => 'content asdf adsf asdf asd fasd.',
-      ),    
-    5 => array(
-      'title' => 'Support',
-      'anchor' => 'support',
-      'link' => 'support',
-      'detail' => 'blasdf asdf asdfasd fasdf a.',
-      'content' => 'content asdf adsf asdf asd fasd.',
-      ),
-    6 => array(
-      'title' => '',
-      'anchor' => 'footer',
-      'detail' => 'blasdf asdf asdfasd fasdf a.',
-      'content' => 'content asdf adsf asdf asd fasd.',
-      ),
   );
 
   $menu_items = array();
@@ -94,7 +264,7 @@ function mukurtu_frontpage_preprocess_page(&$vars){
     $menu_items['#' . $item['anchor']] = '<span class="label"><a href="#' . $item['anchor'] . '">' . $item['title'] . '</a></span>'
       . '<span class="detail">' . $item['detail'] .'</span>';
   }
-  dpm($menu_items);
+
   
   $menu = array(
     'title' => t(''),
