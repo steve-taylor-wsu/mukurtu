@@ -31,14 +31,17 @@ function mukurtu_frontpage_content_load() {
         'anchor' => 'header',
         'detail' => '',
         'jsondata' => '',
-        'content' => 'header content asdf adsf asdf asd fasd.',
+        'content' => '<div class="video"><iframe width="560" height="315" src="http://www.youtube.com/embed/rsk_j7kPlz0" frameborder="0" allowfullscreen></iframe></div><div class="intro">The free, mobile and open source platform built for indigenous communities to manage and share digital cultural heritage.</div>',
         ),
       1 => array(
         'title' => 'Vision',
         'anchor' => 'vision',
         'link' => 'about',
-        'detail' => 'blasdf asdf asdfasd fasdf a.',
-        'content' => 'content asdf adsf asdf asd fasd.',      
+        'detail' => 'An indigenous CMS',
+        'content' => '<div class="tab-content">
+          <div class="tab"><h3>Label</h3><p>Content</p></div>
+          <div class="tab"><h3>Label</h3><p>Content</p></div>
+        </div>',      
         'jsondata' => '',
         'display' => TRUE,
         ),
@@ -290,4 +293,12 @@ function mukurtu_frontpage_init() {
   global $base_path;
   drupal_add_js(array('mukurtu_frontpage' => array('menu_element' => variable_get('mukurtu_frontpage_menu', '#main-menu'), 'base_path' => $base_path)), 'setting');
   drupal_add_js(drupal_get_path('module', 'mukurtu_frontpage') . '/js/mukurtu_frontpage.js');
+
+  if (module_exists('libraries')) {
+    $library_path = libraries_get_path('underscore');
+    if (file_exists($library_path)) {
+      $paths[] = $library_path;
+    }
+  }
+  drupal_add_js($library_path . 'underscore-min.js');
 }
