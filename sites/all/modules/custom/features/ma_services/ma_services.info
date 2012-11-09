@@ -5,6 +5,10 @@ package = Features
 php = 5.2.4
 dependencies[] = ctools
 dependencies[] = services
+dependencies[] = services_views
+dependencies[] = rest_server
+dependencies[] = frontpage_app
+
 features[ctools][] = services:services:3
 features[features_api][] = api:1
 features[services_endpoint][] = app
