@@ -18,10 +18,7 @@ foreach($frontpage['page_items']['sections'] as $item) {
   if(!empty($item['jsondata']) || $item['jsondata'] !== '') { ?>
 
 
-
-  
-    
-    <div id="<?php echo $item['anchor'] ?>-list">test
+    <div id="<?php echo $item['anchor'] ?>-list">
           <script type="text/template" id="<?php echo $item['anchor'] ?>Template">
             <ul class="list span12">
               <% _.each(mukurtu_frontpage.localData["<?php echo $item['anchor'] ?>"], function (item) { %> 
