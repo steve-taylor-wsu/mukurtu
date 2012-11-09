@@ -50,7 +50,7 @@ function mukurtu_frontpage_content_load() {
         'anchor' => 'features',
         'detail' => 'blasdf asdf asdfasd fasdf a.',
         'content' => 'content asdf adsf asdf asd fasd.',
-        'jsondata' => 'http://mukurtu.local/app/views/browse.json?keys=&label[Sample+Community]=Sample+Community',
+        'jsondata' => 'http://mukurtu.local/app/views/ma_browse.json?&display_id=page_app&keys=&label[Sample+Cultural+Protocol]=Sample+Cultural+Protocol&promote=All',
         'display' => TRUE,
         ),  
       3 => array(
@@ -58,7 +58,7 @@ function mukurtu_frontpage_content_load() {
         'anchor' => 'features',
         'detail' => 'blasdf asdf asdfasd fasdf a.',
         'content' => 'content asdf adsf asdf asd fasd.',
-        'jsondata' => 'http://mukurtu.local/app/views/browse.json?keys=&label[Sample+Community]=Sample+Community',
+        'jsondata' => 'http://mukurtu.local/app/views/ma_browse.json?&display_id=page_app&keys=&label[Sample+Cultural+Protocol]=Sample+Cultural+Protocol&promote=All',
         'display' => TRUE,
         ),  
       4 => array(
@@ -167,10 +167,17 @@ function mukurtu_frontpage_settings() {
     );
 
     $form['mukurtu_frontpage_settings']['sections'][$i]['jsondata'] = array(
-      '#type' => 'textfield',
+      '#type' => 'textarea',
       '#title' => t('JSON Data'),
       '#default_value' => $db_fields['sections'][$i]['jsondata'],
     );      
+
+    $form['mukurtu_frontpage_settings']['sections'][$i]['blockname'] = array(
+      '#type' => 'textfield',
+      '#title' => t('BlockName'),
+      '#default_value' => $db_fields['sections'][$i]['blockname'],
+    ); 
+
   }
 
   return system_settings_form($form);
@@ -269,6 +276,13 @@ function mukurtu_frontpage_preprocess_page(&$vars){
         $menu_items['#' . $item['anchor']] = '<span class="label"><a href="#' . $item['anchor'] . '">' . $item['title'] . '</a></span>'
           . '<span class="detail">' . $item['detail'] .'</span>';
       }
+
+      if($item['jsondata']) {      
+        $json_path = $item['jsondata'];
+        
+        drupal_add_js('mukurtu_frontpage.query("' . $json_path . '", mukurtu_frontpage.loadData, "' . $item['anchor'] .'")',  array('type' => 'inline', 'scope' => 'footer', 'weight' => 5));
+      }
+
     }
   
     
@@ -300,5 +314,5 @@ function mukurtu_frontpage_init() {
       $paths[] = $library_path;
     }
   }
-  drupal_add_js($library_path . 'underscore-min.js');
+  drupal_add_js($library_path . '/underscore-min.js');
 }

@@ -8,17 +8,40 @@
 </div>
 
 <?php
-
-
-
 foreach($frontpage['page_items']['sections'] as $item) {
 
   $output = '';
   $output .= t('<h3>' . $item['title'] . '</h3>' );
   $output .= t('<div class="frontpage-content" id="' . $item['anchor'] . '">' . $item['content'] . '</div>' );
+
+
+  if(!empty($item['jsondata']) || $item['jsondata'] !== '') { ?>
+
+
+
   
-  if(!empty($item['data'])) {
-    $output .= $item['data'];
+    
+    <div id="<?php echo $item['anchor'] ?>-list">test
+          <script type="text/template" id="<?php echo $item['anchor'] ?>Template">
+            <ul class="list span12">
+              <% _.each(mukurtu_frontpage.localData["<?php echo $item['anchor'] ?>"], function (item) { %> 
+
+                <li class="span12">
+                <% if (item.image !== null) { %>
+                  <%= item.image %>
+                <% } %>
+                
+                <%= item.title %>
+                <%= item.description %>
+                </li>
+              <% }); %>
+            </ul>
+    </script>
+
+    </div>
+
+
+<?php
   }
    
   echo $output;
