@@ -1,19 +1,23 @@
 <?php drupal_set_title($site_name);?>
 <div class="container-fluid main-content">
 <div class="row header">
-  <div class="logo span2">
-    <?php echo '<img class="logo" src="' . $logo . '" />'; ?>
-  </div>
-  <div class="navigation">
-    <ul class='item-list'>
-    <?php foreach($frontpage['page_items']['sections'] as $item) {
-      if($item['title'] != '') {
-        echo '<li class="span2"><a href="#' . $item['anchor'] . '"><span class="link">' . $item['title'] . '</span>'
-          . '<span class="detail">' . $item['detail'] .'</span></a></li>';
-      }
-    }
-    ?>
-    </ul>
+
+
+      <div class="logo span2">
+        <?php echo '<a href="#"><img class="logo" src="' . $logo . '" /></a>'; ?>
+      </div>
+      <div id="navigation">
+        <ul class='item-list'>
+        <?php foreach($frontpage['page_items']['sections'] as $item) {
+          if($item['title'] != '') {
+            echo '<li class="span2"><a href="#' . $item['anchor'] . '"><span class="link">' . $item['title'] . '</span>'
+              . '<span class="detail">' . $item['detail'] .'</span></a></li>';
+          }
+        }
+        ?>
+        </ul>
+
+
   </div>
 </div>
 <?php

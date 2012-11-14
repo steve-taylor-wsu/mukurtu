@@ -1,21 +1,28 @@
 var mukurtu_frontpage = {};
 mukurtu_frontpage.localData = [];
 
-
-
-//var jq18 = jQuery.noConflict();
-
 (function($){
 $(document).ready(function(){
 /* 	var base_path = Drupal.settings.single_page.base_path; */
 
   $('a[href*=#]').click(function () {
+
       var hash = $(this).attr('href');
+
+
+    
       hash = hash.slice(hash.indexOf('#') + 1);
-      $.scrollTo(hash == 'top' ? 0 : 'a[name='+hash+']', 500);
+
+    console.log(hash);
+      var offset = $('#'+hash).offset().top - 140;
+    
+      $('html, body').animate({scrollTop: offset}, 500);
+      
       window.location.hash = '#' + hash;
       return false;
   });
+
+/* $('#navigation').scrollspy(); */
 
 });
 
@@ -24,7 +31,7 @@ mukurtu_frontpage.query = function(path,callback,anchor) {
     url: path,
     dataType: 'json',
     success: mukurtu_frontpage.storeData(anchor),
-    error: function(error) { console.log("Core::query error! " + error); return false; }
+    error: function(error) { console.log("Query error! " + error); return false; }
   });
 };
 
