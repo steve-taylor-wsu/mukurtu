@@ -96,6 +96,7 @@ function mukurtu_frontpage_content_load() {
         'detail' => 'blasdf asdf asdfasd fasdf a.',
         'content' => 'content asdf adsf asdf asd fasd.',
         'jsondata' => '',
+        'display' => TRUE,
         ),
     )
   );
@@ -180,6 +181,12 @@ function mukurtu_frontpage_settings() {
       '#default_value' => $db_fields['sections'][$i]['blockname'],
     ); 
 
+    $form['mukurtu_frontpage_settings']['sections'][$i]['display'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Display this section'),
+      '#default_value' => $db_fields['sections'][$i]['display'],
+    ); 
+
   }
 
   return system_settings_form($form);
@@ -236,14 +243,6 @@ function mukurtu_frontpage_ahah() {
 }
 */
 
-
-
-
-
-
-
-
-
 function mukurtu_frontpage_content() {
 
   global $base_url;
@@ -255,6 +254,24 @@ function mukurtu_frontpage_content() {
 // A lightweight frontpage singlepage app - with a little bit of database integration for content-editing purposes.
 function mukurtu_frontpage_preprocess_page(&$vars){
   if($vars['is_front']) {
+ 
+    global $base_path;
+    drupal_add_js(array('mukurtu_frontpage' => array('menu_element' => variable_get('mukurtu_frontpage_menu', '#main-menu'), 'base_path' => $base_path)), 'setting');
+    drupal_add_js(drupal_get_path('module', 'mukurtu_frontpage') . '/js/mukurtu_frontpage.js');
+
+
+    if (module_exists('libraries')) {
+      $underscore_path = libraries_get_path('underscore');
+      drupal_add_js($underscore_path . '/underscore-min.js');
+  
+      $bootstrap_path = libraries_get_path('bootstrap');
+  //    drupal_add_js($bootstrap_path . '/js/bootstrap.js');
+      drupal_add_css($bootstrap_path . '/css/bootstrap.css');
+      drupal_add_css(drupal_get_path('module', 'jcarousel') . '/skins/default/jcarousel-default.css');
+      drupal_add_js(drupal_get_path('module', 'jcarousel') . '/js/jquery.jcarousel.min.js');
+
+  //    drupal_add_js(drupal_get_path('module', 'jcarousel') . '/js/jcarousel.js');
+    }
   
     $vars['frontpage'] = array();
   
@@ -272,49 +289,16 @@ function mukurtu_frontpage_preprocess_page(&$vars){
   
   
     $menu_items = array();
-    
-    foreach($vars['frontpage']['page_items']['sections'] as $item) {
-      if($item['title'] != '') {
-        $menu_items['#' . $item['anchor']] = '<span class="label"><a href="#' . $item['anchor'] . '">' . $item['title'] . '</a></span>'
-          . '<span class="detail">' . $item['detail'] .'</span>';
-      }
+    foreach($vars['frontpage']['page_items']['sections'] as $item) {    
 
       if($item['jsondata']) {      
         $json_path = $item['jsondata'];
         
         drupal_add_js('mukurtu_frontpage.query("' . $json_path . '", mukurtu_frontpage.loadData, "' . $item['anchor'] .'")',  array('type' => 'inline', 'scope' => 'footer', 'weight' => 5));
       }
-
+      $i++;
     }
-  
-    
-    $menu = array(
-      'title' => t(''),
-      'type' => 'ul',
-      'attributes' => array(),
-      'items' => $menu_items
-    );
-    
-    $vars['frontpage']['menu'] = theme_item_list($menu);
  
   }
 }
 
-
-
-/**
- * Implements hook_init().
- */
-function mukurtu_frontpage_init() {
-  global $base_path;
-  drupal_add_js(array('mukurtu_frontpage' => array('menu_element' => variable_get('mukurtu_frontpage_menu', '#main-menu'), 'base_path' => $base_path)), 'setting');
-  drupal_add_js(drupal_get_path('module', 'mukurtu_frontpage') . '/js/mukurtu_frontpage.js');
-
-  if (module_exists('libraries')) {
-    $library_path = libraries_get_path('underscore');
-    if (file_exists($library_path)) {
-      $paths[] = $library_path;
-    }
-  }
-  drupal_add_js($library_path . '/underscore-min.js');
-}

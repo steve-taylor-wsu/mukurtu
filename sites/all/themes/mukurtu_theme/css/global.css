@@ -2176,15 +2176,36 @@ form.confirmation {
 }
 
 body.page-frontpage-app {
-  margin: 10px;
+  margin: 0px;
 }
 
 body.page-frontpage-app h1#page-title {
   display: none;
 }
 
+body.page-frontpage-app .frontpage-content .intro {
+  font-size: 150%;
+  line-height: 1.5em;
+}
+body.page-frontpage-app .frontpage-content .link {
+  background: #FF8D47 url('../images/arrow-white.png') 85% center no-repeat;
+  text-transform: uppercase;
+  border: none;
+  font-weight: normal;
+  color: #ffffff;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  text-shadow: none;
+  padding: 10px 60px 10px 10px;
+  margin: 5px 0;
+  display: block;
+}
+
 body.page-frontpage-app .frontpage-content {
   margin: 40px;
+  background: #F1F2F2;
+  padding: 40px;
 }
 
 body.page-frontpage-app .logo {
@@ -2198,15 +2219,100 @@ body.page-frontpage-app .navigation {
 
 body.page-frontpage-app .navigation .item-list ul li {
   display: inline-block;
+  background-color: #ffffff;
+  border: none;
+  
 }
 
-body.page-frontpage-app .navigation .item-list .label {
+body.page-frontpage-app .navigation .item-list ul h4 {
+  margin: 10px 0 10px 0;
+}
+
+body.page-frontpage-app .navigation .item-list ul li a {
+  display: block;
+}
+
+body.page-frontpage-app .navigation .item-list .link {
   display: block;
   font-size: 1.5em;
   font-weight: bold;
 }
 
-body.page-frontpage-app #navigation .item-list .detail {
+body.page-frontpage-app .navigation .item-list .detail {
   display: block;
-  font-style: italic;
+  font-style: italic;  
+}
+
+body.page-frontpage-app p {
+  margin: 0 0 1em 0;
+}
+
+.jcarousel-skin-default .jcarousel-item {
+  padding: 0 0 5px 0;
+  width: 180px;
+  height: 360px;
+  text-align: left;
+  border: none;
+  margin-right: 20px;
+}
+
+.jcarousel-skin-default .jcarousel-item h4,
+.jcarousel-skin-default .jcarousel-item p {
+  padding: 10px;
+  margin: 0;
+}
+
+.jcarousel-skin-default .jcarousel-item .content {
+  overflow-y: scroll;
+}
+
+.jcarousel-skin-default .jcarousel-clip-horizontal {
+  width: 795px;
+}
+
+.jcarousel-skin-default .jcarousel-container-horizontal {
+  width: 800px;
+  height: 370px;
+}
+
+.jcarousel-skin-default .jcarousel-item-placeholder {
+  background: #fff url(../images/throbber.gif) no-repeat center center;
+  color: #000;
+}
+
+.jcarousel-skin-default .jcarousel-next,
+.jcarousel-skin-default .jcarousel-prev {
+  display: block;
+  width: 32px;
+  height: 36px;
+  background-image: url(../images/arrows.png);
+}
+
+
+/**
+ * Horizontal Buttons
+ */
+.jcarousel-skin-default .jcarousel-prev-horizontal {
+  position: absolute;
+  top: 55px;
+  left: 0px;
+  background-position: 0 0;
+}
+.jcarousel-skin-default .jcarousel-prev-horizontal:hover {
+  background-position: 0 0;
+}
+.jcarousel-skin-default .jcarousel-prev-horizontal:active {
+  background-position: 0 0;
+}
+.jcarousel-skin-default .jcarousel-next-horizontal {
+  position: absolute;
+  top: 55px;
+  right: 0px;
+  background-position: 0 -36px;
+}
+.jcarousel-skin-default .jcarousel-next-horizontal:hover {
+  background-position: 0 -36px;
+}
+.jcarousel-skin-default .jcarousel-next-horizontal:active {
+  background-position: 0 -36px;
 }

@@ -7,7 +7,7 @@ dependencies[] = ctools
 dependencies[] = services
 dependencies[] = services_views
 dependencies[] = rest_server
-dependencies[] = frontpage_app
+dependencies[] = mukurtu_frontpage
 
 features[ctools][] = services:services:3
 features[features_api][] = api:1
