@@ -2216,11 +2216,15 @@ body.page-frontpage-app .navigation {
   display: inline-block;
 }
 
+body.page-frontpage-app .header {
+  margin: 0 20px;
+}
 
 body.page-frontpage-app .navigation .item-list ul li {
   display: inline-block;
   background-color: #ffffff;
   border: none;
+  padding-top 5px;
   
 }
 
@@ -2234,7 +2238,8 @@ body.page-frontpage-app .navigation .item-list ul li a {
 
 body.page-frontpage-app .navigation .item-list .link {
   display: block;
-  font-size: 1.5em;
+  font-size: 1.2em;
+  line-height: 1.1em;
   font-weight: bold;
 }
 

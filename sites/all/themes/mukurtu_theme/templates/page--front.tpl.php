@@ -1,6 +1,6 @@
 <?php drupal_set_title($site_name);?>
 <div class="container-fluid main-content">
-<div class="row">
+<div class="row header">
   <div class="logo span2">
     <?php echo '<img class="logo" src="' . $logo . '" />'; ?>
   </div>
