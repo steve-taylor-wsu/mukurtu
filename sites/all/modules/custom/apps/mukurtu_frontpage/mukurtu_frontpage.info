@@ -4,5 +4,5 @@ package = Mukurtu
 description = ""
 core = 7.x
 dependencies[] = jcarousel
-
+dependencies[] = jquery_update
 
