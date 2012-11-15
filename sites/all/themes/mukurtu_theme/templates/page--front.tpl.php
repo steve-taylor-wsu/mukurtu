@@ -4,7 +4,7 @@
 
 
       <div class="logo span2">
-        <?php echo '<a href="#"><img class="logo" src="' . $logo . '" /></a>'; ?>
+        <?php echo '<a href="#' . $frontpage['page_items']['sections'][0]['anchor'] . '"><img class="logo" src="' . $logo . '" /></a>'; ?>
       </div>
       <div id="navigation">
         <ul class='item-list'>

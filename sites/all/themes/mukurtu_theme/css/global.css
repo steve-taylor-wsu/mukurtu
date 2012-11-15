@@ -2209,10 +2209,6 @@ body.page-frontpage-app .frontpage-content {
   padding: 40px;
 }
 
-body.page-frontpage-app .logo {
-  padding: 5px;
-}
-
 body.page-frontpage-app #footer {
   background: #fff;
   padding: 0;
@@ -2220,7 +2216,13 @@ body.page-frontpage-app #footer {
 
 body.page-frontpage-app .logo {
   display: inline-block;
+  padding: 2px;
 }
+
+body.page-frontpage-app .logo img{
+  height: 110px; 
+}
+
 
 body.page-frontpage-app #navigation {
   display: inline-block;
@@ -2239,7 +2241,7 @@ body.page-frontpage-app .header {
 }
 
 body.page-frontpage-app {
-  padding-top: 120px;
+  padding-top: 100px;
 
 /*   z-index: 200; */
 }

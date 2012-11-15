@@ -5,18 +5,16 @@ mukurtu_frontpage.localData = [];
 $(document).ready(function(){
 /* 	var base_path = Drupal.settings.single_page.base_path; */
 
-  $('a[href*=#]').click(function () {
+  $('.header a[href*=#]').bind('click', function (e) {
 
       var hash = $(this).attr('href');
-
-
-    
       hash = hash.slice(hash.indexOf('#') + 1);
 
-    console.log(hash);
       var offset = $('#'+hash).offset().top - 140;
     
       $('html, body').animate({scrollTop: offset}, 500);
+
+      
       
       window.location.hash = '#' + hash;
       return false;
