@@ -44,12 +44,37 @@ var mukurtu = mukurtu || {};
       $("div#comments form").toggle("slow");
     });
 
-
     // Resize Digital Heritage fields that are using Chosen to width: 100%.
     if ($('body.node-type-digital-heritage .chzn-drop').length > 0) {
       $('body.node-type-digital-heritage .chzn-drop').css('width', '100%');
       $('body.node-type-digital-heritage .chzn-container').css('width', '100%');
     }
+
+
+
+    // Resize Oembed video thumbnails
+    // By default oembed returns varying aspect ratio, varying sizes of images, some quite large.
+    // This bit of javascript will resize and crop the thumbnail
+    // The resizing function could use a little bit of tuning, it is not very sophisticated.
+    
+    $('table.views-view-grid .file-video-oembed .content img').each(function(){
+      // Create new offscreen image to test
+      var theImage = new Image();
+      theImage.src = $(this).attr("src");
+      
+      theImage.onload = function() {
+        imageHeight = this.height;
+      
+        var newWidth = 300; // for now -- scaling all images to 300px for resizing
+        var newHeight = this.height * (300/this.width);
+        var paddingHeight = newHeight/2  * -1;
+        $('table.views-view-grid .file-video-oembed .content img[src$="' + theImage.src + '"]').css({
+          marginLeft: '-60px', width: newWidth, height: newHeight
+        });
+      }
+    });
+
+
 
     $("div.me-cannotplay").css("height", "4em");
 

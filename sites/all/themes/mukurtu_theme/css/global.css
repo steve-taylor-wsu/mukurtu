@@ -2348,3 +2348,16 @@ body.page-frontpage-app p {
 .jcarousel-skin-default .jcarousel-next-horizontal:active {
   background-position: 0 -36px;
 }
+
+
+
+
+
+table.views-view-grid .file-video-oembed .content{
+  width: 180px; height: 180px; overflow: hidden;
+}
+
+
+table.views-view-grid .file-video-oembed img {
+
+}
