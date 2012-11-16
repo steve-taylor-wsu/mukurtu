@@ -792,6 +792,17 @@ function mukurtu_platform_update_7036() {
   variable_set('search_active_modules', array('node'));
 }
 
+
+/** 
+ * Mukurtu 1.1 release updates:
+ * - modules have been updated and this requires running updates
+ * - Enable fitvids.
+ */ 
+function mukurtu_platform_update_7101() {
+  // Note, fitvids is patched so that .oembed-video is automatically set as a region. Otherwise need to set variable. (which is probably the better idea.)
+}
+
+
 function mukurtu_platform_more_media_permissions() {
 
   $roles = user_roles(TRUE);

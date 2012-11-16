@@ -144,27 +144,27 @@ h6.site-slogan,
  * PRIMARY NAVIGATION
  ******************************************************/
 
-#navigation li a:link,
-#navigation li a:visited,
-#navigation li a:active,
-#navigation li a:hover {
+.navigation li a:link,
+.navigation li a:visited,
+.navigation li a:active,
+.navigation li a:hover {
   color: #67787A;
 }
 
-#navigation li a {
+.navigation li a {
   background: #F1F2F2;
 }
 
-#navigation li a:hover {
+.navigation li a:hover {
   background: #FF8D47;
   color: #FFFFFF;
 }
 
-#navigation li a.active {
+.navigation li a.active {
   background: #C4CBCC;
 }
 
-#navigation li a.browse {
+.navigation li a.browse {
   background-image: url('../images/browse.png');
 }
 
@@ -2274,6 +2274,12 @@ body.page-frontpage-app #navigation .item-list .detail {
   display: block;
   font-style: italic;  
 }
+/*
+
+body.page-frontpage-app #navigation .item-list .hidden-desktop li {
+
+}
+*/
 
 body.page-frontpage-app p {
   margin: 0 0 1em 0;

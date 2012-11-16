@@ -266,6 +266,13 @@ function mukurtu_splash_block_site_start() {
     'localized_options' => array('attributes' => array('class' => array('opic-dashboard-content'))),    
     'description' => t('Mukurtu comes with additional pages that you can enable.'),
   );
+  
+  $items[] = array (
+    'title' => 'Create a single-page frontpage app.',
+    'href' => 'admin/config/frontpage_app',
+    'localized_options' => array('attributes' => array('class' => array('opic-dashboard-content'))),    
+    'description' => t('Lives at /frontpage_app; Set to front page on Site Information to use this page as your frontpage.'),
+  );
   	
   $content = array ('content' => $items);
   $markup = theme('admin_block_content', $content);
