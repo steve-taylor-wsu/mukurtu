@@ -5,7 +5,7 @@
  */
 
 // Constants
-define("FITVIDS_DEFAULT_REGIONS", '.oembed-video \n.oembed-content\n.region');
+define("FITVIDS_DEFAULT_REGIONS", '.region');
 define("FITVIDS_PLUGIN_URL", 'https://github.com/davatron5000/FitVids.js');
 define("FITVIDS_PLUGIN_FILENAME", 'jquery.fitvids.js');
 
