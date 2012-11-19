@@ -275,6 +275,13 @@ function mukurtu_splash_block_site_start() {
   );
 
   $items[] = array (
+    'title' => 'Edit Custom Site Header',
+    'href' => 'admin/structure/block/manage/boxes/ma_site_header/configure',
+    'localized_options' => array('attributes' => array('class' => array('opic-dashboard-content'))),    
+    'description' => t('Edit HTML markup of Custom Site Header'),
+  );
+
+  $items[] = array (
     'title' => 'Edit Custom Site Footer',
     'href' => 'admin/structure/block/manage/boxes/ma_site_footer/configure',
     'localized_options' => array('attributes' => array('class' => array('opic-dashboard-content'))),    
