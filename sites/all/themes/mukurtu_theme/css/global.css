@@ -674,8 +674,8 @@ html.js input.throbbing {
   background-position: 100% -15px;
 }
 
-/*
 
+/*
 div.contextual-links-wrapper ul.contextual-links {
   display: block;
 }
@@ -1863,7 +1863,7 @@ body.browse-context .ui-tabs #summary-bar #summary-buttons {
 }
 
 html.js div.contextual-links-wrapper {
-  margin: -25px 25px 10px 0;
+/*   margin: -25px 25px 10px 0; */
 }
 /*
 .media-widget {
@@ -2214,6 +2214,25 @@ body.page-frontpage-app .frontpage-content {
 body.page-frontpage-app #footer {
   background: #FFFFFF;
   padding: 0;
+}
+
+body.page-frontpage-app .navigation-small,
+body.page-frontpage-app .navigation-small a {
+  color: #67787A;
+}
+body.page-frontpage-app .navigation-small a {
+  margin: 5px;
+  padding: 5px;
+  display: block;
+}
+body.page-frontpage-app .navigation-small a:hover {
+  background: #FF8D47;
+  color: #FFFFFF;
+  display: block;
+}
+
+.navigation li a.active {
+  background: #C4CBCC;
 }
 
 body.page-frontpage-app .logo {

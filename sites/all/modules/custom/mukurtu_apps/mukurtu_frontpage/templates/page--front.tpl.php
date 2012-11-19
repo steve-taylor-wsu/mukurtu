@@ -2,7 +2,7 @@
   drupal_set_title($site_name);
 
 ?>
-<div class="container main-content">
+<div class="container-fluid main-content">
 
 <div class="header <?php if(!$frontpage['page_items']['header']) { echo 'navbar-fixed-top';} ?>">
   <div class="header-block">
