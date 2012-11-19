@@ -800,6 +800,7 @@ function mukurtu_platform_update_7036() {
  */ 
 function mukurtu_platform_update_7101() {
   // Note, fitvids is patched so that .oembed-video is automatically set as a region. Otherwise need to set variable. (which is probably the better idea.)
+  // Added less module.
 }
 
 

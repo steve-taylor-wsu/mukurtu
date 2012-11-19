@@ -273,6 +273,15 @@ function mukurtu_splash_block_site_start() {
     'localized_options' => array('attributes' => array('class' => array('opic-dashboard-content'))),    
     'description' => t('Lives at /frontpage_app; Set to front page on Site Information to use this page as your frontpage.'),
   );
+
+  $items[] = array (
+    'title' => 'Edit Custom Site Footer',
+    'href' => 'admin/structure/block/manage/boxes/ma_site_footer/configure',
+    'localized_options' => array('attributes' => array('class' => array('opic-dashboard-content'))),    
+    'description' => t('Edit HTML markup of Custom Site Footer'),
+  );
+  
+
   	
   $content = array ('content' => $items);
   $markup = theme('admin_block_content', $content);

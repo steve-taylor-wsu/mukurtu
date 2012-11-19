@@ -13,14 +13,25 @@ $(document).ready(function(){
       var offset = $('#'+hash).offset().top - 140;
     
       $('html, body').animate({scrollTop: offset}, 500);
-
-      
-      
+     
       window.location.hash = '#' + hash;
       return false;
   });
 
 /* $('#navigation').scrollspy(); */
+
+
+    
+    // Adjust scrolling header height.
+/*
+    var totalHeaderHeight = $('body.page-frontpage-app #navigation').outerHeight(true) + $('body.page-frontpage-app .header-block').outerHeight(true) + $('body.page-frontpage-app .header-block img').outerHeight(true);
+
+    console.log(totalHeaderHeight);
+    //$('body.page-frontpage-app .header').height(totalHeaderHeight);
+    $('body.page-frontpage-app').css('padding-top', totalHeaderHeight);
+*/
+
+
 
 });
 

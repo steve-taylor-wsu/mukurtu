@@ -35,13 +35,17 @@ zones[branding] = 'Branding'
 zones[menu] = 'Menu'
 zones[preface] = 'Preface'
 zones[postscript] = 'Postscript'
-css[global.css][name] = 'Your custom global styles'
-css[global.css][description] = 'This file holds all the globally active custom CSS of your theme.'
-css[global.css][options][weight] = '10'
+#css[global.css][name] = 'Your custom global styles'
+#css[global.css][description] = 'This file holds all the globally active custom CSS of your theme.'
+#css[global.css][options][weight] = '10'
 scripts[] = js/mukurtu.jquery.js
 stylesheets[all][] = fonts/lato/stylesheet.css
 stylesheets[screen, projection, handheld][] = css/mukurtu_theme_jquery_ui_theme/jquery-ui-1.8.20.custom.css
 
+css[global.css.less][name] = My Project styles
+css[global.css.less][description] = LESS CSS stylesheet for My Project.
+css[global.css.less][options][weight] = 10
+settings[alpha_css][global.css.less] = 'global.css.less'
 
 settings[toggle_logo] = '1'
 settings[toggle_name] = '1'

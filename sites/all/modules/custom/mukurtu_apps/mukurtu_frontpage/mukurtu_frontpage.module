@@ -1,4 +1,5 @@
 <?php
+define('MUKURTU_FRONTPAGE', drupal_get_path('module', 'my_module'));
 
 /**
  * Implementation of hook_menu()
@@ -27,6 +28,8 @@ function mukurtu_frontpage_content_load() {
 
   // @TODO add drupal site path for default.
   $default_content = array( 
+    'header' => TRUE,
+    'footer' => TRUE,
     'sections' => array(
       0 => array(
         'title' => t(''),
@@ -106,14 +109,6 @@ function mukurtu_frontpage_content_load() {
   return $content;
 }
 
-
-
-
-
-
-
-
-
 /**
  * General configuration form for controlling the colorbox behaviour.
  */
@@ -127,6 +122,12 @@ function mukurtu_frontpage_settings() {
     '#collapsible' => FALSE,
     '#collapsed' => FALSE,
     '#tree' => TRUE,
+  );
+
+  $form['mukurtu_frontpage_settings']['header'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Enable Custom Site Header'),
+    '#default_value' => $db_fields['header'],
   );
 
   $form['mukurtu_frontpage_settings']['sections'] = array(
@@ -188,6 +189,12 @@ function mukurtu_frontpage_settings() {
     ); 
 
   }
+
+  $form['mukurtu_frontpage_settings']['footer'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Enable Custom Site Footer'),
+    '#default_value' => $db_fields['footer'],
+  );
 
   return system_settings_form($form);
 }
@@ -280,14 +287,10 @@ function mukurtu_frontpage_preprocess_page(&$vars){
         // Load json data.
         drupal_add_js('mukurtu_frontpage.query("' . $json_path . '", mukurtu_frontpage.loadData, "' . $item['anchor'] .'")',  array('type' => 'inline', 'scope' => 'footer', 'weight' => 5));
       }
-      $i++;
     }
  
   }
 }
-
-// Create a variable to store the path to this module
-define('MUKURTU_FRONTPAGE', drupal_get_path('module', 'my_module'));
 
 function mukurtu_frontpage_theme_registry_alter(&$theme_registry) {
   $theme_registry_copy = $theme_registry;
