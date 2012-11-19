@@ -9,6 +9,7 @@ dependencies[] = ctools
 dependencies[] = page_manager
 dependencies[] = views
 features[box][] = ma_site_footer
+features[box][] = ma_site_header
 features[context][] = custom_site
 features[ctools][] = boxes:box:1
 features[ctools][] = context:context:3
