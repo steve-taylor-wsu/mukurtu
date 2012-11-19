@@ -113,7 +113,7 @@ foreach($frontpage['page_items']['sections'] as $item) {
  <?php
   if($frontpage['page_items']['footer']) {
     $block = block_load('boxes', 'ma_site_footer');
-    $output .= drupal_render(_block_get_renderable_array(_block_render_blocks(array($block))));
+    echo drupal_render(_block_get_renderable_array(_block_render_blocks(array($block))));
   }
  ?>
 </div>  

@@ -2255,12 +2255,14 @@ body.page-frontpage-app #navigation {
 }
 
 body.page-frontpage-app .header-block,
+body.page-frontpage-app .footer-block,
 body.page-frontpage-app .navigation {
   background: #FFFFFF;
 /*   width: 100%; */
 }
 
-body.page-frontpage-app .header {
+body.page-frontpage-app .header,
+body.page-frontpage-app .footer-block {
   margin: 0 40px;
   background: #FFFFFF;
 /*
