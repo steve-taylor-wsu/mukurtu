@@ -2220,6 +2220,10 @@ body.page-frontpage-app.responsive-layout-mobile .frontpage-content p {
   width: 100%;
 }
 
+body.page-frontpage-app.responsive-layout-mobile .frontpage-content input[type="text"] {
+  margin: 0 
+}
+
 body.page-frontpage-app #footer {
   background: #FFFFFF;
   padding: 0;
@@ -2324,6 +2328,11 @@ body.page-frontpage-app #navigation .item-list .hidden-desktop li {
 
 body.page-frontpage-app p {
   margin: 0 0 1em 0;
+}
+
+
+body.page-frontpage-app .frontpage-content .jcarousel-skin-default .jcarousel-item p {
+  width: 100%;
 }
 
 .jcarousel-skin-default .jcarousel-item {
