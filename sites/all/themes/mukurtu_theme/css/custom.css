@@ -1,0 +1,7 @@
+.mc-field-group li {
+  list-style: none;
+}
+
+.mc-field-group li input {
+  margin-right: 10px;
+}

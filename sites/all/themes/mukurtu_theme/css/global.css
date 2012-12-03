@@ -1,27 +1,5 @@
-#FFFFFF:      #FFFFFF;
-#67787A:      #67787A;
-#F1F2F2:      #F1F2F2;   /* light background */
-#000000:      #000000;
-#575757:      #575757;
-#FF8D47:      #FF8D47;
-#C4CBCC:      #C4CBCC;
-#506466:      #506466;
-#E3E6E6:      #E3E6E6;
-#F1F2F2:      #F1F2F2;
-#757F80:     #757F80;
-
-#DEDEDE:     #DEDEDE;  /* theme */
-#FEF1EC:     #FEF1EC;
-#222222:     #222222; /* jquery icons, in another file */
-#858585:     #858585;
-#8D9899:     #8D9899; 
-#D1D8D9:     #D1D8D9;
-#0074BD:     #0074BD;
-
-
-#FFCCCC:     #FFCCCC;
-#BEBFB9:     #BEBFB9;
-#F3F4EE:     #F3F4EE;
+/* This file will hold styles for the mobile version of your website (mobile first). */
+/* This also can include ANY global CSS that applies site-wide. Unless overwritten by a more specific style rule, CSS declarations in global.css will apply site-wide. */
 
 /* This file will hold styles for the mobile version of your website (mobile first). */
 /* This also can include ANY global CSS that applies site-wide. Unless overwritten by a more specific style rule, CSS declarations in global.css will apply site-wide. */
@@ -29,6 +7,33 @@
 /******************************************************
  * GENERIC STYLES
  ******************************************************/
+
+/** 
+
+    Colors
+    To be overridden by color module (eventually.)
+    
+    --------------------------------
+    #FFF      body background
+    #67787A
+    #F1F2F2   light background
+    #000
+    #575757
+    #FF8D47
+    #C4CBCC
+    #506466
+    #E3E6E6
+    #F1F2F2
+    #757F80
+
+    #DEDEDE  theme
+    #FEF1EC
+    #222222  jquery icons
+    #858585
+    #8D9899 
+    #D1D8D9
+
+**/
 
 body {
   background: #FFFFFF;
@@ -599,7 +604,7 @@ h6 {
 a,
 a:link,
 a:visited {
-/*   color: #FF8D47; */
+/*   color: #ff8d47; */
   text-decoration: none;
 }
 
@@ -631,7 +636,7 @@ h3 {
 a.button,
 input[type="submit"] {
   text-transform: uppercase;
-/*   background: #FF8D47; */
+/*   background: #ff8d47; */
 /*   color: #FFFFFF; */
   padding: 7px 5px 5px;
   -webkit-border-radius: 0px;
@@ -673,13 +678,6 @@ html.js input.form-autocomplete {
 html.js input.throbbing {
   background-position: 100% -15px;
 }
-
-
-/*
-div.contextual-links-wrapper ul.contextual-links {
-  display: block;
-}
-*/
 
 
 /******************************************************
@@ -779,7 +777,7 @@ h6.site-slogan,
 }
 
 .region-user-first a:hover {
-/*   color: #FF8D47; */
+/*   color: #ff8d47; */
 }
 
 .block-logintoboggan-logged-in .my-account {
@@ -861,23 +859,23 @@ h6.site-slogan,
 .navigation li a:visited,
 .navigation li a:active,
 .navigation li a:hover {
-  color: #67787A;
+/*   color: #67787A; */
 }
 
 .navigation li a {
   display: block;
   float: left;
   padding: 10px;
-  background: #F1F2F2;
+/*   background: #F1F2F2; */
 }
 
 .navigation li a:hover {
-  background: #FF8D47;
-  color: #FFFFFF;
+/*   background: #ff8d47; */
+/*   color: #FFFFFF; */
 }
 
 .navigation li a.active {
-  background: #C4CBCC;
+/*   background: #C4CBCC; */
 }
 
 .navigation li a.browse {
@@ -937,7 +935,7 @@ label {
 
 .comments-count {
   background: url('../images/comment.png') top left no-repeat;
-/*   color: #FFFFFF; */
+/*   color: #ffffff; */
   width: 30px;
   height: 30px;
   padding-top: 3px;
@@ -1013,7 +1011,7 @@ h2 .comments-count {
 }
 
 .pager li a {
-  color: #FF8D47;
+  color: #ff8d47;
 }
 
 .pager li {
@@ -1863,7 +1861,7 @@ body.browse-context .ui-tabs #summary-bar #summary-buttons {
 }
 
 html.js div.contextual-links-wrapper {
-/*   margin: -25px 25px 10px 0; */
+  margin: -25px 25px 10px 0;
 }
 /*
 .media-widget {
@@ -2175,239 +2173,4 @@ form.confirmation {
 
 .front .view-features {
   margin: 1em 0;
-}
-
-body.page-frontpage-app {
-  margin: 0px;
-}
-
-body.page-frontpage-app h1#page-title {
-  display: none;
-}
-
-body.page-frontpage-app .frontpage-content .intro {
-  font-size: 150%;
-  line-height: 1.5em;
-}
-body.page-frontpage-app .frontpage-content .link {
-  background: #FF8D47 url('../images/arrow-white.png') 85% center no-repeat;
-  text-transform: uppercase;
-  border: none;
-  font-weight: normal;
-  color: #FFFFFF;
-  -webkit-border-radius: 0px;
-  -moz-border-radius: 0px;
-  border-radius: 0px;
-  text-shadow: none;
-  padding: 10px 60px 10px 10px;
-  margin: 5px 0;
-  display: block;
-  width: 60%;
-}
-
-body.page-frontpage-app .frontpage-content {
-  margin: 40px;
-  background: #F1F2F2;
-  padding: 40px;
-}
-
-body.page-frontpage-app #footer {
-  background: #FFFFFF;
-  padding: 0;
-}
-
-body.page-frontpage-app .navigation-small,
-body.page-frontpage-app .navigation-small a {
-  color: #67787A;
-}
-body.page-frontpage-app .navigation-small a {
-  margin: 5px;
-  padding: 5px;
-  display: block;
-}
-body.page-frontpage-app .navigation-small a:hover {
-  background: #FF8D47;
-  color: #FFFFFF;
-  display: block;
-}
-
-.navigation li a.active {
-  background: #C4CBCC;
-}
-
-body.page-frontpage-app .logo {
-  display: inline-block;
-  padding: 2px;
-}
-
-body.page-frontpage-app .logo img{
-/*   height: 110px;  */
-}
-
-body.page-frontpage-app .header-block img{
-  height: inherit;
-  width: inherit; 
-}
-
-
-body.page-frontpage-app #navigation {
-/*   display: inline-block; */
-}
-
-body.page-frontpage-app .header-block,
-body.page-frontpage-app .footer-block,
-body.page-frontpage-app .navigation {
-  background: #FFFFFF;
-/*   width: 100%; */
-}
-
-body.page-frontpage-app .header,
-body.page-frontpage-app .footer-block {
-  margin: 0 40px;
-  background: #FFFFFF;
-/*
-  position: fixed;
-  top: 0;
-*/  
-  z-index: 700;
-/*   width: 100%; */
-
-}
-
-body.page-frontpage-app {
-  padding-top: 120px;
-}
-
-body.page-frontpage-app #navigation .item-list ul li {
-  display: inline-block;
-  background-color: #FFFFFF;
-  border: none;
-  padding-top 5px;
-}
-
-body.page-frontpage-app #navigation .item-list ul h4 {
-  margin: 10px 0 10px 0;
-}
-
-body.page-frontpage-app #navigation .item-list ul li a {
-  display: block;
-}
-
-body.page-frontpage-app #navigation .item-list .link {
-  display: block;
-  font-size: 1.1em;
-  line-height: 1.2em;
-  font-weight: bold;
-  height: 2em;
-  margin-bottom: 10px;
-}
-
-body.page-frontpage-app #navigation .item-list .detail {
-  display: block;
-  font-style: italic;  
-}
-/*
-
-body.page-frontpage-app #navigation .item-list .hidden-desktop li {
-
-}
-*/
-
-body.page-frontpage-app p {
-  margin: 0 0 1em 0;
-}
-
-.jcarousel-skin-default .jcarousel-item {
-  padding: 0 0 5px 0;
-  width: 180px;
-  height: 360px;
-  text-align: left;
-  border: none;
-  margin-right: 20px;
-}
-
-.jcarousel-skin-default .jcarousel-item h4,
-.jcarousel-skin-default .jcarousel-item p {
-  padding: 10px;
-  margin: 0;
-}
-
-.jcarousel-skin-default .jcarousel-item .content {
-  overflow-y: scroll;
-}
-
-.jcarousel-skin-default .jcarousel-clip-horizontal {
-  width: 795px;
-}
-
-.jcarousel-skin-default .jcarousel-container-horizontal {
-  width: 800px;
-  height: 370px;
-}
-
-
-
-.responsive-layout-narrow .jcarousel-skin-default .jcarousel-clip-horizontal,
-.responsive-layout-mobile .jcarousel-skin-default .jcarousel-clip-horizontal {
-  width: 195px;
-}
-
-.responsive-layout-narrow .jcarousel-skin-default .jcarousel-container-horizontal,
-.responsive-layout-mobile .jcarousel-skin-default .jcarousel-container-horizontal {
-  width: 200px;
-}
-
-.responsive-layout-normal .jcarousel-skin-default .jcarousel-clip-horizontal {
-  width: 395px;
-}
-
-.responsive-layout-normal .jcarousel-skin-default .jcarousel-container-horizontal {
-  width: 400px;
-}
-
-.jcarousel-skin-default .jcarousel-item-placeholder {
-  background: #FFFFFF url(../images/throbber.gif) no-repeat center center;
-  color: #000000;
-}
-
-.jcarousel-skin-default .jcarousel-next,
-.jcarousel-skin-default .jcarousel-prev {
-  display: block;
-  width: 32px;
-  height: 36px;
-  background-image: url(../images/arrows.png);
-}
-
-
-/**
- * Horizontal Buttons
- */
-.jcarousel-skin-default .jcarousel-prev-horizontal {
-  position: absolute;
-  top: 55px;
-  left: 0px;
-  background-position: 0 0;
-}
-.jcarousel-skin-default .jcarousel-prev-horizontal:hover {
-  background-position: 0 0;
-}
-.jcarousel-skin-default .jcarousel-prev-horizontal:active {
-  background-position: 0 0;
-}
-.jcarousel-skin-default .jcarousel-next-horizontal {
-  position: absolute;
-  top: 55px;
-  right: 0px;
-  background-position: 0 -36px;
-}
-.jcarousel-skin-default .jcarousel-next-horizontal:hover {
-  background-position: 0 -36px;
-}
-.jcarousel-skin-default .jcarousel-next-horizontal:active {
-  background-position: 0 -36px;
-}
-
-
-table.views-view-grid .file-video-oembed .content{
-  width: 180px; height: 180px; overflow: hidden;
 }
