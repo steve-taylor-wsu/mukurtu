@@ -2437,3 +2437,8 @@ body.page-frontpage-app .frontpage-content .jcarousel-skin-default .jcarousel-it
 table.views-view-grid .file-video-oembed .content{
   width: 180px; height: 180px; overflow: hidden;
 }
+
+hr {
+  background: #333;
+  width: 80%;
+}
