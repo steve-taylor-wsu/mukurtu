@@ -2319,6 +2319,14 @@ body.page-frontpage-app #navigation .item-list .detail {
   display: block;
   font-style: italic;  
 }
+
+
+body.page-frontpage-app.responsive-layout-narrow .frontpage-content,
+body.page-frontpage-app.responsive-layout-mobile .frontpage-content {
+  margin: 40px 0;
+  padding: 40px 10px;
+}
+
 /*
 
 body.page-frontpage-app #navigation .item-list .hidden-desktop li {
