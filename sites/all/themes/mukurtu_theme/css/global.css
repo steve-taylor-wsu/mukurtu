@@ -2303,7 +2303,7 @@ body.page-frontpage-app #footer {
 }
 
 body.page-frontpage-app .navigation-small {
-  margin: 10px 40px 0 56px;
+  margin-top: 10px;
 }
 
 body.page-frontpage-app .navigation-small,
@@ -2330,7 +2330,6 @@ body.page-frontpage-app .navigation-small a:hover {
 body.page-frontpage-app .logo {
   display: inline-block;
   padding: 2px;
-  margin: 0 0 0 56px;
 }
 
 body.page-frontpage-app .logo img{
@@ -2352,6 +2351,28 @@ body.page-frontpage-app .footer-block,
 body.page-frontpage-app .navigation {
   background: #FFFFFF;
 /*   width: 100%; */
+}
+
+body.page-frontpage-app .navigation ul.item-list li {
+  width: 160px;
+  display: inline-block;
+  margin-right: 10px;
+  height: 140px;
+}
+body.page-frontpage-app .navigation ul.item-list li a {
+  width: 140px;
+  display: block;
+}
+
+body.page-frontpage-app.responsive-layout-narrow .navigation ul.item-list li {
+  width: 120px;
+  margin-right: 5px;
+  height: 50px;
+  overflow-y: hidden;
+}
+
+body.page-frontpage-app.responsive-layout-narrow .navigation ul.item-list li a {
+  width: 100px;
 }
 
 body.page-frontpage-app {
@@ -2423,7 +2444,12 @@ body.page-frontpage-app #footer.frontpage-content {
 }
 
 
-body.page-frontpage-app .header,
+body.page-frontpage-app .header {
+  margin: 0 40px;
+  background: #FFFFFF;
+  z-index: 700;
+}
+
 body.page-frontpage-app .footer-block {
 /*   margin: 0 40px; */
   background: #FFFFFF;
@@ -2434,6 +2460,18 @@ body.page-frontpage-app .footer-block {
   z-index: 700;
 /*   width: 100%; */
 
+}
+
+/* body.page-frontpage-app .block-ma-site-header, */
+body.page-frontpage-app.responsive-layout-narrow .header,
+body.page-frontpage-app .header {
+  margin: 0;
+  padding: 0;
+}
+
+body.page-frontpage-app.responsive-layout-wide .header {
+  margin: 0 40px;
+  padding: 0 20px;
 }
 
 body.page-frontpage-app .block-ma-site-footer,
