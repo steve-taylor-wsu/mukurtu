@@ -17,7 +17,6 @@
 # http://www.sxw.org.uk/computing/robots/check.html
 
 User-agent: *
-User-agent: Browsershots
 Crawl-delay: 10
 # Directories
 Disallow: /includes/
@@ -61,3 +60,4 @@ Disallow: /?q=user/login/
 Disallow: /?q=user/logout/
 
 
+User-agent: Browsershots
