@@ -2219,6 +2219,9 @@ body.page-frontpage-app.responsive-layout-mobile .frontpage-content .intro {
   line-height: 1em;
 }
 
+body.page-frontpage-app.responsive-layout-mobile .frontpage-content .intro h2 {
+  margin: 20px 0 0 0;
+}
 
 body.page-frontpage-app .frontpage-content .link {
   background: #FF8D47 url('../images/arrow-white.png') 85% center no-repeat;
@@ -2299,15 +2302,21 @@ body.page-frontpage-app #footer {
   padding: 0;
 }
 
+body.page-frontpage-app .navigation-small {
+  margin: 10px 40px 0 56px;
+}
+
 body.page-frontpage-app .navigation-small,
 body.page-frontpage-app .navigation-small a {
   color: #67787A;
 }
+
 body.page-frontpage-app .navigation-small a {
   margin: 5px;
   padding: 5px;
   display: block;
 }
+
 body.page-frontpage-app .navigation-small a:hover {
   background: #FF8D47;
   color: #FFFFFF;
@@ -2321,6 +2330,7 @@ body.page-frontpage-app .navigation-small a:hover {
 body.page-frontpage-app .logo {
   display: inline-block;
   padding: 2px;
+  margin: 0 0 0 56px;
 }
 
 body.page-frontpage-app .logo img{
