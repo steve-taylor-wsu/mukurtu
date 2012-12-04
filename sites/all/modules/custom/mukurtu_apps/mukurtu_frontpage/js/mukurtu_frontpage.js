@@ -64,7 +64,6 @@ mukurtu_frontpage.displayData = function(anchor) {
 
     mukurtu_frontpage.jCarouselSetup();
 
-
     window.onresize = function(event) {
       mukurtu_frontpage.jCarouselSetup();
     }
@@ -74,7 +73,7 @@ mukurtu_frontpage.displayData = function(anchor) {
 
 mukurtu_frontpage.jCarouselSetup = function() {
 
-    $('body.responsive-layout-wide  .jcarousel').jcarousel({
+    $('body.responsive-layout-wide .jcarousel').jcarousel({
       scroll: 4,
       visible: 4      
     });
@@ -84,13 +83,12 @@ mukurtu_frontpage.jCarouselSetup = function() {
       visible: 3
     });
 
-
     $('body.responsive-layout-narrow .jcarousel').jcarousel({
-      scroll: 1,
-      visible: 1
+      scroll: 2,
+      visible: 2
     });
 
-    $('body.responsive-layout-mobile  .jcarousel').jcarousel({
+    $('body.responsive-layout-mobile .jcarousel').jcarousel({
       scroll: 1,
       visible: 1      
     });

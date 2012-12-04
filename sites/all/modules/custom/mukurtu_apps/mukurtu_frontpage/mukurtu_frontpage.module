@@ -14,8 +14,8 @@ function mukurtu_frontpage_menu() {
   );
 
   $items['admin/config/frontpage_app'] = array(
-    'title' => 'Mukurtu FrontPage',
-    'description' => 'Frontpage content.',
+    'title' => 'Mukurtu FrontPage Settings',
+    'description' => 'Configure front page content.',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('mukurtu_frontpage_settings'),
     'access arguments' => array('administer site configuration'),
@@ -118,8 +118,9 @@ function mukurtu_frontpage_settings() {
   
   $form['mukurtu_frontpage_settings'] = array(
     '#type' => 'fieldset',
-    '#title' => t('Mukurtu Frontpage settings'),
+/*     '#title' => '<h3>' . t('Configure front page sections') . '</h3>', */
     '#collapsible' => FALSE,
+    '#description' => t('Add content, menu items and other elements for the frontpage single-page site brochure.'),
     '#collapsed' => FALSE,
     '#tree' => TRUE,
   );
@@ -127,13 +128,14 @@ function mukurtu_frontpage_settings() {
   $form['mukurtu_frontpage_settings']['header'] = array(
     '#type' => 'checkbox',
     '#title' => t('Enable Custom Site Header'),
+    '#description' => l('Edit Custom Site Header', 'admin/structure/block/manage/boxes/ma_site_header/configure') . '. <br />' . t(' Include a site-wide header from the Custom Header Block.') . '</p>',
     '#default_value' => $db_fields['header'],
   );
 
   $form['mukurtu_frontpage_settings']['sections'] = array(
     '#type' => 'fieldset',
-    '#title' => t('Sections'),
-    '#collapsible' => TRUE,
+/*     '#title' => t('Sections'), */
+    '#collapsible' => FALSE,
     '#collapsed' => FALSE,
   );
 
@@ -141,59 +143,75 @@ function mukurtu_frontpage_settings() {
 
     $form['mukurtu_frontpage_settings']['sections'][$i] = array(
       '#type' => 'fieldset',
-      '#title' => $db_fields['sections'][$i]['title'],
+      '#title' => t('Section') . ' ' . $db_fields['sections'][$i]['title'],
       '#collapsible' => TRUE,
       '#collapsed' => FALSE,
+      '#description' => t('Add content for this section.'),
+    );
+
+    $form['mukurtu_frontpage_settings']['sections'][$i]['display'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Display this section'),
+      '#default_value' => $db_fields['sections'][$i]['display'],
     );
 
     $form['mukurtu_frontpage_settings']['sections'][$i]['title'] = array(
       '#type' => 'textfield',
       '#title' => t('Title'),
       '#default_value' => $db_fields['sections'][$i]['title'],
+      '#description' => t('Enter title for this section. Leave blank to exclude the title.'),
     );
 
     $form['mukurtu_frontpage_settings']['sections'][$i]['anchor'] = array(
       '#type' => 'textfield',
-      '#title' => t('Anchor'),
+      '#title' => t('HTML Anchor'),
       '#default_value' => $db_fields['sections'][$i]['anchor'],
+      '#description' => t('Short name for the section. Should be all lowercase letters with no spaces. Use an underscore (_) as a spacer.'),
     );
 
     $form['mukurtu_frontpage_settings']['sections'][$i]['detail'] = array(
       '#type' => 'textarea',
-      '#title' => t('Detail'),
+      '#title' => t('Description'),
       '#default_value' => $db_fields['sections'][$i]['detail'],
+      '#description' => t('Short description for this section.'),
     );
 
     $form['mukurtu_frontpage_settings']['sections'][$i]['content'] = array(
       '#type' => 'textarea',
       '#title' => t('Markup'),
       '#default_value' => $db_fields['sections'][$i]['content'],
+      '#description' => t('<p>Enter HTML markup for this section.</p><ul><li>Use good judgement with your HTML.</li><li>This section works with <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a> markup. You can add tabs, content dropdowns and more.'),
     );
 
     $form['mukurtu_frontpage_settings']['sections'][$i]['jsondata'] = array(
       '#type' => 'textarea',
-      '#title' => t('JSON Data'),
+      '#title' => t('JSON Data URL'),
       '#default_value' => $db_fields['sections'][$i]['jsondata'],
+      '#description' => t('Enter JSON data url. This can come from the Browse view, or Communities or other Services enabled views. Allowed fields are <em>title</em>, <em>description</em>, <em>image</em>, <em>content</em>.'),
     );      
 
     $form['mukurtu_frontpage_settings']['sections'][$i]['blockname'] = array(
       '#type' => 'textfield',
-      '#title' => t('BlockName'),
+      '#title' => t('Block Name'),
       '#default_value' => $db_fields['sections'][$i]['blockname'],
+      '#description' => t('Enter the machine name for the block to include'),
     ); 
-
-    $form['mukurtu_frontpage_settings']['sections'][$i]['display'] = array(
-      '#type' => 'checkbox',
-      '#title' => t('Display this section'),
-      '#default_value' => $db_fields['sections'][$i]['display'],
-    ); 
+    
+    if ($i == count($db_fields['sections']) - 1) {
+      $form['mukurtu_frontpage_settings']['sections'][$i]['#description'] =
+       t('Final Section. Use title <em>footer</em> to use default styles. Rename footer to use your own markup.');
+    }
+    
 
   }
+  
 
   $form['mukurtu_frontpage_settings']['footer'] = array(
     '#type' => 'checkbox',
     '#title' => t('Enable Custom Site Footer'),
+    '#description' => l('Edit Custom Site Footer', 'admin/structure/block/manage/boxes/ma_site_footer/configure') . '.' . t(' Include a site-wide custom footer from the Custom Footer Block'),
     '#default_value' => $db_fields['footer'],
+    
   );
 
   return system_settings_form($form);
