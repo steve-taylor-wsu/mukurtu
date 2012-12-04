@@ -2346,11 +2346,19 @@ body.page-frontpage-app .frontpage-content .jcarousel-skin-default .jcarousel-it
 .jcarousel-skin-default .jcarousel-item {
   padding: 0 0 5px 0;
   width: 180px;
-/*   max-width: 180px; */
+
   height: 360px;
   text-align: left;
   border: none;
   margin-right: 20px;
+  background: transparent;
+}
+
+.jcarousel-skin-default .jcarousel-item .content {
+  max-width: 180px;
+  background: #ffffff;
+  display: block;
+  overflow-y: scroll;
 }
 
 .jcarousel-skin-default li.item {
@@ -2379,6 +2387,10 @@ body.page-frontpage-app .frontpage-content .jcarousel-skin-default .jcarousel-it
 }
 
 
+.responsive-layout-mobile .jcarousel-skin-default .jcarousel-container-horizontal,
+.responsive-layout-narrow .jcarousel-skin-default .jcarousel-container-horizontal {
+  width: 75%;
+}
 
 /*
 .responsive-layout-narrow .jcarousel-skin-default .jcarousel-clip-horizontal,
