@@ -290,7 +290,8 @@ function mukurtu_frontpage_preprocess_page(&$vars){
       drupal_add_js($bootstrap_path . '/js/bootstrap.js');
       drupal_add_css($bootstrap_path . '/css/bootstrap.min.css');
       drupal_add_css($bootstrap_path . '/css/bootstrap-responsive.min.css');
-      drupal_add_css(drupal_get_path('module', 'jcarousel') . '/skins/default/jcarousel-default.css');
+      drupal_add_css($bootstrap_path . '/css/bootstrap-responsive.min.css');
+      drupal_add_css(drupal_get_path('module', 'mukurtu_frontpage') . '/css/mukurtu_frontpage.css');
       drupal_add_js(drupal_get_path('module', 'jcarousel') . '/js/jquery.jcarousel.min.js');
     }
   
