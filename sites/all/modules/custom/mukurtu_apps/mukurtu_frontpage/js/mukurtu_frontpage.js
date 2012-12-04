@@ -61,11 +61,40 @@ mukurtu_frontpage.displayData = function(anchor) {
   if(mukurtu_frontpage.localData[anchor] !== undefined) {
     var anchor_items = anchor + '_items';
     $("#" + anchor + "-list").html(_.template(template,{items: mukurtu_frontpage.localData[anchor]}));
-    
-    $('.jcarousel').jcarousel({
-/*       wrap: circular */
-    });
+
+    mukurtu_frontpage.jCarouselSetup();
+
+
+    window.onresize = function(event) {
+      mukurtu_frontpage.jCarouselSetup();
+    }
+
   }
+};
+
+mukurtu_frontpage.jCarouselSetup = function() {
+
+    $('body.responsive-layout-wide  .jcarousel').jcarousel({
+      scroll: 4,
+      visible: 4      
+    });
+    
+    $('body.responsive-layout-normal .jcarousel').jcarousel({
+      scroll: 3,
+      visible: 3
+    });
+
+
+    $('body.responsive-layout-narrow .jcarousel').jcarousel({
+      scroll: 1,
+      visible: 1
+    });
+
+    $('body.responsive-layout-mobile  .jcarousel').jcarousel({
+      scroll: 1,
+      visible: 1      
+    });
+
 };
 
 })(jQuery);

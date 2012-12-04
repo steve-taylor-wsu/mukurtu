@@ -2346,10 +2346,16 @@ body.page-frontpage-app .frontpage-content .jcarousel-skin-default .jcarousel-it
 .jcarousel-skin-default .jcarousel-item {
   padding: 0 0 5px 0;
   width: 180px;
+/*   max-width: 180px; */
   height: 360px;
   text-align: left;
   border: none;
   margin-right: 20px;
+}
+
+.jcarousel-skin-default li.item {
+  list-style: none;
+  
 }
 
 .jcarousel-skin-default .jcarousel-item h4,
@@ -2359,20 +2365,22 @@ body.page-frontpage-app .frontpage-content .jcarousel-skin-default .jcarousel-it
 }
 
 .jcarousel-skin-default .jcarousel-item .content {
-  overflow-y: scroll;
+/*   overflow-y: scroll; */
 }
 
 .jcarousel-skin-default .jcarousel-clip-horizontal {
-  width: 795px;
+  width: 100%;
 }
 
 .jcarousel-skin-default .jcarousel-container-horizontal {
-  width: 800px;
+  width: 85%;
+  max-width: 800px;
   height: 370px;
 }
 
 
 
+/*
 .responsive-layout-narrow .jcarousel-skin-default .jcarousel-clip-horizontal,
 .responsive-layout-mobile .jcarousel-skin-default .jcarousel-clip-horizontal {
   width: 195px;
@@ -2390,6 +2398,7 @@ body.page-frontpage-app .frontpage-content .jcarousel-skin-default .jcarousel-it
 .responsive-layout-normal .jcarousel-skin-default .jcarousel-container-horizontal {
   width: 400px;
 }
+*/
 
 .jcarousel-skin-default .jcarousel-item-placeholder {
   background: #FFFFFF url(../images/throbber.gif) no-repeat center center;
@@ -2441,4 +2450,8 @@ table.views-view-grid .file-video-oembed .content{
 hr {
   background: #333;
   width: 80%;
+}
+
+.oembed-video {
+  max-width: 550px
 }
