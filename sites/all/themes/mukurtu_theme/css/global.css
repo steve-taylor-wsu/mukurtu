@@ -23,6 +23,8 @@
 #BEBFB9:     #BEBFB9;
 #F3F4EE:     #F3F4EE;
 
+
+
 /* This file will hold styles for the mobile version of your website (mobile first). */
 /* This also can include ANY global CSS that applies site-wide. Unless overwritten by a more specific style rule, CSS declarations in global.css will apply site-wide. */
 
@@ -750,6 +752,7 @@ div.contextual-links-wrapper ul.contextual-links {
 .logo-img {
   height: 110px;
   width: 110px;
+  margin-bottom: 10px;
 }
 
 .site-name a {
@@ -1401,6 +1404,11 @@ body.page-node-add .node-form select {
   width: 100%;
 }
 
+input[type="email"],
+input[type="text"],
+textarea,
+select,
+ul.chzn-choices,
 body.page-node-edit .node-form input[type="text"],
 body.page-node-edit .node-form select,
 body.page-node-edit .node-form ul.chzn-choices,
@@ -2191,10 +2199,27 @@ body.page-frontpage-app h1#page-title {
   display: none;
 }
 
-body.page-frontpage-app .frontpage-content .intro {
+body.page-frontpage-app.responsive-layout-wide .frontpage-content .intro {
   font-size: 150%;
   line-height: 1.5em;
 }
+
+body.page-frontpage-app.responsive-layout-normal .frontpage-content .intro {
+  font-size: 100%;
+  line-height: 1em;
+}
+
+body.page-frontpage-app.responsive-layout-narrow .frontpage-content .intro {
+  font-size: 100%;
+  line-height: 1em;
+}
+
+body.page-frontpage-app.responsive-layout-mobile .frontpage-content .intro {
+  font-size: 100%;
+  line-height: 1em;
+}
+
+
 body.page-frontpage-app .frontpage-content .link {
   background: #FF8D47 url('../images/arrow-white.png') 85% center no-repeat;
   text-transform: uppercase;
@@ -2215,10 +2240,6 @@ body.page-frontpage-app .frontpage-content {
   margin: 40px;
   background: #F1F2F2;
   padding: 40px;
-}
-
-body.page-frontpage-app .frontpage-content p {
-  max-width: 550px;
 }
 
 body.page-frontpage-app .frontpage-content ul li {
@@ -2248,6 +2269,15 @@ body.page-frontpage-app .frontpage-content .tab-content {
   background-color: #E3E6E6;
   padding: 40px;
 }
+
+body.page-frontpage-app.responsive-layout-wide .frontpage-content p {
+  width: 550px;
+}
+
+body.page-frontpage-app.responsive-layout-normal .frontpage-content p {
+  width: 80%;
+}
+
 
 body.page-frontpage-app.responsive-layout-narrow .frontpage-content p, 
 body.page-frontpage-app.responsive-layout-mobile .frontpage-content p {
@@ -2312,19 +2342,6 @@ body.page-frontpage-app .footer-block,
 body.page-frontpage-app .navigation {
   background: #FFFFFF;
 /*   width: 100%; */
-}
-
-body.page-frontpage-app .header,
-body.page-frontpage-app .footer-block {
-  margin: 0 40px;
-  background: #FFFFFF;
-/*
-  position: fixed;
-  top: 0;
-*/  
-  z-index: 700;
-/*   width: 100%; */
-
 }
 
 body.page-frontpage-app {
@@ -2396,21 +2413,48 @@ body.page-frontpage-app #footer.frontpage-content {
 }
 
 
+body.page-frontpage-app .header,
+body.page-frontpage-app .footer-block {
+/*   margin: 0 40px; */
+  background: #FFFFFF;
+/*
+  position: fixed;
+  top: 0;
+*/  
+  z-index: 700;
+/*   width: 100%; */
+
+}
+
+body.page-frontpage-app .block-ma-site-footer,
 body.page-frontpage-app #footer.frontpage-content {
   background-color: #757F80;
   margin: 40px 40px 0 40px;
   padding: 40px;
 }
 
+body.page-frontpage-app .block-ma-site-footer {
+  margin: 0px 40px 0 40px;
+}
+
+body.page-frontpage-app .block-ma-site-footer p,
 body.page-frontpage-app #footer.frontpage-content,
 body.page-frontpage-app #footer.frontpage-content p {
   color: #D1D8D9;
 }
 
+body.page-frontpage-app .block-ma-site-footer a:hover,
+body.page-frontpage-app #footer.frontpage-content a:hover {
+  color: #ffffff;
+}
+
+body.page-frontpage-app .block-ma-site-footer hr,
 body.page-frontpage-app #footer.frontpage-content hr {
   background: #C4CBCC;
 }
 
+/* body.page-frontpage-app.responsive-layout-narrow .block-ma-site-footer, */
+/* body.page-frontpage-app.responsive-layout-mobile .block-ma-site-footer, */
 body.page-frontpage-app.responsive-layout-narrow #footer.frontpage-content,
 body.page-frontpage-app.responsive-layout-mobile #footer.frontpage-content {
   margin: 40px 0 0 0;
@@ -2431,7 +2475,6 @@ body.page-frontpage-app.responsive-layout-mobile #footer.frontpage-content {
   max-width: 180px;
   background: #ffffff;
   display: block;
-  overflow-y: scroll;
 }
 
 .jcarousel-skin-default li.item {
@@ -2535,4 +2578,41 @@ table.views-view-grid .file-video-oembed .content{
 
 .oembed-video {
   max-width: 550px
+}
+
+
+fieldset h3 {
+  margin-bottom: 20px;
+}
+
+fieldset p {
+  margin-left: 2.4em;
+}
+
+.fieldset-legend span.summary {
+ margin-left: 0;
+}
+
+.fieldset-legend {
+  text-transform: uppercase;
+  font-size: 1.15em;
+}
+
+
+.fieldset-description {
+  padding: 10px;
+}
+
+fieldset fieldset {
+  padding: 10px;
+  background: #E3E6E6;
+}
+
+fieldset li {
+  list-style-position: inside;
+}
+
+fieldset input {
+-webkit-background-clip: padding;
+background-clip: padding-box;
 }
