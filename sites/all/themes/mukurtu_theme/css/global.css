@@ -2221,6 +2221,11 @@ body.page-frontpage-app .frontpage-content p {
   max-width: 550px;
 }
 
+body.page-frontpage-app .frontpage-content ul li {
+  list-style-position: inside;
+  max-width: 550px;
+}
+
 body.page-frontpage-app.responsive-layout-narrow .frontpage-content p, 
 body.page-frontpage-app.responsive-layout-mobile .frontpage-content p {
   width: 100%;
