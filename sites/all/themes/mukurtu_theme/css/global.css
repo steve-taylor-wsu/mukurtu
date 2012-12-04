@@ -76,6 +76,12 @@ input[type="submit"]:hover {
   background: #C4CBCC;
 }
 
+
+hr {
+  background: #333;
+  width: 80%;
+}
+
 /******************************************************
  * REGIONS
  ******************************************************/
@@ -2212,7 +2218,7 @@ body.page-frontpage-app .frontpage-content {
 }
 
 body.page-frontpage-app .frontpage-content p {
-  width: 65%;
+  max-width: 550px;
 }
 
 body.page-frontpage-app.responsive-layout-narrow .frontpage-content p, 
@@ -2334,6 +2340,8 @@ body.page-frontpage-app #navigation .item-list .hidden-desktop li {
 }
 */
 
+
+
 body.page-frontpage-app p {
   margin: 0 0 1em 0;
 }
@@ -2341,6 +2349,37 @@ body.page-frontpage-app p {
 
 body.page-frontpage-app .frontpage-content .jcarousel-skin-default .jcarousel-item p {
   width: 90%;
+}
+
+
+
+
+
+body.page-frontpage-app #footer.frontpage-content {
+  background-color: #757F80;
+  margin: 40px 40px 0 40px;
+  padding: 40px;
+}
+
+
+body.page-frontpage-app #footer.frontpage-content {
+  background-color: #757F80;
+  margin: 40px 40px 0 40px;
+  padding: 40px;
+}
+
+body.page-frontpage-app #footer.frontpage-content,
+body.page-frontpage-app #footer.frontpage-content p {
+  color: #D1D8D9;
+}
+
+body.page-frontpage-app #footer.frontpage-content hr {
+  background: #C4CBCC;
+}
+
+body.page-frontpage-app.responsive-layout-narrow #footer.frontpage-content,
+body.page-frontpage-app.responsive-layout-mobile #footer.frontpage-content {
+  margin: 40px 0 0 0;
 }
 
 .jcarousel-skin-default .jcarousel-item {
@@ -2459,10 +2498,6 @@ table.views-view-grid .file-video-oembed .content{
   width: 180px; height: 180px; overflow: hidden;
 }
 
-hr {
-  background: #333;
-  width: 80%;
-}
 
 .oembed-video {
   max-width: 550px
