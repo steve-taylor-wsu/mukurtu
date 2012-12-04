@@ -21,10 +21,10 @@
   </div>
   <?php //} ?>
   <div id="navigation" class="navigation span10 hidden-phone">
-    <ul class="item-list row-fluid">
+    <ul class="item-list">
     <?php foreach($frontpage['page_items']['sections'] as $item) {
       if($item['title'] != '') {
-        echo '<li class="span2"><a href="#' . $item['anchor'] . '"><span class="link">' . $item['title'] . '</span>'
+        echo '<li><a href="#' . $item['anchor'] . '"><span class="link">' . $item['title'] . '</span>'
           . '<span class="detail visible-desktop">' . $item['detail'] .'</span></a></li>';
       }
     }
