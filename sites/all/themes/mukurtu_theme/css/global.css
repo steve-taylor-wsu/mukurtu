@@ -2227,8 +2227,21 @@ body.page-frontpage-app .frontpage-content ul li {
   margin: 0 0 20px 0;
 }
 
+body.page-frontpage-app .frontpage-content .nav,
 body.page-frontpage-app .frontpage-content .nav li {
   margin-bottom: 0px;
+}
+
+body.page-frontpage-app .frontpage-content .nav li a {
+  border: none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+
+body.page-frontpage-app .frontpage-content .nav li.active a {
+  background-color: #FF8D47;
+  color: #ffffff;
 }
 
 body.page-frontpage-app .frontpage-content .tab-content {
