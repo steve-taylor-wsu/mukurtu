@@ -2227,10 +2227,25 @@ body.page-frontpage-app .frontpage-content ul li {
   margin: 0 0 20px 0;
 }
 
+body.page-frontpage-app .frontpage-content .nav li {
+  margin-bottom: 0px;
+}
+
+body.page-frontpage-app .frontpage-content .tab-content {
+  background-color: #E3E6E6;
+  padding: 40px;
+}
+
 body.page-frontpage-app.responsive-layout-narrow .frontpage-content p, 
 body.page-frontpage-app.responsive-layout-mobile .frontpage-content p {
   width: 100%;
 }
+
+body.page-frontpage-app.responsive-layout-narrow .frontpage-content .tab-content,
+body.page-frontpage-app.responsive-layout-mobile .frontpage-content .tab-content {
+  padding: 10px;
+}
+
 
 body.page-frontpage-app.responsive-layout-mobile .frontpage-content input[type="text"] {
   margin: 0 
