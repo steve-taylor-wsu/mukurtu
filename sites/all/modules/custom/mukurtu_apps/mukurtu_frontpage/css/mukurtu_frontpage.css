@@ -1,54 +1,11 @@
 
 /******************************************************
- * FRONTPAGE APP
+ * Responsive FRONTPAGE APP
  ******************************************************/
 
 body.page-frontpage-app {
   margin: 0px;
-}
-
-body.page-frontpage-app h1#page-title {
-  display: none;
-}
-
-body.page-frontpage-app.responsive-layout-wide .frontpage-content .intro {
-  font-size: 150%;
-  line-height: 1.5em;
-}
-
-body.page-frontpage-app.responsive-layout-normal .frontpage-content .intro {
-  font-size: 100%;
-  line-height: 1em;
-}
-
-body.page-frontpage-app.responsive-layout-narrow .frontpage-content .intro {
-  font-size: 100%;
-  line-height: 1em;
-}
-
-body.page-frontpage-app.responsive-layout-mobile .frontpage-content .intro {
-  font-size: 100%;
-  line-height: 1em;
-}
-
-body.page-frontpage-app.responsive-layout-mobile .frontpage-content .intro h2 {
-  margin: 20px 0 0 0;
-}
-
-body.page-frontpage-app .frontpage-content .link {
-  background: #FF8D47 url('../images/arrow-white.png') 85% center no-repeat;
-  text-transform: uppercase;
-  border: none;
-  font-weight: normal;
-  color: #FFFFFF;
-  -webkit-border-radius: 0px;
-  -moz-border-radius: 0px;
-  border-radius: 0px;
-  text-shadow: none;
-  padding: 10px 60px 10px 10px;
-  margin: 5px 0;
-  display: block;
-  width: 60%;
+  padding-top: 120px;
 }
 
 body.page-frontpage-app .frontpage-content {
@@ -57,61 +14,28 @@ body.page-frontpage-app .frontpage-content {
   padding: 40px;
 }
 
-body.page-frontpage-app .frontpage-content ul li {
-  list-style-position: inside;
-  max-width: 550px;
-  margin: 0 0 20px 0;
+
+/******************************************************
+ * Page regions
+ ******************************************************/
+
+
+body.page-frontpage-app .logo {
+  display: inline-block;
+  padding: 2px;
 }
 
-body.page-frontpage-app .frontpage-content .nav,
-body.page-frontpage-app .frontpage-content .nav li {
-  margin-bottom: 0px;
+body.page-frontpage-app .logo img{
+/*   height: 110px;  */
 }
 
-body.page-frontpage-app .frontpage-content .nav li a {
-  border: none;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0;
+body.page-frontpage-app .header-block img{
+  height: inherit;
+  width: inherit; 
 }
 
-body.page-frontpage-app .frontpage-content .nav li.active a {
-  background-color: #FF8D47;
-  color: #ffffff;
-}
-
-body.page-frontpage-app .frontpage-content .tab-content {
-  background-color: #E3E6E6;
-  padding: 40px;
-}
-
-body.page-frontpage-app.responsive-layout-wide .frontpage-content p {
-  width: 550px;
-}
-
-body.page-frontpage-app.responsive-layout-normal .frontpage-content p {
-  width: 80%;
-}
-
-
-body.page-frontpage-app.responsive-layout-narrow .frontpage-content p, 
-body.page-frontpage-app.responsive-layout-mobile .frontpage-content p {
-  width: 100%;
-}
-
-body.page-frontpage-app.responsive-layout-narrow .frontpage-content .tab-content,
-body.page-frontpage-app.responsive-layout-mobile .frontpage-content .tab-content {
-  padding: 10px;
-}
-
-
-body.page-frontpage-app.responsive-layout-mobile .frontpage-content input[type="text"] {
-  margin: 0 
-}
-
-body.page-frontpage-app #footer {
-  background: #FFFFFF;
-  padding: 0;
+body.page-frontpage-app .navigation li a.active {
+  background: #C4CBCC;
 }
 
 body.page-frontpage-app .navigation-small {
@@ -135,27 +59,9 @@ body.page-frontpage-app .navigation-small a:hover {
   display: block;
 }
 
-.navigation li a.active {
-  background: #C4CBCC;
-}
-
-body.page-frontpage-app .logo {
-  display: inline-block;
-  padding: 2px;
-}
-
-body.page-frontpage-app .logo img{
-/*   height: 110px;  */
-}
-
-body.page-frontpage-app .header-block img{
-  height: inherit;
-  width: inherit; 
-}
-
-
-body.page-frontpage-app #navigation {
-/*   display: inline-block; */
+body.page-frontpage-app #footer {
+  background: #FFFFFF;
+  padding: 0;
 }
 
 body.page-frontpage-app .header-block,
@@ -187,9 +93,38 @@ body.page-frontpage-app.responsive-layout-narrow .navigation ul.item-list li a {
   width: 100px;
 }
 
-body.page-frontpage-app  {
-/*   padding-top: 120px; */
+
+/******************************************************
+ * Page regions
+ ******************************************************/
+
+body.page-frontpage-app.responsive-layout-narrow .frontpage-content,
+body.page-frontpage-app.responsive-layout-mobile .frontpage-content {
+  margin: 40px 0;
+  padding: 40px 10px;
 }
+
+
+
+body.page-frontpage-app .header {
+  margin: 0 40px;
+  background: #FFFFFF;
+  z-index: 700;
+}
+
+/* body.page-frontpage-app .block-ma-site-header, */
+body.page-frontpage-app.responsive-layout-narrow .header,
+body.page-frontpage-app .header {
+  margin: 0;
+  padding: 0;
+}
+
+body.page-frontpage-app.responsive-layout-wide .header {
+  margin: 0 40px;
+  padding: 0 20px;
+}
+
+
 
 body.page-frontpage-app #navigation .item-list ul li {
   display: inline-block;
@@ -217,49 +152,13 @@ body.page-frontpage-app #navigation .item-list .link {
 
 body.page-frontpage-app #navigation .item-list .detail {
   display: block;
-  font-style: italic;  
+/*   font-style: italic;   */
 }
-
-
-body.page-frontpage-app.responsive-layout-narrow .frontpage-content,
-body.page-frontpage-app.responsive-layout-mobile .frontpage-content {
-  margin: 40px 0;
-  padding: 40px 10px;
-}
-
-/*
-
-body.page-frontpage-app #navigation .item-list .hidden-desktop li {
-
-}
-*/
-
-
-
-body.page-frontpage-app p {
-  margin: 0 0 1em 0;
-}
-
-
-body.page-frontpage-app .frontpage-content .jcarousel-skin-default .jcarousel-item p {
-  width: 90%;
-}
-
-
-
-
 
 body.page-frontpage-app #footer.frontpage-content {
   background-color: #757F80;
   margin: 40px 40px 0 40px;
   padding: 40px;
-}
-
-
-body.page-frontpage-app .header {
-  margin: 0 40px;
-  background: #FFFFFF;
-  z-index: 700;
 }
 
 body.page-frontpage-app .footer-block {
@@ -274,27 +173,109 @@ body.page-frontpage-app .footer-block {
 
 }
 
-/* body.page-frontpage-app .block-ma-site-header, */
-body.page-frontpage-app.responsive-layout-narrow .header,
-body.page-frontpage-app .header {
-  margin: 0;
-  padding: 0;
-}
-
-body.page-frontpage-app.responsive-layout-wide .header {
-  margin: 0 40px;
-  padding: 0 20px;
-}
-
 body.page-frontpage-app .block-ma-site-footer,
 body.page-frontpage-app #footer.frontpage-content {
-  background-color: #757F80;
   margin: 40px 40px 0 40px;
   padding: 40px;
+  background-color: #757F80;
 }
 
 body.page-frontpage-app .block-ma-site-footer {
   margin: 0px 40px 0 40px;
+}
+
+body.page-frontpage-app.responsive-layout-narrow .block-ma-site-footer,
+body.page-frontpage-app.responsive-layout-mobile .block-ma-site-footer,
+body.page-frontpage-app.responsive-layout-narrow #footer.frontpage-content,
+body.page-frontpage-app.responsive-layout-mobile #footer.frontpage-content {
+  margin: 40px 0 0 0;
+}
+
+
+
+
+/******************************************************
+ * Content Styles
+ ******************************************************/
+
+body.page-frontpage-app h1#page-title {
+  display: none;
+}
+
+body.page-frontpage-app.responsive-layout-wide .frontpage-content .intro {
+  font-size: 150%;
+  line-height: 1.5em;
+}
+
+body.page-frontpage-app.responsive-layout-normal .frontpage-content .intro {
+  font-size: 125%;
+  line-height: 1.25em;
+}
+
+body.page-frontpage-app.responsive-layout-narrow .frontpage-content .intro {
+  font-size: 125%;
+  line-height: 1.25em;
+}
+
+body.page-frontpage-app.responsive-layout-mobile .frontpage-content .intro {
+  font-size: 125%;
+  line-height: 1.25em;
+}
+
+body.page-frontpage-app.responsive-layout-mobile .frontpage-content .intro h2 {
+  margin: 20px 0 0 0;
+}
+
+body.page-frontpage-app .frontpage-content .link {
+  background: #FF8D47 url('../../../../../themes/mukurtu_theme/images/arrow-white-large.png') 85% center no-repeat;
+  text-transform: uppercase;
+  border: none;
+  font-weight: normal;
+  color: #FFFFFF;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  text-shadow: none;
+  padding: 10px 60px 10px 10px;
+  margin: 20px 0;
+  display: block;
+  width: 50%;
+  max-width: 200px;
+}
+
+body.page-frontpage-app .frontpage-content ul li {
+  list-style-position: inside;
+  max-width: 550px;
+  margin: 0 0 20px 0;
+}
+
+body.page-frontpage-app.responsive-layout-wide .frontpage-content p {
+  width: 550px;
+}
+
+body.page-frontpage-app.responsive-layout-normal .frontpage-content .intro p {
+  width: 100%;
+}
+
+body.page-frontpage-app.responsive-layout-normal .frontpage-content p {
+  width: 80%;
+}
+
+body.page-frontpage-app.responsive-layout-narrow .frontpage-content p, 
+body.page-frontpage-app.responsive-layout-mobile .frontpage-content p {
+  width: 100%;
+}
+
+body.page-frontpage-app.responsive-layout-mobile .frontpage-content input[type="text"] {
+  margin: 0 
+}
+
+body.page-frontpage-app p {
+  margin: 0 0 1em 0;
+}
+
+body.page-frontpage-app .frontpage-content .jcarousel .jcarousel-item p {
+  width: 90%;
 }
 
 body.page-frontpage-app .block-ma-site-footer p,
@@ -313,9 +294,34 @@ body.page-frontpage-app #footer.frontpage-content hr {
   background: #C4CBCC;
 }
 
-/* body.page-frontpage-app.responsive-layout-narrow .block-ma-site-footer, */
-/* body.page-frontpage-app.responsive-layout-mobile .block-ma-site-footer, */
-body.page-frontpage-app.responsive-layout-narrow #footer.frontpage-content,
-body.page-frontpage-app.responsive-layout-mobile #footer.frontpage-content {
-  margin: 40px 0 0 0;
+
+/******************************************************
+ * Style overrides for Twitter Boostrap markup
+ ******************************************************/
+
+body.page-frontpage-app .frontpage-content .nav,
+body.page-frontpage-app .frontpage-content .nav li {
+  margin-bottom: 0px;
+}
+
+body.page-frontpage-app .frontpage-content .nav li a {
+  border: none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+
+body.page-frontpage-app .frontpage-content .nav li.active a {
+  background-color: #FF8D47;
+  color: #ffffff;
+}
+
+body.page-frontpage-app .frontpage-content .tab-content {
+  background-color: #E3E6E6;
+  padding: 40px;
+}
+
+body.page-frontpage-app.responsive-layout-narrow .frontpage-content .tab-content,
+body.page-frontpage-app.responsive-layout-mobile .frontpage-content .tab-content {
+  padding: 10px;
 }
