@@ -536,6 +536,9 @@ function ma_browse_views_default_views() {
   $handler->display->display_options['fields']['field_description']['settings'] = array(
     'trim_length' => '250',
   );
+  $handler->display->display_options['fields']['field_description']['group_columns'] = array(
+    'summary' => 'summary',
+  );
   $handler->display->display_options['path'] = 'browse/app';
   $handler->display->display_options['menu']['type'] = 'default tab';
   $handler->display->display_options['menu']['title'] = 'Browse';
