@@ -18,6 +18,5 @@ dependencies[] = viewsnodefield
 dependencies[] = zip_export_media
 features[ctools][] = views:views_default:3.0
 features[features_api][] = api:1
-features[menu_links][] = main-menu:browse
 features[views_view][] = ma_browse
 features[views_view][] = ma_groups_autocomplete
