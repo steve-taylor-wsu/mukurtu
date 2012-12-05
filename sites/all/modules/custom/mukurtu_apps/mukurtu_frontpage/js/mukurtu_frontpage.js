@@ -2,10 +2,11 @@ var mukurtu_frontpage = {};
 mukurtu_frontpage.localData = [];
 
 (function($){
+
 $(document).ready(function(){
 /* 	var base_path = Drupal.settings.single_page.base_path; */
 
-  $('.header a[href*=#]').bind('click', function (e) {
+  $('.header a[href*=#], .link-scroll[href*=#]').bind('click', function (e) {
 
       var hash = $(this).attr('href');
       hash = hash.slice(hash.indexOf('#') + 1);
@@ -17,6 +18,7 @@ $(document).ready(function(){
       window.location.hash = '#' + hash;
       return false;
   });
+
 
 /* $('#navigation').scrollspy(); */
 
