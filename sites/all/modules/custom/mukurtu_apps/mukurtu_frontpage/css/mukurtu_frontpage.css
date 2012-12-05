@@ -241,6 +241,25 @@ body.page-frontpage-app .frontpage-content .link {
   max-width: 200px;
 }
 
+body.page-frontpage-app .frontpage-content .link-small {
+  background: #FF8D47 url('../../../../../themes/mukurtu_theme/images/arrow-white.png') 85% center no-repeat;
+  text-transform: uppercase;
+  border: none;
+  font-weight: normal;
+  color: #FFFFFF;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  text-shadow: none;
+  padding: 10px 60px 10px 10px;
+  margin: 20px 0;
+  display: block;
+  width: 45%;
+  font-size: 1.1em;
+  max-width: 150px;
+}
+
+
 body.page-frontpage-app .frontpage-content ul li {
   list-style-position: inside;
   max-width: 550px;
