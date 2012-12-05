@@ -19,14 +19,9 @@ body.page-frontpage-app .frontpage-content {
  * Page regions
  ******************************************************/
 
-
 body.page-frontpage-app .logo {
   display: inline-block;
   padding: 2px;
-}
-
-body.page-frontpage-app .logo img{
-/*   height: 110px;  */
 }
 
 body.page-frontpage-app .header-block img{
@@ -40,6 +35,28 @@ body.page-frontpage-app .navigation li a.active {
 
 body.page-frontpage-app .navigation-small {
   margin-top: 10px;
+}
+
+body.page-frontpage-app .navigation ul.item-list li {
+  width: 160px;
+  display: inline-block;
+  margin-right: 10px;
+  height: 140px;
+}
+body.page-frontpage-app .navigation ul.item-list li a {
+  width: 140px;
+  display: block;
+}
+
+body.page-frontpage-app.responsive-layout-narrow .navigation ul.item-list li {
+  width: 120px;
+  margin-right: 5px;
+  height: 50px;
+  overflow-y: hidden;
+}
+
+body.page-frontpage-app.responsive-layout-narrow .navigation ul.item-list li a {
+  width: 100px;
 }
 
 body.page-frontpage-app .navigation-small,
@@ -71,27 +88,6 @@ body.page-frontpage-app .navigation {
 /*   width: 100%; */
 }
 
-body.page-frontpage-app .navigation ul.item-list li {
-  width: 160px;
-  display: inline-block;
-  margin-right: 10px;
-  height: 140px;
-}
-body.page-frontpage-app .navigation ul.item-list li a {
-  width: 140px;
-  display: block;
-}
-
-body.page-frontpage-app.responsive-layout-narrow .navigation ul.item-list li {
-  width: 120px;
-  margin-right: 5px;
-  height: 50px;
-  overflow-y: hidden;
-}
-
-body.page-frontpage-app.responsive-layout-narrow .navigation ul.item-list li a {
-  width: 100px;
-}
 
 
 /******************************************************
@@ -110,6 +106,7 @@ body.page-frontpage-app .header {
   margin: 0 40px;
   background: #FFFFFF;
   z-index: 700;
+  height: 140px;
 }
 
 /* body.page-frontpage-app .block-ma-site-header, */
