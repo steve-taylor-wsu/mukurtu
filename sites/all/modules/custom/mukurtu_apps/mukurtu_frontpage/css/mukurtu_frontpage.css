@@ -144,7 +144,8 @@ body.page-frontpage-app #navigation .item-list .link {
   font-size: 1.1em;
   line-height: 1.2em;
   font-weight: bold;
-  height: 2em;
+/*   height: 2em; */
+  text-transform: uppercase;
   margin-bottom: 10px;
 }
 
@@ -157,6 +158,10 @@ body.page-frontpage-app #footer.frontpage-content {
   background-color: #757F80;
   margin: 40px 40px 0 40px;
   padding: 40px;
+}
+
+body.page-frontpage-app #footer ul.list {
+  list-style-type: none;
 }
 
 body.page-frontpage-app .footer-block {
@@ -341,4 +346,15 @@ body.page-frontpage-app .frontpage-content .tab-content {
 body.page-frontpage-app.responsive-layout-narrow .frontpage-content .tab-content,
 body.page-frontpage-app.responsive-layout-mobile .frontpage-content .tab-content {
   padding: 10px;
+}
+
+body.page-frontpage-app #footer.frontpage-content h3,
+body.page-frontpage-app .modal-header h3 {
+  color: #FF8D47;
+  font-size: 1.5em;
+}
+
+body.page-frontpage-app #footer.frontpage-content p,
+body.page-frontpage-app .modal-body p {
+  color: #575757;
 }
