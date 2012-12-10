@@ -4,7 +4,7 @@
 ?>
 <div class="container-fluid main-content">
 
-<div class="header<?php if(!$frontpage['page_items']['header']) { /*echo ' navbar-fixed-top'; */ } ?>">
+<div class="header<?php if(!$frontpage['page_items']['header']) { echo ' navbar-fixed-top'; } ?>">
   <div class="header-block">
    <?php
     if($frontpage['page_items']['header']) {
@@ -16,7 +16,7 @@
 
   <?php //if(($frontpage['page_items']['header'])) { ?>
   <div class="navbar row-fluid">
-  <div class="logo span2">
+  <div class="logo-container span2">
     <?php echo '<a href="#' . $frontpage['page_items']['sections'][0]['anchor'] . '"><img class="logo" src="' . $logo . '" /></a>'; ?>
   </div>
   <?php //} ?>

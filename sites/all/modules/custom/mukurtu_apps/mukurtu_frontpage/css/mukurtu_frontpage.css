@@ -21,16 +21,17 @@ body.page-frontpage-app .frontpage-content {
 
 body.page-frontpage-app .header {
   margin: 0 40px 0 40px;
+  padding: 4px 20px 0 20px;
 }
 
 
-body.page-frontpage-app .logo {
-  padding: 5px 5px 5px 0;
+body.page-frontpage-app .logo-container {
+/*   padding: 2px; */
   width: 100px;
 }
 
 
-/*
+
 
 body.page-frontpage-app .header-block img{
   height: inherit;
@@ -45,6 +46,7 @@ body.page-frontpage-app .navigation-small {
   margin-top: 10px;
 }
 
+/*
 body.page-frontpage-app .navigation ul.item-list li {
   width: 160px;
   display: inline-block;
@@ -74,8 +76,8 @@ body.page-frontpage-app .navigation-small a {
 }
 
 body.page-frontpage-app .navigation-small a {
-  margin: 5px;
-  padding: 5px;
+  margin: 5px 5px 0 0;
+  padding: 10px;
   display: block;
 }
 
@@ -116,15 +118,13 @@ body.page-frontpage-app.responsive-layout-mobile .frontpage-content {
 }
 
 
-/*
-
 body.page-frontpage-app .header {
-  margin: 0 40px;
+/*   margin: 0 40px; */
   background: #FFFFFF;
   z-index: 700;
-  height: 140px;
+/*   height: 140px; */
 }
-*/
+
 
 
 /*
