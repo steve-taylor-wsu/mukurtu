@@ -4,7 +4,7 @@
 ?>
 <div class="container-fluid main-content">
 
-<div class="header <?php if(!$frontpage['page_items']['header']) { echo 'navbar-fixed-top';} ?>">
+<div class="header<?php if(!$frontpage['page_items']['header']) { /*echo ' navbar-fixed-top'; */ } ?>">
   <div class="header-block">
    <?php
     if($frontpage['page_items']['header']) {
@@ -15,17 +15,17 @@
   </div>
 
   <?php //if(($frontpage['page_items']['header'])) { ?>
-  <div class="row-fluid">
+  <div class="navbar row-fluid">
   <div class="logo span2">
     <?php echo '<a href="#' . $frontpage['page_items']['sections'][0]['anchor'] . '"><img class="logo" src="' . $logo . '" /></a>'; ?>
   </div>
   <?php //} ?>
-  <div id="navigation" class="navigation span10 hidden-phone">
+  <div id="navigation" class="navigation span10 navigation-wide hidden-phone">
     <ul class="item-list">
     <?php foreach($frontpage['page_items']['sections'] as $item) {
       if($item['title'] != '') {
-        echo '<li><a href="#' . $item['anchor'] . '"><span class="link">' . $item['title'] . '</span>'
-          . '<span class="detail visible-desktop">' . $item['detail'] .'</span></a></li>';
+        echo '<li class="span2"><a class="tab" href="#' . $item['anchor'] . '"><span class="link">' . $item['title'] . '</span>'
+          . '<span class="detail">' . $item['detail'] .'</span></a></li>';
       }
     }
     ?>
@@ -33,12 +33,12 @@
   </div>
 
 
-  <div id="navigation-small" class="navigation-small visible-phone">
+  <div id="navigation-small" class="navigation-small span10 visible-phone">
     <ul class="item-list">
     <?php foreach($frontpage['page_items']['sections'] as $item) {
       if($item['title'] != '') {
         echo '<li><a href="#' . $item['anchor'] . '"><span class="link">' . $item['title'] . '</span>'
-          . '<span class="detail visible-desktop">' . $item['detail'] .'</span></a></li>';
+          . '</a></li>';
       }
     }
     ?>

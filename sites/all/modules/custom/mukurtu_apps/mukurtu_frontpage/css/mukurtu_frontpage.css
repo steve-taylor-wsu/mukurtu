@@ -4,8 +4,8 @@
  ******************************************************/
 
 body.page-frontpage-app {
-  margin: 0px;
-  padding-top: 120px;
+/*   margin: 0px; */
+/*   padding-top: 120px; */
 }
 
 body.page-frontpage-app .frontpage-content {
@@ -19,10 +19,18 @@ body.page-frontpage-app .frontpage-content {
  * Page regions
  ******************************************************/
 
-body.page-frontpage-app .logo {
-  display: inline-block;
-  padding: 2px;
+body.page-frontpage-app .header {
+  margin: 0 40px 0 40px;
 }
+
+
+body.page-frontpage-app .logo {
+  padding: 5px 5px 5px 0;
+  width: 100px;
+}
+
+
+/*
 
 body.page-frontpage-app .header-block img{
   height: inherit;
@@ -43,21 +51,22 @@ body.page-frontpage-app .navigation ul.item-list li {
   margin-right: 10px;
   height: 110px;
 }
+
 body.page-frontpage-app .navigation ul.item-list li a {
   width: 140px;
   display: block;
 }
-
+body.page-frontpage-app.responsive-layout-normal .navigation ul.item-list li,
 body.page-frontpage-app.responsive-layout-narrow .navigation ul.item-list li {
   width: 100px;
   margin-right: 5px;
   height: 50px;
-  overflow-y: hidden;
 }
-
+body.page-frontpage-app.responsive-layout-normal .navigation ul.item-list li a,
 body.page-frontpage-app.responsive-layout-narrow .navigation ul.item-list li a {
   width: 100px;
 }
+*/
 
 body.page-frontpage-app .navigation-small,
 body.page-frontpage-app .navigation-small a {
@@ -70,11 +79,13 @@ body.page-frontpage-app .navigation-small a {
   display: block;
 }
 
+
 body.page-frontpage-app .navigation-small a:hover {
   background: #FF8D47;
   color: #FFFFFF;
   display: block;
 }
+
 
 body.page-frontpage-app #footer {
   background: #FFFFFF;
@@ -85,7 +96,6 @@ body.page-frontpage-app .header-block,
 body.page-frontpage-app .footer-block,
 body.page-frontpage-app .navigation {
   background: #FFFFFF;
-/*   width: 100%; */
 }
 
 
@@ -93,6 +103,11 @@ body.page-frontpage-app .navigation {
 /******************************************************
  * Page regions
  ******************************************************/
+body.page-frontpage-app.responsive-layout-narrow .header,
+body.page-frontpage-app.responsive-layout-mobile .header {
+  margin: 0 0 40px 0;
+  padding: 0 0 0 10px;
+}
 
 body.page-frontpage-app.responsive-layout-narrow .frontpage-content,
 body.page-frontpage-app.responsive-layout-mobile .frontpage-content {
@@ -101,6 +116,7 @@ body.page-frontpage-app.responsive-layout-mobile .frontpage-content {
 }
 
 
+/*
 
 body.page-frontpage-app .header {
   margin: 0 40px;
@@ -108,8 +124,10 @@ body.page-frontpage-app .header {
   z-index: 700;
   height: 140px;
 }
+*/
 
-/* body.page-frontpage-app .block-ma-site-header, */
+
+/*
 body.page-frontpage-app.responsive-layout-narrow .header,
 body.page-frontpage-app .header {
   margin: 0;
@@ -121,15 +139,22 @@ body.page-frontpage-app.responsive-layout-wide .header {
   padding: 0 20px;
   background-color: #ffffff;
 }
+*/
+
 
 
 
 body.page-frontpage-app #navigation .item-list ul li {
-  display: inline-block;
+/*   display: inline-block; */
   background-color: #FFFFFF;
   border: none;
   padding-top 5px;
 }
+
+body.page-frontpage-app #navigation .item-list ul li a.tab {
+  width: 110px;
+}
+
 
 body.page-frontpage-app #navigation .item-list ul h4 {
   margin: 10px 0 10px 0;
@@ -140,19 +165,26 @@ body.page-frontpage-app #navigation .item-list ul li a {
 }
 
 body.page-frontpage-app #navigation .item-list .link {
+  width: 100px;
   display: block;
   font-size: 1.1em;
   line-height: 1.2em;
   font-weight: bold;
-/*   height: 2em; */
   text-transform: uppercase;
   margin-bottom: 10px;
 }
 
-body.page-frontpage-app #navigation .item-list .detail {
-  display: block;
-/*   font-style: italic;   */
+body.page-frontpage-app.responsive-layout-normal .navigation ul.item-list li .detail,
+body.page-frontpage-app.responsive-layout-mobile .navigation ul.item-list li .detail,
+body.page-frontpage-app.responsive-layout-narrow .navigation ul.item-list li .detail {
+  display: none;
 }
+
+body.page-frontpage-app.responsive-layout-wide .navigation ul.item-list li .detail {
+  display: block;
+}
+
+
 
 body.page-frontpage-app #footer.frontpage-content {
   background-color: #757F80;
