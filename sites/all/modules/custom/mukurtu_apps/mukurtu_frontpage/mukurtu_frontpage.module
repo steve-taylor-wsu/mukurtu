@@ -201,7 +201,13 @@ function mukurtu_frontpage_settings() {
       $form['mukurtu_frontpage_settings']['sections'][$i]['#description'] =
        t('Final Section. Use title <em>footer</em> to use default styles. Rename footer to use your own markup.');
     }
-    
+
+    $form['mukurtu_frontpage_settings']['sections'][$i]['content_suffix'] = array(
+      '#type' => 'textarea',
+      '#title' => t('Markup - Suffix'),
+      '#default_value' => $db_fields['sections'][$i]['content'],
+      '#description' => t('<p>Enter HTML markup for this section.</p><ul><li>Use good judgement with your HTML.</li><li>This section works with <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a> markup. You can add tabs, content dropdowns and more.'),
+    );    
 
   }
   

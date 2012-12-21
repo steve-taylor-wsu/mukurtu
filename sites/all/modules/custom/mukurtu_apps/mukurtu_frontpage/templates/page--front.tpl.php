@@ -101,6 +101,8 @@ foreach($frontpage['page_items']['sections'] as $item) {
     }
 */
 
+    $output .= $item['content_suffix'];
+
     $output .= '</div>';
     
   }
