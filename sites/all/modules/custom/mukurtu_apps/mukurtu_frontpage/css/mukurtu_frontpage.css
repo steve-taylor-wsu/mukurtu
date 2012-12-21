@@ -47,6 +47,12 @@ body.page-frontpage-app .navigation-small {
   margin-top: 10px;
 }
 
+body.page-frontpage-app .navigation ul.item-list li {
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+}
+
 /*
 body.page-frontpage-app .navigation ul.item-list li {
   width: 160px;
@@ -92,7 +98,7 @@ body.page-frontpage-app .navigation-small a {
 
 
 body.page-frontpage-app .navigation-small a:hover {
-  background: #FF8D47;
+  background: #da791a;
   color: #FFFFFF;
   display: block;
 }
@@ -226,8 +232,15 @@ body.page-frontpage-app .block-ma-site-footer,
 body.page-frontpage-app #footer.frontpage-content {
   margin: 40px 40px 0 40px;
   padding: 40px;
-  background-color: #757F80;
+  background-color: #9EABAC;
 }
+
+
+body.page-frontpage-app .block-ma-site-footer a,
+body.page-frontpage-app #footer.frontpage-content a {
+  color: #F1F2F2;
+}
+ 
 
 body.page-frontpage-app .block-ma-site-footer {
   margin: 0px 40px 0 40px;
@@ -276,7 +289,7 @@ body.page-frontpage-app.responsive-layout-mobile .frontpage-content .intro h2 {
 }
 
 body.page-frontpage-app .frontpage-content .link {
-  background: #FF8D47 url('../../../../../themes/mukurtu_theme/images/arrow-white-large.png') 85% center no-repeat;
+  background: #da791a url('../../../../../themes/mukurtu_theme/images/arrow-white-large.png') 85% center no-repeat;
   text-transform: uppercase;
   border: none;
   font-weight: normal;
@@ -293,7 +306,7 @@ body.page-frontpage-app .frontpage-content .link {
 }
 
 body.page-frontpage-app .frontpage-content .link-small {
-  background: #FF8D47 url('../../../../../themes/mukurtu_theme/images/arrow-white.png') 85% center no-repeat;
+  background: #da791a url('../../../../../themes/mukurtu_theme/images/arrow-white.png') 85% center no-repeat;
   text-transform: uppercase;
   border: none;
   font-weight: normal;
@@ -380,7 +393,7 @@ body.page-frontpage-app .frontpage-content .nav li a {
 }
 
 body.page-frontpage-app .frontpage-content .nav li.active a {
-  background-color: #FF8D47;
+  background-color: #da791a;
   color: #ffffff;
 }
 
@@ -396,7 +409,7 @@ body.page-frontpage-app.responsive-layout-mobile .frontpage-content .tab-content
 
 body.page-frontpage-app #footer.frontpage-content h3,
 body.page-frontpage-app .modal-header h3 {
-  color: #FF8D47;
+  color: #da791a;
   font-size: 1.5em;
 }
 

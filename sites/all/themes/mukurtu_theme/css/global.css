@@ -4,7 +4,7 @@
 #F1F2F2:      #F1F2F2; 
 #000000:      #000000;
 #575757:      #575757;
-#FF8D47:      #FF8D47;
+#da791a:      #da791a;
 #C4CBCC:      #C4CBCC;
 #506466:      #506466;
 #E3E6E6:      #E3E6E6;
@@ -44,7 +44,7 @@ p {
 a,
 a:link,
 a:visited {
-  color: #FF8D47;
+  color: #da791a;
 }
 
 a:active,
@@ -70,7 +70,7 @@ h3 {
 
 a.button,
 input[type="submit"] {
-  background: #FF8D47;
+  background: #da791a;
   color: #FFFFFF;
 }
 
@@ -104,7 +104,7 @@ hr {
 }
 
 .site-name a {
-  color: #FF8D47;;
+  color: #da791a;;
 }
 
 h6.site-slogan,
@@ -121,7 +121,7 @@ h6.site-slogan,
 }
 
 .region-user-first a:hover {
-  color: #FF8D47;
+  color: #da791a;
 }
 
 #block-user-login input[type="text"],
@@ -160,7 +160,7 @@ h6.site-slogan,
 }
 
 .navigation li a:hover {
-  background: #FF8D47;
+  background: #da791a;
   color: #FFFFFF;
 }
 
@@ -249,7 +249,7 @@ fieldset input {
 }
 
 .pager li a {
-  color: #FF8D47;
+  color: #da791a;
 }
 
 .pager li a:hover {
@@ -330,7 +330,7 @@ body.node-type-digital-heritage .field-name-admin-actions ul.tabs a {
 
 body.node-type-digital-heritage .field-name-admin-actions ul.tabs a:hover,
 body.node-type-digital-heritage .field-name-admin-actions ul.tabs a.active {
-  background: #FF8D47;
+  background: #da791a;
 }
 
 body.node-type-digital-heritage form#community-tags-form input[type="text"] {
@@ -356,7 +356,7 @@ body.node-type-digital-heritage .ui-accordion .ui-accordion-header {
 
 body.node-type-digital-heritage .ui-accordion .ui-accordion-header:hover,
 body.node-type-digital-heritage .ui-accordion .ui-accordion-header.ui-state-active {
-  background: #FF8D47;
+  background: #da791a;
   color: #FFFFFF;
 }
 
@@ -472,11 +472,11 @@ body.browse-context .views-exposed-widgets #edit-reset {
 }
 
 body.browse-context .views-exposed-widgets #edit-reset:hover {
-  color: #FF8D47;
+  color: #da791a;
 }
 
 body.browse-context .views-exposed-widgets #edit-submit-ma-browse {
-  background: #FF8D47 url('../images/arrow-white.png') 85% center no-repeat;
+  background: #da791a url('../images/arrow-white.png') 85% center no-repeat;
   color: #FFFFFF;
 }
 
@@ -494,7 +494,7 @@ body.browse-context .ui-tabs .ui-tabs-nav li a:visited {
 
 body.browse-context .ui-tabs .ui-tabs-nav li a:hover {
   color: #FFFFFF;
-  background: #FF8D47 url('../images/triangle-open.png') 20px center no-repeat;
+  background: #da791a url('../images/triangle-open.png') 20px center no-repeat;
 }
 
 body.browse-context .ui-tabs .ui-tabs-nav li.ui-state-active a,
@@ -548,7 +548,7 @@ body.browse-context .ui-tabs #summary-bar {
 
 .compact-link a,
 ul.action-links li a{
-  background: #FF8D47;
+  background: #da791a;
   color: #FFFFFF;
 }
 
@@ -586,7 +586,7 @@ div.ctools-modal-content {
 
 #media-browser-page a.button, 
 #media-browser-page input[type="submit"] {
-  background: #FF8D47;
+  background: #da791a;
 }
 
 table tbody tr.update-security, table tbody tr.update-unsupported {
@@ -599,7 +599,7 @@ tr.even, tr.odd {
 }
 
 .page-node .group-middle ul.links.inline li.flag-add_to_my_collection a {
-  background: #FF8D47;
+  background: #da791a;
   color: #FFFFFF;
 }
 
@@ -634,7 +634,7 @@ h6 {
 a,
 a:link,
 a:visited {
-/*   color: #FF8D47; */
+/*   color: #da791a; */
   text-decoration: none;
 }
 
@@ -666,7 +666,7 @@ h3 {
 a.button,
 input[type="submit"] {
   text-transform: uppercase;
-/*   background: #FF8D47; */
+/*   background: #da791a; */
 /*   color: #FFFFFF; */
   padding: 7px 5px 5px;
   -webkit-border-radius: 0px;
@@ -779,7 +779,7 @@ html.js input.throbbing {
 }
 
 .site-name a {
-/*   color: #FF8D47; */
+/*   color: #da791a; */
   font-size: 0.8333em;
   line-height: 1.1333em;
 }
@@ -811,7 +811,7 @@ h6.site-slogan,
 }
 
 .region-user-first a:hover {
-/*   color: #FF8D47; */
+/*   color: #da791a; */
 }
 
 .block-logintoboggan-logged-in .my-account {
@@ -904,7 +904,7 @@ h6.site-slogan,
 }
 
 .navigation li a:hover {
-  background: #FF8D47;
+  background: #da791a;
   color: #FFFFFF;
 }
 
@@ -1041,7 +1041,7 @@ h2 .comments-count {
 }
 
 .pager li a {
-  color: #FF8D47;
+  color: #da791a;
 }
 
 .pager li {
@@ -1266,7 +1266,7 @@ body.node-type-digital-heritage .field-name-admin-actions ul.tabs a {
 
 body.node-type-digital-heritage .field-name-admin-actions ul.tabs a:hover,
 body.node-type-digital-heritage .field-name-admin-actions ul.tabs a.active {
-/*   background: #FF8D47; */
+/*   background: #da791a; */
 }
 
 body.node-type-digital-heritage form#community-tags-form ul li {
@@ -1335,7 +1335,7 @@ body.node-type-digital-heritage .ui-accordion .ui-accordion-header {
 
 body.node-type-digital-heritage .ui-accordion .ui-accordion-header:hover,
 body.node-type-digital-heritage .ui-accordion .ui-accordion-header.ui-state-active {
-/*   background: #FF8D47; */
+/*   background: #da791a; */
 /*   color: #FFFFFF; */
 }
 
@@ -1736,11 +1736,11 @@ body.browse-context .views-exposed-widgets #edit-reset {
 }
 
 body.browse-context .views-exposed-widgets #edit-reset:hover {
-/*   color: #FF8D47; */
+/*   color: #da791a; */
 }
 
 body.browse-context .views-exposed-widgets #edit-submit-ma-browse {
-  background: #FF8D47 url('../images/arrow-white.png') 85% center no-repeat;
+  background: #da791a url('../images/arrow-white.png') 85% center no-repeat;
 /*   color: #FFFFFF; */
   text-transform: uppercase;
   border: none;
@@ -1788,7 +1788,7 @@ body.browse-context .ui-tabs .ui-tabs-nav li a:visited {
 
 body.browse-context .ui-tabs .ui-tabs-nav li a:hover {
   color: #FFFFFF;
-  background: #FF8D47 url('../images/triangle-open.png') 20px center no-repeat;
+  background: #da791a url('../images/triangle-open.png') 20px center no-repeat;
 }
 
 body.browse-context .ui-tabs .ui-tabs-nav li.ui-state-active a {
@@ -1960,7 +1960,7 @@ div.ctools-modal-content {
 #media-browser-page a.button, 
 #media-browser-page input[type="submit"] {
   text-transform: uppercase;
-/*   background: #FF8D47; */
+/*   background: #da791a; */
 /*   color: #FFFFFF; */
   padding: 7px 5px 5px;
   -webkit-border-radius: 0px;
@@ -2048,7 +2048,7 @@ ul.action-links li a{
   padding: 10px;
   margin: 0 5px 5px 0;
   text-transform: uppercase;
-/*   background: #FF8D47; */
+/*   background: #da791a; */
   color: white;
 }
 
@@ -2308,7 +2308,7 @@ div.ctools-modal-content a.close img {
   display: inline;
   padding-left: 0;
   text-transform: uppercase;
-/*   background: #FF8D47; */
+/*   background: #da791a; */
   color: #FFFFFF;
   padding: 7px 5px 5px;
   -webkit-border-radius: 0px;
