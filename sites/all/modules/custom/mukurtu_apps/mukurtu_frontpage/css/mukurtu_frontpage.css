@@ -404,3 +404,6 @@ body.page-frontpage-app #footer.frontpage-content p,
 body.page-frontpage-app .modal-body p {
   color: #575757;
 }
+body.page-frontpage-app #footer.frontpage-content .modal-body a:hover {
+  color: #575757;
+}
