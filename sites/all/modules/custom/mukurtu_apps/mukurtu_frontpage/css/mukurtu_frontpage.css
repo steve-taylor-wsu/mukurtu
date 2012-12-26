@@ -186,40 +186,35 @@ body.page-frontpage-app.responsive-layout-wide .navigation ul.item-list li .deta
 }
 
 
+/*
 
 body.page-frontpage-app #footer.frontpage-content {
   background-color: #757F80;
   margin: 40px 40px 0 40px;
   padding: 40px;
 }
+*/
 
 body.page-frontpage-app #footer ul.list {
   list-style-type: none;
 }
 
 body.page-frontpage-app .footer-block {
-/*   margin: 0 40px; */
   background: #FFFFFF;
-/*
-  position: fixed;
-  top: 0;
-*/  
   z-index: 700;
-/*   width: 100%; */
-
 }
 
 body.page-frontpage-app .block-ma-site-footer,
 body.page-frontpage-app #footer.frontpage-content {
-  margin: 40px 40px 0 40px;
-  padding: 40px;
-  background-color: #9EABAC;
+  margin: 20px 40px 0 40px;
+  padding: 20px 40px 40px 40px;
+  background-color: #FFFFFF;
 }
 
 
 body.page-frontpage-app .block-ma-site-footer a,
 body.page-frontpage-app #footer.frontpage-content a {
-  color: #F1F2F2;
+  color: #DA791A;
 }
  
 
@@ -231,7 +226,7 @@ body.page-frontpage-app.responsive-layout-narrow .block-ma-site-footer,
 body.page-frontpage-app.responsive-layout-mobile .block-ma-site-footer,
 body.page-frontpage-app.responsive-layout-narrow #footer.frontpage-content,
 body.page-frontpage-app.responsive-layout-mobile #footer.frontpage-content {
-  margin: 40px 0 0 0;
+  margin: 0px 0 0 0;
 }
 
 
@@ -343,18 +338,34 @@ body.page-frontpage-app .frontpage-content .jcarousel .jcarousel-item p {
 body.page-frontpage-app .block-ma-site-footer p,
 body.page-frontpage-app #footer.frontpage-content,
 body.page-frontpage-app #footer.frontpage-content p {
-  color: #D1D8D9;
+  color: #222222;
 }
 
 body.page-frontpage-app .block-ma-site-footer a:hover,
 body.page-frontpage-app #footer.frontpage-content a:hover {
-  color: #ffffff;
+  color: #757F80;
 }
 
 body.page-frontpage-app .block-ma-site-footer hr,
 body.page-frontpage-app #footer.frontpage-content hr {
   background: #C4CBCC;
 }
+
+body.page-frontpage-app .frontpage-content .modal-body,
+body.page-frontpage-app #footer.frontpage-content .modal-body,
+body.page-frontpage-app #footer.frontpage-content .modal-body p,
+body.page-frontpage-app .modal-body p {
+  color: #575757;
+}
+body.page-frontpage-app .frontpage-content .modal-body a,
+body.page-frontpage-app #footer.frontpage-content .modal-body a {
+  color: #DA791A;
+}
+body.page-frontpage-app .frontpage-content .modal-body a:hover,
+body.page-frontpage-app #footer.frontpage-content .modal-body a:hover {
+  color: #757F80;
+}
+
 
 
 /******************************************************
@@ -393,15 +404,6 @@ body.page-frontpage-app .modal-header h3 {
   color: #da791a;
   font-size: 1.5em;
 }
-
-body.page-frontpage-app #footer.frontpage-content p,
-body.page-frontpage-app .modal-body p {
-  color: #575757;
-}
-body.page-frontpage-app #footer.frontpage-content .modal-body a:hover {
-  color: #575757;
-}
-
 
 body.page-frontpage-app .oembed-video.has-cover-image iframe {
   z-index: 100;
