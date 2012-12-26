@@ -4,8 +4,6 @@ mukurtu_frontpage.localData = [];
 (function($){
 
 $(document).ready(function(){
-/* 	var base_path = Drupal.settings.single_page.base_path; */
-
   $('.header a[href*=#], .link-scroll[href*=#]').bind('click', function (e) {
 
       var hash = $(this).attr('href');
@@ -19,16 +17,12 @@ $(document).ready(function(){
       return false;
   });
 
-
-/* $('#navigation').scrollspy(); */
-
-
-
   // Hide cover image when clicked.  
   $('.oembed-video.has-cover-image img').click(function() {
     $(this).hide();
   });
   
+
     
     // Adjust scrolling header height.
 /*
