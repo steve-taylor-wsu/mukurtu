@@ -54,7 +54,12 @@
         "iframe[src*='www.youtube-nocookie.com']",
         "iframe[src*='www.kickstarter.com']",
         "object",
-        "embed"
+        "embed",
+        "img",
+        "png",
+        "jpg",
+        "gif",
+        "jpeg"
       ];
 
       if (settings.customSelector) {
