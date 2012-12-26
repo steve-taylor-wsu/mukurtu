@@ -2226,8 +2226,8 @@ div.ctools-modal-content a.close img {
   overflow: hidden;
 }
 
-jcarousel-next-disabled,
-jcarousel-prev-disabled {
+.jcarousel-skin-default .jcarousel-next-disabled,
+.jcarousel-skin-default .jcarousel-prev-disabled {
   visibility: hidden;
 }
 
