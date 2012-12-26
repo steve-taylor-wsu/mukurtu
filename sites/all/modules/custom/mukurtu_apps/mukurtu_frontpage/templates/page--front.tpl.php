@@ -24,7 +24,7 @@
     <ul class="item-list">
     <?php foreach($frontpage['page_items']['sections'] as $item) {
       if($item['title'] != '') {
-        echo '<li class="span2"><a class="tab" href="#' . $item['anchor'] . '"><span class="link">' . $item['title'] . '</span>'
+        echo '<li><a class="tab" href="#' . $item['anchor'] . '"><span class="link">' . $item['title'] . '</span>'
           . '<span class="detail">' . $item['detail'] .'</span></a></li>';
       }
     }
