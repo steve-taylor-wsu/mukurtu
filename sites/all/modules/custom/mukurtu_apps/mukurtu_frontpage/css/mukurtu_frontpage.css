@@ -401,3 +401,16 @@ body.page-frontpage-app .modal-body p {
 body.page-frontpage-app #footer.frontpage-content .modal-body a:hover {
   color: #575757;
 }
+
+
+body.page-frontpage-app .oembed-video.has-cover-image iframe {
+  z-index: 100;
+  position: absolute;
+}
+
+body.page-frontpage-app .oembed-video.has-cover-image img {
+  z-index: 300;
+  position: absolute;
+  width: 100%;
+  max-width: 550px;
+}

@@ -23,6 +23,12 @@ $(document).ready(function(){
 /* $('#navigation').scrollspy(); */
 
 
+
+  // Hide cover image when clicked.  
+  $('.oembed-video.has-cover-image img').click(function() {
+    $(this).hide();
+  });
+  
     
     // Adjust scrolling header height.
 /*
