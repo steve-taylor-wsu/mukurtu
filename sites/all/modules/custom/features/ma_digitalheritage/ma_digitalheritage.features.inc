@@ -38,3 +38,27 @@ function ma_digitalheritage_node_info() {
   );
   return $items;
 }
+
+/**
+ * Implements hook_form_alter().
+ *
+ * WSU Plateau Peoples' Web Portal tribal knowledge relation field
+ * Hide tribal knowledge relation field on node form
+ */
+function ma_digitalheritage_form_alter(&$form, &$form_state, $form_id) {
+  if($form_id == 'digital_heritage_node_form') {
+    $form['field_tribal_knowledge_relation']['#access'] = FALSE;
+  }
+}
+
+/**
+ * Implements hook_node_presave().
+ *
+ * WSU Plateau Peoples' Web Portal tribal knowledge relation field
+ * Setup tribal knowledge relation based on arg(3) id
+ */
+function ma_digitalheritage_node_presave($node) {
+  if(!isset($node->nid) && arg(3) && is_numeric(arg(3))) {
+    $node->field_tribal_knowledge_relation['und'][] = array('nid' => arg(3));
+  }
+}
