@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Tribal Knowledge Relation feature.
+ */
+
+include_once 'tribal_knowledge_relation.features.inc';
