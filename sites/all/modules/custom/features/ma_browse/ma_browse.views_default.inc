@@ -126,6 +126,11 @@ function ma_browse_views_default_views() {
   $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['arguments']['nid']['break_phrase'] = TRUE;
+  $handler->display->display_options['filter_groups']['operator'] = 'OR';
+  $handler->display->display_options['filter_groups']['groups'] = array(
+    1 => 'AND',
+    2 => 'OR',
+  );
   /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
@@ -189,11 +194,13 @@ function ma_browse_views_default_views() {
   $handler->display->display_options['filters']['status_extra']['id'] = 'status_extra';
   $handler->display->display_options['filters']['status_extra']['table'] = 'node';
   $handler->display->display_options['filters']['status_extra']['field'] = 'status_extra';
+  $handler->display->display_options['filters']['status_extra']['group'] = 1;
   /* Filter criterion: Content: Promoted to front page */
   $handler->display->display_options['filters']['promote']['id'] = 'promote';
   $handler->display->display_options['filters']['promote']['table'] = 'node';
   $handler->display->display_options['filters']['promote']['field'] = 'promote';
   $handler->display->display_options['filters']['promote']['value'] = 'All';
+  $handler->display->display_options['filters']['promote']['group'] = 1;
   $handler->display->display_options['filters']['promote']['exposed'] = TRUE;
   $handler->display->display_options['filters']['promote']['expose']['operator_id'] = '';
   $handler->display->display_options['filters']['promote']['expose']['label'] = 'promoted';
@@ -209,6 +216,18 @@ function ma_browse_views_default_views() {
     7 => 0,
     4 => 0,
   );
+  /* Filter criterion: Book: Depth */
+  $handler->display->display_options['filters']['depth']['id'] = 'depth';
+  $handler->display->display_options['filters']['depth']['table'] = 'book_menu_links';
+  $handler->display->display_options['filters']['depth']['field'] = 'depth';
+  $handler->display->display_options['filters']['depth']['value']['value'] = '1';
+  $handler->display->display_options['filters']['depth']['group'] = 2;
+  /* Filter criterion: Book: Depth */
+  $handler->display->display_options['filters']['depth_1']['id'] = 'depth_1';
+  $handler->display->display_options['filters']['depth_1']['table'] = 'book_menu_links';
+  $handler->display->display_options['filters']['depth_1']['field'] = 'depth';
+  $handler->display->display_options['filters']['depth_1']['operator'] = 'empty';
+  $handler->display->display_options['filters']['depth_1']['group'] = 2;
 
   /* Display: Page (admins) */
   $handler = $view->new_display('page', 'Page (admins)', 'page');
