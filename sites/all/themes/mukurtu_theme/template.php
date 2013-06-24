@@ -17,6 +17,8 @@
 function mukurtu_theme_preprocess_html(&$variables) {
   drupal_add_library('system', 'ui.tabs');
   drupal_add_library('system', 'ui.accordion');
+  drupal_add_library('system', 'jquery.form');
+  drupal_add_library('system', 'drupal.collapse');
 }
 
 /**

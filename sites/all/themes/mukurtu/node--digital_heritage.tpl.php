@@ -75,19 +75,22 @@
  * @see template_process()
  */
  
-  $media = $content['field_media'];
-  $tags = $content['field_tags'];
+//  $media = $content['field_media'];
+//  $tags = $content['field_tags'];
   $description = $content['field_description'];
   $category = $content['field_category'];
-  $relation = $content['field_relation'];
+//  $relation = $content['field_relation'];
   
   $media_items = field_get_items('node', $node, 'field_media');
-
+//  drupal_add_library('system', 'drupal.collapse');
   
 ?>
+
+<fieldset class="collapsed collapsible"><legend><span class="fieldset-legend"><?php print $title; ?></span></legend>
+<div class="fieldset-wrapper">
+<div class="fieldset-description">Fieldset description</div>
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
   <?php print $user_picture; ?>
-
   <?php print render($title_prefix); ?>
   <?php if (!$page): ?>
     <h2<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h2>
@@ -110,7 +113,7 @@
       ?>
       <div class="main-media">
         <div class="big-picture">
-          <?php print $big_image; ?>
+	<?php //print $big_image; ?>
         </div>
         <div class="small-pictures">
           <h2>Component Media Items</h2>
@@ -133,3 +136,5 @@
   <?php endif; ?>
   
 </div>
+</div>
+</fieldset>

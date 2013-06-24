@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Community Knowledge Relation feature.
+ */
+
+include_once 'community_knowledge_relation.features.inc';
