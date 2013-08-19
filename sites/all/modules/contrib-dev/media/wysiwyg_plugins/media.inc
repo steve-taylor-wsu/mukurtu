@@ -17,11 +17,11 @@ function media_media_plugin() {
 
   // Plugin definition
   $plugins['media'] = array(
-    'title' => t(media_variable_get('wysiwyg_title')),
+    'title' => media_variable_get('wysiwyg_title'),
     'vendor url' => 'http://drupal.org/project/media',
     'icon path' => drupal_get_path('module', 'media') . '/images',
     'icon file' => 'wysiwyg-media.gif',
-    'icon title' => t(media_variable_get('wysiwyg_icon_title')),
+    'icon title' => media_variable_get('wysiwyg_icon_title'),
     // @todo: move this to the plugin directory for the wysiwyg plugin.
     'js path' => drupal_get_path('module', 'media') . '/js',
     'js file' => 'wysiwyg-media.js',
@@ -29,6 +29,8 @@ function media_media_plugin() {
     'css path' => NULL,
     'settings' => array(
       'global' => array(
+        'enabledPlugins' => media_variable_get('wysiwyg_browser_plugins'),
+        'file_directory' => media_variable_get('wysiwyg_upload_directory'),
         'types' => media_variable_get('wysiwyg_allowed_types'),
         'id' => 'media_wysiwyg',
       ),
@@ -62,7 +64,7 @@ function media_include_browser_js() {
     }
   }
   // Add wysiwyg-specific settings.
-  $settings = array('blacklist' => array('src', 'fid', 'view_mode', 'format'));
+  $settings = array('wysiwyg_allowed_attributes' => media_variable_get('wysiwyg_allowed_attributes'));
   drupal_add_js(array('media' => $settings), 'setting');
 }
 
