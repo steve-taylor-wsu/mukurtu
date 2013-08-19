@@ -62,15 +62,10 @@ function ma_digitalheritage_ds_field_settings_info() {
   $ds_fieldsetting->bundle = 'digital_heritage';
   $ds_fieldsetting->view_mode = 'teaser';
   $ds_fieldsetting->settings = array(
-    'title' => array(
-      'weight' => '1',
+    'submitted_by' => array(
+      'weight' => '0',
       'label' => 'hidden',
-      'format' => 'default',
-      'formatter_settings' => array(
-        'link' => '1',
-        'wrapper' => 'h4',
-        'class' => '',
-      ),
+      'format' => 'ds_time_ago',
     ),
   );
   $export['node|digital_heritage|teaser'] = $ds_fieldsetting;
@@ -92,22 +87,23 @@ function ma_digitalheritage_ds_layout_settings_info() {
   $ds_layout->view_mode = 'browse_teaser';
   $ds_layout->layout = 'ds_1col';
   $ds_layout->settings = array(
-    'hide_empty_regions' => 0,
-    'hide_sidebars' => 0,
     'regions' => array(
       'ds_content' => array(
-        0 => 'field_media',
+        0 => 'field_media_asset',
         1 => 'title',
       ),
     ),
     'fields' => array(
-      'field_media' => 'ds_content',
+      'field_media_asset' => 'ds_content',
       'title' => 'ds_content',
     ),
-    'limit' => array(
-      'field_media' => '1',
-    ),
     'classes' => array(),
+    'wrappers' => array(
+      'ds_content' => 'div',
+    ),
+    'layout_wrapper' => 'div',
+    'layout_attributes' => '',
+    'layout_attributes_merge' => 0,
   );
   $export['node|digital_heritage|browse_teaser'] = $ds_layout;
 
@@ -119,26 +115,45 @@ function ma_digitalheritage_ds_layout_settings_info() {
   $ds_layout->view_mode = 'teaser';
   $ds_layout->layout = 'ds_2col';
   $ds_layout->settings = array(
-    'hide_empty_regions' => 0,
-    'hide_sidebars' => 0,
     'regions' => array(
       'left' => array(
-        0 => 'field_media',
+        0 => 'field_media_asset',
+        1 => 'submitted_by',
+        2 => 'field_media',
+        4 => 'field_communities',
+        5 => 'body',
+        6 => 'field_publisher',
+        7 => 'field_tk_body',
+        8 => 'field_source',
+        9 => 'field_category',
       ),
       'right' => array(
-        0 => 'title',
-        1 => 'field_description',
+        3 => 'field_description',
       ),
     ),
     'fields' => array(
+      'field_media_asset' => 'left',
+      'submitted_by' => 'left',
       'field_media' => 'left',
-      'title' => 'right',
       'field_description' => 'right',
+      'field_communities' => 'left',
+      'body' => 'left',
+      'field_publisher' => 'left',
+      'field_tk_body' => 'left',
+      'field_source' => 'left',
+      'field_category' => 'left',
     ),
     'limit' => array(
       'field_media' => '1',
     ),
     'classes' => array(),
+    'wrappers' => array(
+      'left' => 'div',
+      'right' => 'div',
+    ),
+    'layout_wrapper' => 'div',
+    'layout_attributes' => '',
+    'layout_attributes_merge' => 0,
   );
   $export['node|digital_heritage|teaser'] = $ds_layout;
 

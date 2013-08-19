@@ -61,12 +61,12 @@ function ma_browse_views_default_views() {
     ),
   );
   $handler->display->display_options['pager']['type'] = 'full';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '18';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '16';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
   $handler->display->display_options['style_plugin'] = 'grid';
   $handler->display->display_options['style_options']['row_class'] = 'grid-2';
-  $handler->display->display_options['style_options']['columns'] = '6';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* No results behavior: Global: Text area */
   $handler->display->display_options['empty']['area']['id'] = 'area';
@@ -126,20 +126,11 @@ function ma_browse_views_default_views() {
   $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['arguments']['nid']['break_phrase'] = TRUE;
-  $handler->display->display_options['filter_groups']['operator'] = 'OR';
   $handler->display->display_options['filter_groups']['groups'] = array(
     1 => 'AND',
+    3 => 'AND',
     2 => 'OR',
   );
-  /* Filter criterion: Content: Type */
-  $handler->display->display_options['filters']['type']['id'] = 'type';
-  $handler->display->display_options['filters']['type']['table'] = 'node';
-  $handler->display->display_options['filters']['type']['field'] = 'type';
-  $handler->display->display_options['filters']['type']['value'] = array(
-    'ma_collection' => 'ma_collection',
-    'digital_heritage' => 'digital_heritage',
-  );
-  $handler->display->display_options['filters']['type']['group'] = 1;
   /* Filter criterion: Organic groups group: Label */
   $handler->display->display_options['filters']['label']['id'] = 'label';
   $handler->display->display_options['filters']['label']['table'] = 'og';
@@ -228,6 +219,15 @@ function ma_browse_views_default_views() {
   $handler->display->display_options['filters']['depth_1']['field'] = 'depth';
   $handler->display->display_options['filters']['depth_1']['operator'] = 'empty';
   $handler->display->display_options['filters']['depth_1']['group'] = 2;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type_1']['id'] = 'type_1';
+  $handler->display->display_options['filters']['type_1']['table'] = 'node';
+  $handler->display->display_options['filters']['type_1']['field'] = 'type';
+  $handler->display->display_options['filters']['type_1']['value'] = array(
+    'ma_collection' => 'ma_collection',
+    'digital_heritage' => 'digital_heritage',
+  );
+  $handler->display->display_options['filters']['type_1']['group'] = 3;
 
   /* Display: Page (admins) */
   $handler = $view->new_display('page', 'Page (admins)', 'page');
@@ -532,7 +532,6 @@ function ma_browse_views_default_views() {
   $handler->display->display_options['fields']['field_media']['label'] = 'image';
   $handler->display->display_options['fields']['field_media']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_media']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_media']['type'] = 'media';
   $handler->display->display_options['fields']['field_media']['settings'] = array(
     'file_view_mode' => 'component_media_item',
   );

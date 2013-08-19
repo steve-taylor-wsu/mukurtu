@@ -10,7 +10,7 @@
 function ma_digitalheritage_field_default_fields() {
   $fields = array();
 
-  // Exported field: 'node-digital_heritage-body'
+  // Exported field: 'node-digital_heritage-body'.
   $fields['node-digital_heritage-body'] = array(
     'field_config' => array(
       'active' => '1',
@@ -33,6 +33,7 @@ function ma_digitalheritage_field_default_fields() {
           0 => 'format',
         ),
       ),
+      'locked' => '0',
       'module' => 'text',
       'settings' => array(),
       'translatable' => '1',
@@ -51,11 +52,11 @@ function ma_digitalheritage_field_default_fields() {
           'weight' => '24',
         ),
         'default' => array(
-          'label' => 'inline',
+          'label' => 'above',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '5',
+          'weight' => '21',
         ),
         'featured' => array(
           'label' => 'inline',
@@ -68,7 +69,7 @@ function ma_digitalheritage_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '4',
+          'weight' => '5',
         ),
         'search_index' => array(
           'label' => 'above',
@@ -86,9 +87,17 @@ function ma_digitalheritage_field_default_fields() {
         ),
         'teaser' => array(
           'label' => 'hidden',
+          'module' => 'text',
           'settings' => array(),
-          'type' => 'hidden',
+          'type' => 'text_default',
           'weight' => '9',
+        ),
+        'tribal_catalog' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '2',
         ),
       ),
       'entity_type' => 'node',
@@ -113,7 +122,7 @@ function ma_digitalheritage_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-digital_heritage-field_category'
+  // Exported field: 'node-digital_heritage-field_category'.
   $fields['node-digital_heritage-field_category'] = array(
     'field_config' => array(
       'active' => '1',
@@ -134,6 +143,7 @@ function ma_digitalheritage_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -154,9 +164,8 @@ function ma_digitalheritage_field_default_fields() {
       'display' => array(
         'browse_teaser' => array(
           'label' => 'hidden',
-          'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
+          'type' => 'hidden',
           'weight' => '3',
         ),
         'default' => array(
@@ -164,7 +173,7 @@ function ma_digitalheritage_field_default_fields() {
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => '1',
+          'weight' => '3',
         ),
         'featured' => array(
           'label' => 'above',
@@ -177,7 +186,7 @@ function ma_digitalheritage_field_default_fields() {
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => '9',
+          'weight' => '10',
         ),
         'search_index' => array(
           'label' => 'inline',
@@ -195,9 +204,17 @@ function ma_digitalheritage_field_default_fields() {
         ),
         'teaser' => array(
           'label' => 'above',
+          'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'hidden',
+          'type' => 'taxonomy_term_reference_link',
           'weight' => '27',
+        ),
+        'tribal_catalog' => array(
+          'label' => 'above',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_link',
+          'weight' => '3',
         ),
       ),
       'entity_type' => 'node',
@@ -219,7 +236,7 @@ function ma_digitalheritage_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-digital_heritage-field_communities'
+  // Exported field: 'node-digital_heritage-field_communities'.
   $fields['node-digital_heritage-field_communities'] = array(
     'field_config' => array(
       'active' => '1',
@@ -240,6 +257,7 @@ function ma_digitalheritage_field_default_fields() {
           0 => 'nid',
         ),
       ),
+      'locked' => '0',
       'module' => 'node_reference',
       'settings' => array(
         'referenceable_types' => array(
@@ -265,9 +283,8 @@ function ma_digitalheritage_field_default_fields() {
       'display' => array(
         'browse_teaser' => array(
           'label' => 'hidden',
-          'module' => 'node_reference',
           'settings' => array(),
-          'type' => 'node_reference_default',
+          'type' => 'hidden',
           'weight' => '4',
         ),
         'default' => array(
@@ -275,7 +292,7 @@ function ma_digitalheritage_field_default_fields() {
           'module' => 'node_reference',
           'settings' => array(),
           'type' => 'node_reference_default',
-          'weight' => '4',
+          'weight' => '6',
         ),
         'featured' => array(
           'label' => 'above',
@@ -289,7 +306,7 @@ function ma_digitalheritage_field_default_fields() {
           'module' => 'node_reference',
           'settings' => array(),
           'type' => 'node_reference_default',
-          'weight' => '8',
+          'weight' => '9',
         ),
         'search_index' => array(
           'label' => 'above',
@@ -305,9 +322,17 @@ function ma_digitalheritage_field_default_fields() {
         ),
         'teaser' => array(
           'label' => 'above',
+          'module' => 'node_reference',
           'settings' => array(),
-          'type' => 'hidden',
+          'type' => 'node_reference_default',
           'weight' => '8',
+        ),
+        'tribal_catalog' => array(
+          'label' => 'above',
+          'module' => 'node_reference',
+          'settings' => array(),
+          'type' => 'node_reference_default',
+          'weight' => '6',
         ),
       ),
       'entity_type' => 'node',
@@ -329,7 +354,7 @@ function ma_digitalheritage_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-digital_heritage-field_contributor'
+  // Exported field: 'node-digital_heritage-field_contributor'.
   $fields['node-digital_heritage-field_contributor'] = array(
     'field_config' => array(
       'active' => '1',
@@ -350,6 +375,7 @@ function ma_digitalheritage_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -379,7 +405,7 @@ function ma_digitalheritage_field_default_fields() {
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => '14',
+          'weight' => '17',
         ),
         'featured' => array(
           'label' => 'above',
@@ -392,7 +418,7 @@ function ma_digitalheritage_field_default_fields() {
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => '16',
+          'weight' => '17',
         ),
         'search_index' => array(
           'label' => 'above',
@@ -411,6 +437,13 @@ function ma_digitalheritage_field_default_fields() {
           'settings' => array(),
           'type' => 'hidden',
           'weight' => '14',
+        ),
+        'tribal_catalog' => array(
+          'label' => 'above',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_link',
+          'weight' => '15',
         ),
       ),
       'entity_type' => 'node',
@@ -433,7 +466,7 @@ function ma_digitalheritage_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-digital_heritage-field_coverage'
+  // Exported field: 'node-digital_heritage-field_coverage'.
   $fields['node-digital_heritage-field_coverage'] = array(
     'field_config' => array(
       'active' => '1',
@@ -443,6 +476,7 @@ function ma_digitalheritage_field_default_fields() {
       'field_name' => 'field_coverage',
       'foreign keys' => array(),
       'indexes' => array(),
+      'locked' => '0',
       'module' => 'geofield',
       'settings' => array(),
       'translatable' => '0',
@@ -461,29 +495,29 @@ function ma_digitalheritage_field_default_fields() {
           'weight' => '16',
         ),
         'default' => array(
-          'label' => 'above',
+          'label' => 'hidden',
           'module' => 'geofield_map',
           'settings' => array(
             'geofield_map_baselayers_hybrid' => 1,
             'geofield_map_baselayers_map' => 1,
-            'geofield_map_baselayers_physical' => 1,
+            'geofield_map_baselayers_physical' => 0,
             'geofield_map_baselayers_satellite' => 1,
             'geofield_map_controltype' => 'default',
-            'geofield_map_draggable' => 1,
+            'geofield_map_draggable' => 0,
             'geofield_map_height' => '300px',
             'geofield_map_maptype' => 'map',
             'geofield_map_mtc' => 'standard',
             'geofield_map_overview' => 0,
             'geofield_map_overview_opened' => 0,
             'geofield_map_pancontrol' => 1,
-            'geofield_map_scale' => 1,
+            'geofield_map_scale' => 0,
             'geofield_map_scrollwheel' => 0,
-            'geofield_map_streetview_show' => 1,
+            'geofield_map_streetview_show' => 0,
             'geofield_map_width' => '100%',
             'geofield_map_zoom' => '8',
           ),
           'type' => 'geofield_map_map',
-          'weight' => '23',
+          'weight' => '15',
         ),
         'featured' => array(
           'label' => 'above',
@@ -514,7 +548,7 @@ function ma_digitalheritage_field_default_fields() {
             'geofield_map_zoom' => '8',
           ),
           'type' => 'geofield_map_map',
-          'weight' => '23',
+          'weight' => '24',
         ),
         'search_index' => array(
           'label' => 'above',
@@ -533,6 +567,31 @@ function ma_digitalheritage_field_default_fields() {
           'settings' => array(),
           'type' => 'hidden',
           'weight' => '11',
+        ),
+        'tribal_catalog' => array(
+          'label' => 'hidden',
+          'module' => 'geofield_map',
+          'settings' => array(
+            'geofield_map_baselayers_hybrid' => 1,
+            'geofield_map_baselayers_map' => 1,
+            'geofield_map_baselayers_physical' => 0,
+            'geofield_map_baselayers_satellite' => 1,
+            'geofield_map_controltype' => 'default',
+            'geofield_map_draggable' => 0,
+            'geofield_map_height' => '300px',
+            'geofield_map_maptype' => 'map',
+            'geofield_map_mtc' => 'standard',
+            'geofield_map_overview' => 0,
+            'geofield_map_overview_opened' => 0,
+            'geofield_map_pancontrol' => 1,
+            'geofield_map_scale' => 0,
+            'geofield_map_scrollwheel' => 0,
+            'geofield_map_streetview_show' => 0,
+            'geofield_map_width' => '100%',
+            'geofield_map_zoom' => '8',
+          ),
+          'type' => 'geofield_map_map',
+          'weight' => '13',
         ),
       ),
       'entity_type' => 'node',
@@ -557,7 +616,7 @@ function ma_digitalheritage_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-digital_heritage-field_coverage_description'
+  // Exported field: 'node-digital_heritage-field_coverage_description'.
   $fields['node-digital_heritage-field_coverage_description'] = array(
     'field_config' => array(
       'active' => '1',
@@ -578,6 +637,7 @@ function ma_digitalheritage_field_default_fields() {
           0 => 'format',
         ),
       ),
+      'locked' => '0',
       'module' => 'text',
       'settings' => array(),
       'translatable' => '0',
@@ -600,7 +660,7 @@ function ma_digitalheritage_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '25',
+          'weight' => '16',
         ),
         'featured' => array(
           'label' => 'above',
@@ -613,7 +673,7 @@ function ma_digitalheritage_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '24',
+          'weight' => '25',
         ),
         'search_index' => array(
           'label' => 'above',
@@ -632,6 +692,13 @@ function ma_digitalheritage_field_default_fields() {
           'settings' => array(),
           'type' => 'hidden',
           'weight' => '10',
+        ),
+        'tribal_catalog' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '14',
         ),
       ),
       'entity_type' => 'node',
@@ -654,7 +721,7 @@ function ma_digitalheritage_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-digital_heritage-field_creator'
+  // Exported field: 'node-digital_heritage-field_creator'.
   $fields['node-digital_heritage-field_creator'] = array(
     'field_config' => array(
       'active' => '1',
@@ -675,6 +742,7 @@ function ma_digitalheritage_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -704,7 +772,7 @@ function ma_digitalheritage_field_default_fields() {
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => '13',
+          'weight' => '24',
         ),
         'featured' => array(
           'label' => 'above',
@@ -717,7 +785,7 @@ function ma_digitalheritage_field_default_fields() {
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => '14',
+          'weight' => '15',
         ),
         'search_index' => array(
           'label' => 'above',
@@ -736,6 +804,13 @@ function ma_digitalheritage_field_default_fields() {
           'settings' => array(),
           'type' => 'hidden',
           'weight' => '15',
+        ),
+        'tribal_catalog' => array(
+          'label' => 'above',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_link',
+          'weight' => '16',
         ),
       ),
       'entity_type' => 'node',
@@ -758,7 +833,7 @@ function ma_digitalheritage_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-digital_heritage-field_culturalprotocol'
+  // Exported field: 'node-digital_heritage-field_culturalprotocol'.
   $fields['node-digital_heritage-field_culturalprotocol'] = array(
     'field_config' => array(
       'active' => '1',
@@ -779,6 +854,7 @@ function ma_digitalheritage_field_default_fields() {
           0 => 'nid',
         ),
       ),
+      'locked' => '0',
       'module' => 'node_reference',
       'settings' => array(
         'referenceable_types' => array(
@@ -808,9 +884,8 @@ function ma_digitalheritage_field_default_fields() {
       'display' => array(
         'browse_teaser' => array(
           'label' => 'hidden',
-          'module' => 'node_reference',
           'settings' => array(),
-          'type' => 'node_reference_default',
+          'type' => 'hidden',
           'weight' => '5',
         ),
         'default' => array(
@@ -818,7 +893,7 @@ function ma_digitalheritage_field_default_fields() {
           'module' => 'node_reference',
           'settings' => array(),
           'type' => 'node_reference_default',
-          'weight' => '5',
+          'weight' => '7',
         ),
         'featured' => array(
           'label' => 'above',
@@ -831,7 +906,7 @@ function ma_digitalheritage_field_default_fields() {
           'module' => 'node_reference',
           'settings' => array(),
           'type' => 'node_reference_default',
-          'weight' => '7',
+          'weight' => '8',
         ),
         'search_index' => array(
           'label' => 'above',
@@ -850,6 +925,13 @@ function ma_digitalheritage_field_default_fields() {
           'settings' => array(),
           'type' => 'hidden',
           'weight' => '12',
+        ),
+        'tribal_catalog' => array(
+          'label' => 'above',
+          'module' => 'node_reference',
+          'settings' => array(),
+          'type' => 'node_reference_default',
+          'weight' => '7',
         ),
       ),
       'entity_type' => 'node',
@@ -871,7 +953,7 @@ function ma_digitalheritage_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-digital_heritage-field_date'
+  // Exported field: 'node-digital_heritage-field_date'.
   $fields['node-digital_heritage-field_date'] = array(
     'field_config' => array(
       'active' => '1',
@@ -892,6 +974,7 @@ function ma_digitalheritage_field_default_fields() {
           0 => 'format',
         ),
       ),
+      'locked' => '0',
       'module' => 'text',
       'settings' => array(
         'max_length' => '10',
@@ -918,7 +1001,7 @@ Use yyyy-mm-dd format or insert incomplete date.',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '11',
+          'weight' => '26',
         ),
         'featured' => array(
           'label' => 'above',
@@ -931,7 +1014,7 @@ Use yyyy-mm-dd format or insert incomplete date.',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '19',
+          'weight' => '20',
         ),
         'search_index' => array(
           'label' => 'above',
@@ -950,6 +1033,13 @@ Use yyyy-mm-dd format or insert incomplete date.',
           'settings' => array(),
           'type' => 'hidden',
           'weight' => '22',
+        ),
+        'tribal_catalog' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '17',
         ),
       ),
       'entity_type' => 'node',
@@ -972,7 +1062,7 @@ Use yyyy-mm-dd format or insert incomplete date.',
     ),
   );
 
-  // Exported field: 'node-digital_heritage-field_description'
+  // Exported field: 'node-digital_heritage-field_description'.
   $fields['node-digital_heritage-field_description'] = array(
     'field_config' => array(
       'active' => '1',
@@ -993,6 +1083,7 @@ Use yyyy-mm-dd format or insert incomplete date.',
           0 => 'format',
         ),
       ),
+      'locked' => '0',
       'module' => 'text',
       'settings' => array(),
       'translatable' => '0',
@@ -1011,11 +1102,11 @@ Use yyyy-mm-dd format or insert incomplete date.',
           'weight' => '23',
         ),
         'default' => array(
-          'label' => 'inline',
+          'label' => 'above',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '4',
+          'weight' => '25',
         ),
         'featured' => array(
           'label' => 'hidden',
@@ -1052,6 +1143,13 @@ Use yyyy-mm-dd format or insert incomplete date.',
           'type' => 'text_default',
           'weight' => '2',
         ),
+        'tribal_catalog' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '1',
+        ),
       ),
       'entity_type' => 'node',
       'field_name' => 'field_description',
@@ -1070,12 +1168,126 @@ Use yyyy-mm-dd format or insert incomplete date.',
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
+        'weight' => '8',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-digital_heritage-field_file'.
+  $fields['node-digital_heritage-field_file'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '-1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_file',
+      'foreign keys' => array(
+        'fid' => array(
+          'columns' => array(
+            'fid' => 'fid',
+          ),
+          'table' => 'file_managed',
+        ),
+      ),
+      'indexes' => array(
+        'fid' => array(
+          0 => 'fid',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'file',
+      'settings' => array(
+        'display_default' => 0,
+        'display_field' => 0,
+        'uri_scheme' => 'public',
+      ),
+      'translatable' => '0',
+      'type' => 'file',
+    ),
+    'field_instance' => array(
+      'bundle' => 'digital_heritage',
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'browse_teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '0',
+        ),
+        'default' => array(
+          'label' => 'hidden',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '28',
+        ),
+        'search_index' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'search_result' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '0',
+        ),
+        'tribal_catalog' => array(
+          'label' => 'hidden',
+          'module' => 'file',
+          'settings' => array(),
+          'type' => 'file_default',
+          'weight' => '27',
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_file',
+      'label' => 'File',
+      'required' => 0,
+      'settings' => array(
+        'description_field' => 0,
+        'file_directory' => '',
+        'file_extensions' => 'jpg jpeg gif png tif tiff txt doc xls pdf ppt pps odt ods odp mp3 mov m4v mp4 mpeg avi ogg wmv webm ico wav',
+        'max_filesize' => '',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'media',
+        'settings' => array(
+          'allowed_schemes' => array(
+            'oembed' => 'oembed',
+            'public' => 'public',
+          ),
+          'allowed_types' => array(
+            'audio' => 'audio',
+            'document' => 'document',
+            'image' => 'image',
+            'video' => 'video',
+          ),
+          'browser_plugins' => array(
+            'library_plus' => 'library_plus',
+            'media_default--media_browser_1' => 'media_default--media_browser_1',
+            'media_default--media_browser_my_files' => 0,
+            'media_internet' => 'media_internet',
+            'upload' => 'upload',
+          ),
+          'progress_indicator' => 'throbber',
+        ),
+        'type' => 'media_generic',
         'weight' => '6',
       ),
     ),
   );
 
-  // Exported field: 'node-digital_heritage-field_format'
+  // Exported field: 'node-digital_heritage-field_format'.
   $fields['node-digital_heritage-field_format'] = array(
     'field_config' => array(
       'active' => '1',
@@ -1096,6 +1308,7 @@ Use yyyy-mm-dd format or insert incomplete date.',
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -1121,10 +1334,11 @@ Use yyyy-mm-dd format or insert incomplete date.',
           'weight' => '26',
         ),
         'default' => array(
-          'label' => 'hidden',
+          'label' => 'above',
+          'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '26',
+          'type' => 'taxonomy_term_reference_link',
+          'weight' => '29',
         ),
         'featured' => array(
           'label' => 'hidden',
@@ -1136,7 +1350,7 @@ Use yyyy-mm-dd format or insert incomplete date.',
           'label' => 'hidden',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '31',
+          'weight' => '34',
         ),
         'search_index' => array(
           'label' => 'above',
@@ -1155,6 +1369,13 @@ Use yyyy-mm-dd format or insert incomplete date.',
           'settings' => array(),
           'type' => 'hidden',
           'weight' => '29',
+        ),
+        'tribal_catalog' => array(
+          'label' => 'above',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_link',
+          'weight' => '20',
         ),
       ),
       'entity_type' => 'node',
@@ -1177,7 +1398,7 @@ Use yyyy-mm-dd format or insert incomplete date.',
     ),
   );
 
-  // Exported field: 'node-digital_heritage-field_identifier'
+  // Exported field: 'node-digital_heritage-field_identifier'.
   $fields['node-digital_heritage-field_identifier'] = array(
     'field_config' => array(
       'active' => '1',
@@ -1198,6 +1419,7 @@ Use yyyy-mm-dd format or insert incomplete date.',
           0 => 'format',
         ),
       ),
+      'locked' => '0',
       'module' => 'text',
       'settings' => array(
         'max_length' => '255',
@@ -1218,11 +1440,11 @@ Use yyyy-mm-dd format or insert incomplete date.',
           'weight' => '21',
         ),
         'default' => array(
-          'label' => 'inline',
+          'label' => 'above',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '8',
+          'weight' => '30',
         ),
         'featured' => array(
           'label' => 'inline',
@@ -1235,7 +1457,7 @@ Use yyyy-mm-dd format or insert incomplete date.',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '12',
+          'weight' => '13',
         ),
         'search_index' => array(
           'label' => 'above',
@@ -1254,6 +1476,13 @@ Use yyyy-mm-dd format or insert incomplete date.',
           'settings' => array(),
           'type' => 'hidden',
           'weight' => '26',
+        ),
+        'tribal_catalog' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '21',
         ),
       ),
       'entity_type' => 'node',
@@ -1276,7 +1505,7 @@ Use yyyy-mm-dd format or insert incomplete date.',
     ),
   );
 
-  // Exported field: 'node-digital_heritage-field_language'
+  // Exported field: 'node-digital_heritage-field_language'.
   $fields['node-digital_heritage-field_language'] = array(
     'field_config' => array(
       'active' => '1',
@@ -1297,6 +1526,7 @@ Use yyyy-mm-dd format or insert incomplete date.',
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -1322,11 +1552,11 @@ Use yyyy-mm-dd format or insert incomplete date.',
           'weight' => '22',
         ),
         'default' => array(
-          'label' => 'inline',
+          'label' => 'above',
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => '6',
+          'weight' => '27',
         ),
         'featured' => array(
           'label' => 'inline',
@@ -1339,7 +1569,7 @@ Use yyyy-mm-dd format or insert incomplete date.',
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => '10',
+          'weight' => '11',
         ),
         'search_index' => array(
           'label' => 'above',
@@ -1358,6 +1588,13 @@ Use yyyy-mm-dd format or insert incomplete date.',
           'settings' => array(),
           'type' => 'hidden',
           'weight' => '23',
+        ),
+        'tribal_catalog' => array(
+          'label' => 'above',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_link',
+          'weight' => '18',
         ),
       ),
       'entity_type' => 'node',
@@ -1380,7 +1617,7 @@ Use yyyy-mm-dd format or insert incomplete date.',
     ),
   );
 
-  // Exported field: 'node-digital_heritage-field_licence_std_cc'
+  // Exported field: 'node-digital_heritage-field_licence_std_cc'.
   $fields['node-digital_heritage-field_licence_std_cc'] = array(
     'field_config' => array(
       'active' => '1',
@@ -1394,6 +1631,7 @@ Use yyyy-mm-dd format or insert incomplete date.',
           0 => 'value',
         ),
       ),
+      'locked' => '0',
       'module' => 'list',
       'settings' => array(
         'allowed_values' => array(
@@ -1424,7 +1662,7 @@ Use yyyy-mm-dd format or insert incomplete date.',
           'module' => 'license',
           'settings' => array(),
           'type' => 'license_formatter',
-          'weight' => '18',
+          'weight' => '11',
         ),
         'featured' => array(
           'label' => 'hidden',
@@ -1437,7 +1675,7 @@ Use yyyy-mm-dd format or insert incomplete date.',
           'module' => 'license',
           'settings' => array(),
           'type' => 'license_formatter',
-          'weight' => '21',
+          'weight' => '22',
         ),
         'search_index' => array(
           'label' => 'above',
@@ -1457,6 +1695,13 @@ Use yyyy-mm-dd format or insert incomplete date.',
           'type' => 'hidden',
           'weight' => '21',
         ),
+        'tribal_catalog' => array(
+          'label' => 'hidden',
+          'module' => 'license',
+          'settings' => array(),
+          'type' => 'license_formatter',
+          'weight' => '11',
+        ),
       ),
       'entity_type' => 'node',
       'field_name' => 'field_licence_std_cc',
@@ -1472,12 +1717,12 @@ Use yyyy-mm-dd format or insert incomplete date.',
           'apply_chosen' => 0,
         ),
         'type' => 'options_select',
-        'weight' => '36',
+        'weight' => '33',
       ),
     ),
   );
 
-  // Exported field: 'node-digital_heritage-field_licence_trad'
+  // Exported field: 'node-digital_heritage-field_licence_trad'.
   $fields['node-digital_heritage-field_licence_trad'] = array(
     'field_config' => array(
       'active' => '1',
@@ -1491,6 +1736,7 @@ Use yyyy-mm-dd format or insert incomplete date.',
           0 => 'value',
         ),
       ),
+      'locked' => '0',
       'module' => 'list',
       'settings' => array(
         'allowed_values' => array(
@@ -1529,7 +1775,7 @@ Use yyyy-mm-dd format or insert incomplete date.',
           'module' => 'license',
           'settings' => array(),
           'type' => 'license_formatter',
-          'weight' => '17',
+          'weight' => '10',
         ),
         'featured' => array(
           'label' => 'hidden',
@@ -1542,7 +1788,7 @@ Use yyyy-mm-dd format or insert incomplete date.',
           'module' => 'license',
           'settings' => array(),
           'type' => 'license_formatter',
-          'weight' => '20',
+          'weight' => '21',
         ),
         'search_index' => array(
           'label' => 'above',
@@ -1562,6 +1808,13 @@ Use yyyy-mm-dd format or insert incomplete date.',
           'type' => 'hidden',
           'weight' => '18',
         ),
+        'tribal_catalog' => array(
+          'label' => 'hidden',
+          'module' => 'license',
+          'settings' => array(),
+          'type' => 'license_formatter',
+          'weight' => '10',
+        ),
       ),
       'entity_type' => 'node',
       'field_name' => 'field_licence_trad',
@@ -1577,12 +1830,12 @@ Use yyyy-mm-dd format or insert incomplete date.',
           'apply_chosen' => 0,
         ),
         'type' => 'options_select',
-        'weight' => '35',
+        'weight' => '32',
       ),
     ),
   );
 
-  // Exported field: 'node-digital_heritage-field_media'
+  // Exported field: 'node-digital_heritage-field_media'.
   $fields['node-digital_heritage-field_media'] = array(
     'field_config' => array(
       'active' => '1',
@@ -1596,6 +1849,7 @@ Use yyyy-mm-dd format or insert incomplete date.',
           0 => 'fid',
         ),
       ),
+      'locked' => '0',
       'module' => 'mediafield',
       'settings' => array(),
       'translatable' => '0',
@@ -1608,27 +1862,21 @@ Use yyyy-mm-dd format or insert incomplete date.',
       'display' => array(
         'browse_teaser' => array(
           'label' => 'hidden',
-          'module' => 'mediafield',
-          'settings' => array(
-            'file_view_mode' => 'media_small',
-          ),
-          'type' => 'media',
+          'settings' => array(),
+          'type' => 'hidden',
           'weight' => '0',
         ),
         'default' => array(
-          'label' => 'hidden',
-          'module' => 'mediafield',
-          'settings' => array(
-            'file_view_mode' => 'default',
-          ),
-          'type' => 'media',
-          'weight' => '0',
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '29',
         ),
         'featured' => array(
           'label' => 'hidden',
           'module' => 'mediafield',
           'settings' => array(
-            'file_view_mode' => 'media_preview',
+            'file_view_mode' => 'preview',
           ),
           'type' => 'media',
           'weight' => '0',
@@ -1637,7 +1885,7 @@ Use yyyy-mm-dd format or insert incomplete date.',
           'label' => 'hidden',
           'module' => 'mediafield',
           'settings' => array(
-            'file_view_mode' => 'full_content',
+            'file_view_mode' => 'media_original',
           ),
           'type' => 'media',
           'weight' => '1',
@@ -1646,7 +1894,7 @@ Use yyyy-mm-dd format or insert incomplete date.',
           'label' => 'hidden',
           'module' => 'mediafield',
           'settings' => array(
-            'file_view_mode' => 'media_large',
+            'file_view_mode' => 'full',
           ),
           'type' => 'media',
           'weight' => '0',
@@ -1655,7 +1903,7 @@ Use yyyy-mm-dd format or insert incomplete date.',
           'label' => 'above',
           'module' => 'mediafield',
           'settings' => array(
-            'file_view_mode' => 'media_large',
+            'file_view_mode' => 'full',
           ),
           'type' => 'media',
           'weight' => '0',
@@ -1664,10 +1912,19 @@ Use yyyy-mm-dd format or insert incomplete date.',
           'label' => 'hidden',
           'module' => 'mediafield',
           'settings' => array(
-            'file_view_mode' => 'media_preview',
+            'file_view_mode' => 'preview',
           ),
           'type' => 'media',
           'weight' => '0',
+        ),
+        'tribal_catalog' => array(
+          'label' => 'above',
+          'module' => 'mediafield',
+          'settings' => array(
+            'file_view_mode' => 'default',
+          ),
+          'type' => 'media',
+          'weight' => '28',
         ),
       ),
       'entity_type' => 'node',
@@ -1703,12 +1960,156 @@ Use yyyy-mm-dd format or insert incomplete date.',
           'progress_indicator' => 'throbber',
         ),
         'type' => 'media_generic',
+        'weight' => '7',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-digital_heritage-field_media_asset'.
+  $fields['node-digital_heritage-field_media_asset'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '-1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_media_asset',
+      'foreign keys' => array(
+        'fid' => array(
+          'columns' => array(
+            'fid' => 'fid',
+          ),
+          'table' => 'file_managed',
+        ),
+      ),
+      'indexes' => array(
+        'fid' => array(
+          0 => 'fid',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'image',
+      'settings' => array(
+        'default_image' => 0,
+        'uri_scheme' => 'public',
+      ),
+      'translatable' => '0',
+      'type' => 'image',
+    ),
+    'field_instance' => array(
+      'bundle' => 'digital_heritage',
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'browse_teaser' => array(
+          'label' => 'hidden',
+          'module' => 'image',
+          'settings' => array(
+            'image_link' => 'content',
+            'image_style' => 'medium',
+          ),
+          'type' => 'image',
+          'weight' => '0',
+        ),
+        'default' => array(
+          'label' => 'hidden',
+          'module' => 'colorbox',
+          'settings' => array(
+            'colorbox_caption' => 'auto',
+            'colorbox_caption_custom' => '',
+            'colorbox_gallery' => 'post',
+            'colorbox_gallery_custom' => '',
+            'colorbox_image_style' => '',
+            'colorbox_node_style' => 'large',
+          ),
+          'type' => 'colorbox',
+          'weight' => '1',
+        ),
+        'search_index' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'search_result' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'module' => 'colorbox',
+          'settings' => array(
+            'colorbox_caption' => 'auto',
+            'colorbox_caption_custom' => '',
+            'colorbox_gallery' => 'post',
+            'colorbox_gallery_custom' => '',
+            'colorbox_image_style' => '',
+            'colorbox_node_style' => '',
+          ),
+          'type' => 'colorbox',
+          'weight' => '0',
+        ),
+        'tribal_catalog' => array(
+          'label' => 'hidden',
+          'module' => 'colorbox',
+          'settings' => array(
+            'colorbox_caption' => 'auto',
+            'colorbox_caption_custom' => '',
+            'colorbox_gallery' => 'post',
+            'colorbox_gallery_custom' => '',
+            'colorbox_image_style' => '',
+            'colorbox_node_style' => '',
+          ),
+          'type' => 'colorbox',
+          'weight' => '24',
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_media_asset',
+      'label' => 'Media Asset',
+      'required' => 0,
+      'settings' => array(
+        'alt_field' => 0,
+        'default_image' => 0,
+        'file_directory' => '',
+        'file_extensions' => 'jpg jpeg gif png tif tiff txt doc xls pdf ppt pps odt ods odp mp3 mov m4v mp4 mpeg avi ogg wmv webm ico wav swf',
+        'max_filesize' => '',
+        'max_resolution' => '',
+        'min_resolution' => '',
+        'title_field' => 0,
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'media',
+        'settings' => array(
+          'allowed_schemes' => array(
+            'oembed' => 'oembed',
+            'public' => 'public',
+          ),
+          'allowed_types' => array(
+            'audio' => 'audio',
+            'document' => 'document',
+            'image' => 'image',
+            'video' => 'video',
+          ),
+          'browser_plugins' => array(
+            'library_plus' => 'library_plus',
+            'media_default--media_browser_1' => 'media_default--media_browser_1',
+            'media_default--media_browser_my_files' => 0,
+            'media_internet' => 'media_internet',
+            'upload' => 'upload',
+          ),
+          'progress_indicator' => 'throbber',
+        ),
+        'type' => 'media_generic',
         'weight' => '5',
       ),
     ),
   );
 
-  // Exported field: 'node-digital_heritage-field_publisher'
+  // Exported field: 'node-digital_heritage-field_publisher'.
   $fields['node-digital_heritage-field_publisher'] = array(
     'field_config' => array(
       'active' => '1',
@@ -1729,6 +2130,7 @@ Use yyyy-mm-dd format or insert incomplete date.',
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -1758,7 +2160,7 @@ Use yyyy-mm-dd format or insert incomplete date.',
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => '15',
+          'weight' => '31',
         ),
         'featured' => array(
           'label' => 'above',
@@ -1771,7 +2173,7 @@ Use yyyy-mm-dd format or insert incomplete date.',
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => '17',
+          'weight' => '18',
         ),
         'search_index' => array(
           'label' => 'above',
@@ -1787,9 +2189,17 @@ Use yyyy-mm-dd format or insert incomplete date.',
         ),
         'teaser' => array(
           'label' => 'above',
+          'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'hidden',
+          'type' => 'taxonomy_term_reference_link',
           'weight' => '13',
+        ),
+        'tribal_catalog' => array(
+          'label' => 'above',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_link',
+          'weight' => '22',
         ),
       ),
       'entity_type' => 'node',
@@ -1812,7 +2222,7 @@ Use yyyy-mm-dd format or insert incomplete date.',
     ),
   );
 
-  // Exported field: 'node-digital_heritage-field_relation'
+  // Exported field: 'node-digital_heritage-field_relation'.
   $fields['node-digital_heritage-field_relation'] = array(
     'field_config' => array(
       'active' => '1',
@@ -1833,6 +2243,7 @@ Use yyyy-mm-dd format or insert incomplete date.',
           0 => 'nid',
         ),
       ),
+      'locked' => '0',
       'module' => 'node_reference',
       'settings' => array(
         'referenceable_types' => array(
@@ -1870,7 +2281,7 @@ Use yyyy-mm-dd format or insert incomplete date.',
             'node_reference_view_mode' => 'teaser',
           ),
           'type' => 'node_reference_node',
-          'weight' => '12',
+          'weight' => '8',
         ),
         'featured' => array(
           'label' => 'above',
@@ -1885,7 +2296,7 @@ Use yyyy-mm-dd format or insert incomplete date.',
             'node_reference_view_mode' => 'browse_teaser',
           ),
           'type' => 'node_reference_node',
-          'weight' => '29',
+          'weight' => '30',
         ),
         'search_index' => array(
           'label' => 'above',
@@ -1905,6 +2316,15 @@ Use yyyy-mm-dd format or insert incomplete date.',
           'type' => 'hidden',
           'weight' => '16',
         ),
+        'tribal_catalog' => array(
+          'label' => 'above',
+          'module' => 'node_reference',
+          'settings' => array(
+            'node_reference_view_mode' => 'teaser',
+          ),
+          'type' => 'node_reference_node',
+          'weight' => '8',
+        ),
       ),
       'entity_type' => 'node',
       'field_name' => 'field_relation',
@@ -1922,12 +2342,12 @@ Use yyyy-mm-dd format or insert incomplete date.',
           'size' => '10',
         ),
         'type' => 'node_reference_autocomplete',
-        'weight' => '32',
+        'weight' => '33',
       ),
     ),
   );
 
-  // Exported field: 'node-digital_heritage-field_rights'
+  // Exported field: 'node-digital_heritage-field_rights'.
   $fields['node-digital_heritage-field_rights'] = array(
     'field_config' => array(
       'active' => '1',
@@ -1948,6 +2368,7 @@ Use yyyy-mm-dd format or insert incomplete date.',
           0 => 'format',
         ),
       ),
+      'locked' => '0',
       'module' => 'text',
       'settings' => array(),
       'translatable' => '0',
@@ -1966,11 +2387,11 @@ Use yyyy-mm-dd format or insert incomplete date.',
           'weight' => '30',
         ),
         'default' => array(
-          'label' => 'inline',
+          'label' => 'above',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '9',
+          'weight' => '32',
         ),
         'featured' => array(
           'label' => 'inline',
@@ -1983,7 +2404,7 @@ Use yyyy-mm-dd format or insert incomplete date.',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '13',
+          'weight' => '14',
         ),
         'search_index' => array(
           'label' => 'above',
@@ -2003,6 +2424,13 @@ Use yyyy-mm-dd format or insert incomplete date.',
           'type' => 'hidden',
           'weight' => '28',
         ),
+        'tribal_catalog' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '23',
+        ),
       ),
       'entity_type' => 'node',
       'field_name' => 'field_rights',
@@ -2019,12 +2447,12 @@ Use yyyy-mm-dd format or insert incomplete date.',
           'rows' => '2',
         ),
         'type' => 'text_textarea',
-        'weight' => '29',
+        'weight' => '30',
       ),
     ),
   );
 
-  // Exported field: 'node-digital_heritage-field_source'
+  // Exported field: 'node-digital_heritage-field_source'.
   $fields['node-digital_heritage-field_source'] = array(
     'field_config' => array(
       'active' => '1',
@@ -2045,6 +2473,7 @@ Use yyyy-mm-dd format or insert incomplete date.',
           0 => 'format',
         ),
       ),
+      'locked' => '0',
       'module' => 'text',
       'settings' => array(
         'max_length' => '255',
@@ -2065,11 +2494,11 @@ Use yyyy-mm-dd format or insert incomplete date.',
           'weight' => '20',
         ),
         'default' => array(
-          'label' => 'inline',
+          'label' => 'above',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '7',
+          'weight' => '28',
         ),
         'featured' => array(
           'label' => 'inline',
@@ -2082,7 +2511,7 @@ Use yyyy-mm-dd format or insert incomplete date.',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '15',
+          'weight' => '16',
         ),
         'search_index' => array(
           'label' => 'above',
@@ -2098,9 +2527,17 @@ Use yyyy-mm-dd format or insert incomplete date.',
         ),
         'teaser' => array(
           'label' => 'above',
+          'module' => 'text',
           'settings' => array(),
-          'type' => 'hidden',
+          'type' => 'text_default',
           'weight' => '25',
+        ),
+        'tribal_catalog' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '19',
         ),
       ),
       'entity_type' => 'node',
@@ -2108,7 +2545,7 @@ Use yyyy-mm-dd format or insert incomplete date.',
       'label' => 'Source',
       'required' => 0,
       'settings' => array(
-        'text_processing' => '0',
+        'text_processing' => '1',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
@@ -2118,12 +2555,12 @@ Use yyyy-mm-dd format or insert incomplete date.',
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '30',
+        'weight' => '31',
       ),
     ),
   );
 
-  // Exported field: 'node-digital_heritage-field_subject'
+  // Exported field: 'node-digital_heritage-field_subject'.
   $fields['node-digital_heritage-field_subject'] = array(
     'field_config' => array(
       'active' => '1',
@@ -2144,6 +2581,7 @@ Use yyyy-mm-dd format or insert incomplete date.',
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -2173,7 +2611,7 @@ Use yyyy-mm-dd format or insert incomplete date.',
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => '16',
+          'weight' => '9',
         ),
         'featured' => array(
           'label' => 'above',
@@ -2186,7 +2624,7 @@ Use yyyy-mm-dd format or insert incomplete date.',
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => '18',
+          'weight' => '19',
         ),
         'search_index' => array(
           'label' => 'above',
@@ -2206,6 +2644,13 @@ Use yyyy-mm-dd format or insert incomplete date.',
           'type' => 'hidden',
           'weight' => '17',
         ),
+        'tribal_catalog' => array(
+          'label' => 'above',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_link',
+          'weight' => '9',
+        ),
       ),
       'entity_type' => 'node',
       'field_name' => 'field_subject',
@@ -2222,12 +2667,12 @@ Use yyyy-mm-dd format or insert incomplete date.',
           'size' => 60,
         ),
         'type' => 'taxonomy_autocomplete',
-        'weight' => '31',
+        'weight' => '32',
       ),
     ),
   );
 
-  // Exported field: 'node-digital_heritage-field_tags'
+  // Exported field: 'node-digital_heritage-field_tags'.
   $fields['node-digital_heritage-field_tags'] = array(
     'field_config' => array(
       'active' => '1',
@@ -2248,6 +2693,7 @@ Use yyyy-mm-dd format or insert incomplete date.',
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -2268,9 +2714,8 @@ Use yyyy-mm-dd format or insert incomplete date.',
       'display' => array(
         'browse_teaser' => array(
           'label' => 'hidden',
-          'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
+          'type' => 'hidden',
           'weight' => '2',
         ),
         'default' => array(
@@ -2278,7 +2723,7 @@ Use yyyy-mm-dd format or insert incomplete date.',
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => '2',
+          'weight' => '4',
         ),
         'featured' => array(
           'label' => 'above',
@@ -2291,7 +2736,7 @@ Use yyyy-mm-dd format or insert incomplete date.',
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => '11',
+          'weight' => '12',
         ),
         'search_index' => array(
           'label' => 'inline',
@@ -2312,6 +2757,13 @@ Use yyyy-mm-dd format or insert incomplete date.',
           'settings' => array(),
           'type' => 'hidden',
           'weight' => '24',
+        ),
+        'tribal_catalog' => array(
+          'label' => 'above',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_link',
+          'weight' => '4',
         ),
       ),
       'entity_type' => 'node',
@@ -2334,7 +2786,7 @@ Use yyyy-mm-dd format or insert incomplete date.',
     ),
   );
 
-  // Exported field: 'node-digital_heritage-field_tk_body'
+  // Exported field: 'node-digital_heritage-field_tk_body'.
   $fields['node-digital_heritage-field_tk_body'] = array(
     'field_config' => array(
       'active' => '1',
@@ -2355,6 +2807,7 @@ Use yyyy-mm-dd format or insert incomplete date.',
           0 => 'format',
         ),
       ),
+      'locked' => '0',
       'module' => 'text',
       'settings' => array(),
       'translatable' => '0',
@@ -2374,10 +2827,9 @@ Use yyyy-mm-dd format or insert incomplete date.',
         ),
         'default' => array(
           'label' => 'above',
-          'module' => 'text',
           'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '19',
+          'type' => 'hidden',
+          'weight' => '27',
         ),
         'featured' => array(
           'label' => 'above',
@@ -2406,9 +2858,17 @@ Use yyyy-mm-dd format or insert incomplete date.',
         ),
         'teaser' => array(
           'label' => 'above',
+          'module' => 'text',
           'settings' => array(),
-          'type' => 'hidden',
+          'type' => 'text_default',
           'weight' => '20',
+        ),
+        'tribal_catalog' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '26',
         ),
       ),
       'entity_type' => 'node',
@@ -2426,12 +2886,238 @@ Use yyyy-mm-dd format or insert incomplete date.',
           'rows' => '15',
         ),
         'type' => 'text_textarea',
-        'weight' => '4',
+        'weight' => '6',
       ),
     ),
   );
 
-  // Exported field: 'node-digital_heritage-group_audience'
+  // Exported field: 'node-digital_heritage-field_tribal_catalog'.
+  $fields['node-digital_heritage-field_tribal_catalog'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '-1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_tribal_catalog',
+      'foreign keys' => array(
+        'node' => array(
+          'columns' => array(
+            'target_id' => 'nid',
+          ),
+          'table' => 'node',
+        ),
+      ),
+      'indexes' => array(
+        'target_id' => array(
+          0 => 'target_id',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'entityreference',
+      'settings' => array(
+        'handler' => 'views',
+        'handler_settings' => array(
+          'behaviors' => array(
+            'views-select-list' => array(
+              'status' => 0,
+            ),
+          ),
+          'view' => array(
+            'args' => array(),
+            'display_name' => 'entityreference_1',
+            'view_name' => 'tribal_record_target_selection',
+          ),
+        ),
+        'target_type' => 'node',
+      ),
+      'translatable' => '0',
+      'type' => 'entityreference',
+    ),
+    'field_instance' => array(
+      'bundle' => 'digital_heritage',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '30',
+        ),
+        'search_index' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'search_result' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'tribal_catalog' => array(
+          'label' => 'above',
+          'module' => 'entityreference',
+          'settings' => array(
+            'link' => FALSE,
+          ),
+          'type' => 'entityreference_label',
+          'weight' => '29',
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_tribal_catalog',
+      'label' => 'Tribal Catalog',
+      'required' => 0,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'entityreference',
+        'settings' => array(
+          'match_operator' => 'CONTAINS',
+          'path' => '',
+          'size' => '60',
+        ),
+        'type' => 'entityreference_autocomplete',
+        'weight' => '8',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-digital_heritage-field_tribal_knowledge_relation'.
+  $fields['node-digital_heritage-field_tribal_knowledge_relation'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '-1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_tribal_knowledge_relation',
+      'foreign keys' => array(
+        'nid' => array(
+          'columns' => array(
+            'nid' => 'nid',
+          ),
+          'table' => 'node',
+        ),
+      ),
+      'indexes' => array(
+        'nid' => array(
+          0 => 'nid',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'node_reference',
+      'settings' => array(
+        'referenceable_types' => array(
+          'article' => 0,
+          'book' => 0,
+          'community' => 0,
+          'cultural_protocol_group' => 0,
+          'digital_heritage' => 'digital_heritage',
+          'ma_collection' => 0,
+          'page' => 0,
+          'panel' => 0,
+        ),
+        'view' => array(
+          'args' => array(),
+          'display_name' => '',
+          'view_name' => '',
+        ),
+      ),
+      'translatable' => '0',
+      'type' => 'node_reference',
+    ),
+    'field_instance' => array(
+      'bundle' => 'digital_heritage',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => 'Tribal catelog relation field',
+      'display' => array(
+        'browse_teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '28',
+        ),
+        'default' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '26',
+        ),
+        'featured' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '22',
+        ),
+        'full' => array(
+          'label' => 'hidden',
+          'module' => 'node_reference',
+          'settings' => array(
+            'node_reference_view_mode' => 'full',
+          ),
+          'type' => 'node_reference_node',
+          'weight' => '4',
+        ),
+        'search_index' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '0',
+        ),
+        'search_result' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '0',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '16',
+        ),
+        'tribal_catalog' => array(
+          'label' => 'above',
+          'module' => 'node_reference',
+          'settings' => array(),
+          'type' => 'node_reference_default',
+          'weight' => '25',
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_tribal_knowledge_relation',
+      'label' => 'Tribal Catalog record',
+      'required' => 0,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'node_reference',
+        'settings' => array(
+          'autocomplete_match' => 'contains',
+          'autocomplete_path' => 'node_reference/autocomplete',
+          'size' => '20',
+        ),
+        'type' => 'node_reference_autocomplete',
+        'weight' => '7',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-digital_heritage-group_audience'.
   $fields['node-digital_heritage-group_audience'] = array(
     'field_config' => array(
       'active' => '1',
@@ -2445,6 +3131,7 @@ Use yyyy-mm-dd format or insert incomplete date.',
           0 => 'gid',
         ),
       ),
+      'locked' => '0',
       'module' => 'og',
       'no_ui' => TRUE,
       'settings' => array(),
@@ -2469,9 +3156,10 @@ Use yyyy-mm-dd format or insert incomplete date.',
         ),
         'default' => array(
           'label' => 'hidden',
+          'module' => 'og',
           'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '3',
+          'type' => 'og_list_default',
+          'weight' => '5',
         ),
         'featured' => array(
           'label' => 'hidden',
@@ -2483,7 +3171,7 @@ Use yyyy-mm-dd format or insert incomplete date.',
           'label' => 'hidden',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '33',
+          'weight' => '35',
         ),
         'search_index' => array(
           'label' => 'inline',
@@ -2504,6 +3192,13 @@ Use yyyy-mm-dd format or insert incomplete date.',
           'settings' => array(),
           'type' => 'hidden',
           'weight' => '30',
+        ),
+        'tribal_catalog' => array(
+          'label' => 'hidden',
+          'module' => 'og',
+          'settings' => array(),
+          'type' => 'og_list_default',
+          'weight' => '5',
         ),
       ),
       'entity_type' => 'node',
@@ -2538,7 +3233,7 @@ Use yyyy-mm-dd format or insert incomplete date.',
     ),
   );
 
-  // Exported field: 'node-digital_heritage-group_content_access'
+  // Exported field: 'node-digital_heritage-group_content_access'.
   $fields['node-digital_heritage-group_content_access'] = array(
     'field_config' => array(
       'active' => '1',
@@ -2552,6 +3247,7 @@ Use yyyy-mm-dd format or insert incomplete date.',
           0 => 'value',
         ),
       ),
+      'locked' => '0',
       'module' => 'list',
       'no_ui' => TRUE,
       'settings' => array(
@@ -2586,7 +3282,7 @@ Use yyyy-mm-dd format or insert incomplete date.',
           'module' => 'list',
           'settings' => array(),
           'type' => 'list_default',
-          'weight' => '20',
+          'weight' => '12',
         ),
         'featured' => array(
           'label' => 'above',
@@ -2599,7 +3295,7 @@ Use yyyy-mm-dd format or insert incomplete date.',
           'module' => 'list',
           'settings' => array(),
           'type' => 'list_default',
-          'weight' => '22',
+          'weight' => '23',
         ),
         'search_index' => array(
           'label' => 'above',
@@ -2618,6 +3314,13 @@ Use yyyy-mm-dd format or insert incomplete date.',
           'settings' => array(),
           'type' => 'hidden',
           'weight' => '19',
+        ),
+        'tribal_catalog' => array(
+          'label' => 'above',
+          'module' => 'list',
+          'settings' => array(),
+          'type' => 'list_default',
+          'weight' => '12',
         ),
       ),
       'entity_type' => 'node',
@@ -2647,117 +3350,6 @@ Use yyyy-mm-dd format or insert incomplete date.',
         'weight' => '22',
       ),
       'widget_type' => 'options_select',
-    ),
-  );
-  
-  // WSU Plateau Peoples' Web Portal tribal knowledge relation field
-  $fields['node-digital_heritage-field_tribal_knowledge_relation'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '-1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_tribal_knowledge_relation',
-      'foreign keys' => array(
-        'nid' => array(
-          'columns' => array(
-            'nid' => 'nid',
-          ),
-          'table' => 'node',
-        ),
-      ),
-      'indexes' => array(
-        'nid' => array(
-          0 => 'nid',
-        ),
-      ),
-      'module' => 'node_reference',
-      'settings' => array(
-        'referenceable_types' => array(
-          'community' => 0,
-          'cultural_protocol_group' => 0,
-          'digital_heritage' => 'digital_heritage',
-          'ma_collection' => 0,
-          'page' => 0,
-        ),
-        'view' => array(
-          'args' => array(),
-          'display_name' => '',
-          'view_name' => '',
-        ),
-      ),
-      'translatable' => '0',
-      'type' => 'node_reference',
-    ),
-    'field_instance' => array(
-      'bundle' => 'digital_heritage',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => 'Tribal catelog relation field',
-      'display' => array(
-        'browse_teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '28',
-        ),
-        'default' => array(
-          'label' => 'above',
-          'module' => 'node_reference',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '12',
-        ),
-        'featured' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '22',
-        ),
-        'full' => array(
-          'label' => 'above',
-          'module' => 'node_reference',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '29',
-        ),
-        'search_index' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '0',
-        ),
-        'search_result' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '0',
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '16',
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_tribal_knowledge_relation',
-      'label' => 'Tribal Knowledge Relation',
-      'required' => 0,
-      'settings' => array(
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'node_reference',
-        'settings' => array(
-          'autocomplete_match' => 'contains',
-          'autocomplete_path' => 'node_reference/autocomplete',
-          'size' => '10',
-        ),
-        'type' => 'node_reference_autocomplete',
-        'weight' => '31',
-      ),
     ),
   );
 
@@ -2790,6 +3382,7 @@ Use yyyy-mm-dd format or insert incomplete date.');
   t('Date');
   t('Description');
   t('Enter latitude and longitude values. <a href="http://www.getlatlon.com/">Look up</a> latitude and longitude values.');
+  t('File');
   t('Format');
   t('Identifier');
   t('Insert keywords associated with this item. Keywords make it easier to browse and retrieve the content.');
@@ -2798,6 +3391,7 @@ Use yyyy-mm-dd format or insert incomplete date.');
   t('Location Description');
   t('Map');
   t('Media');
+  t('Media Asset');
   t('Publisher');
   t('Related Items');
   t('Rights');
@@ -2812,6 +3406,9 @@ Use yyyy-mm-dd format or insert incomplete date.');
   t('Subject');
   t('Traditional Knowledge');
   t('Traditional Licensing');
+  t('Tribal Catalog');
+  t('Tribal Catalog record');
+  t('Tribal catelog relation field');
   t('Use this field to provide general cultural context and background information for the content.');
   t('Use this field to provide traditional knowledge about this piece of content. You can add traditional knowledge to your content as you see fit. This field is an open field to provide you with maximum flexibility to express your knowledge in the most appropriate form. <a href="http://www.mukurtu.org/wiki/Manual:Add_traditional_knowledge">Go to wiki page.</a>');
 

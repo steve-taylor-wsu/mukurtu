@@ -68,6 +68,40 @@ function ma_digitalheritage_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_catalogue_record|node|digital_heritage|default';
+  $field_group->group_name = 'group_catalogue_record';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'digital_heritage';
+  $field_group->mode = 'default';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Catalogue Record',
+    'weight' => '16',
+    'children' => array(
+      0 => 'field_creator',
+      1 => 'field_date',
+      2 => 'field_description',
+      3 => 'field_format',
+      4 => 'field_identifier',
+      5 => 'field_language',
+      6 => 'field_publisher',
+      7 => 'field_rights',
+      8 => 'field_source',
+    ),
+    'format_type' => 'accordion-item',
+    'format_settings' => array(
+      'label' => 'Catalogue Record',
+      'instance_settings' => array(
+        'classes' => '',
+      ),
+      'formatter' => 'closed',
+    ),
+  );
+  $export['group_catalogue_record|node|digital_heritage|default'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_column_first|node|digital_heritage|form';
   $field_group->group_name = 'group_column_first';
   $field_group->entity_type = 'node';
@@ -110,7 +144,7 @@ function ma_digitalheritage_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Column Second',
-    'weight' => '5',
+    'weight' => '1',
     'children' => array(
       0 => 'group_dublin',
       1 => 'group_licensing',
@@ -177,7 +211,7 @@ function ma_digitalheritage_field_group_info() {
   $field_group->parent_name = 'group_column_second';
   $field_group->data = array(
     'label' => '5. Standard Metadata',
-    'weight' => '4',
+    'weight' => '5',
     'children' => array(
       0 => 'field_contributor',
       1 => 'field_creator',
@@ -223,7 +257,9 @@ function ma_digitalheritage_field_group_info() {
     'children' => array(
       0 => 'field_description',
       1 => 'field_media',
-      2 => 'title',
+      2 => 'field_file',
+      3 => 'field_media_asset',
+      4 => 'title',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -253,7 +289,7 @@ function ma_digitalheritage_field_group_info() {
   $field_group->parent_name = 'group_column_second';
   $field_group->data = array(
     'label' => '6. Licensing',
-    'weight' => '5',
+    'weight' => '6',
     'children' => array(
       0 => 'field_licence_std_cc',
       1 => 'field_licence_trad',
@@ -278,6 +314,33 @@ function ma_digitalheritage_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_map|node|digital_heritage|default';
+  $field_group->group_name = 'group_map';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'digital_heritage';
+  $field_group->mode = 'default';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Map',
+    'weight' => '14',
+    'children' => array(
+      0 => 'field_coverage',
+      1 => 'field_coverage_description',
+    ),
+    'format_type' => 'accordion-item',
+    'format_settings' => array(
+      'label' => 'Map',
+      'instance_settings' => array(
+        'classes' => '',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $export['group_map|node|digital_heritage|default'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_map|node|digital_heritage|form';
   $field_group->group_name = 'group_map';
   $field_group->entity_type = 'node';
@@ -286,7 +349,7 @@ function ma_digitalheritage_field_group_info() {
   $field_group->parent_name = 'group_column_second';
   $field_group->data = array(
     'label' => '7. Map',
-    'weight' => '6',
+    'weight' => '7',
     'children' => array(
       0 => 'field_coverage',
       1 => 'field_coverage_description',
@@ -348,6 +411,32 @@ function ma_digitalheritage_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_narrative|node|digital_heritage|default';
+  $field_group->group_name = 'group_narrative';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'digital_heritage';
+  $field_group->mode = 'default';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Narrative',
+    'weight' => '13',
+    'children' => array(
+      0 => 'body',
+    ),
+    'format_type' => 'accordion-item',
+    'format_settings' => array(
+      'label' => 'Narrative',
+      'instance_settings' => array(
+        'classes' => '',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $export['group_narrative|node|digital_heritage|default'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_tabs|taxonomy_term|category|form';
   $field_group->group_name = 'group_tabs';
   $field_group->entity_type = 'taxonomy_term';
@@ -385,6 +474,8 @@ function ma_digitalheritage_field_group_info() {
     'weight' => '4',
     'children' => array(
       0 => 'field_tk_body',
+      1 => 'field_tribal_knowledge_relation',
+      2 => 'field_tribal_catalog',
     ),
     'format_type' => 'div',
     'format_settings' => array(
